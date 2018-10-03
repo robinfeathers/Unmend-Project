@@ -1,0 +1,1 @@
+//show_debug_message(ds_map_find_value(o_game.save_01,"health"));

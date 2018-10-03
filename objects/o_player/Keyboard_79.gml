@@ -1,0 +1,1 @@
+play_animation(s_player_idle);
