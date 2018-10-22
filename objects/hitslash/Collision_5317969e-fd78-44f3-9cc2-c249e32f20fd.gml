@@ -4,12 +4,14 @@ and
 (
 	(sprite_index == s_player_slideattack_fx and image_index > 5)
 	|| (sprite_index == s_player_air03_alt_fx and image_index > 2)
+	|| (sprite_index == s_firespell_main and abs(angle) > 6)
 )
 {
 	enemies_hit = 0;
 	for(i=0; i<array_length_1d(enemies_hit); i++)
 	enemies_hit[i] = 0;
 	reset_allowance -= 1;
+	show_debug_message("RESET")
 }
 if image_index < (image_number *.75)
 	{

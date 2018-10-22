@@ -11,7 +11,7 @@ if r_slope != noone
 	var local_slope = ((r_slope.y+16)-r_slope.y)/((r_slope.x+16)-r_slope.x);
 	var test_y = x - (r_slope.x * local_slope) + r_slope.y;
 	
-	//if line point is above top of line and I'm colliding witha wall, cap line point height at top of line
+	//if line point is above top of line and I'm colliding with a wall, cap line point height at top of line
 	if test_y < r_slope.y and (place_meeting(x,y + 8,o_t_solid))
 	{
 		test_y = r_slope.y;
@@ -28,7 +28,7 @@ if r_slope != noone
 	{	
 		y = test_y;
 		on_r_slope = true;
-		/*if !sliding*/ vsp = 0;
+		vsp = 0;
 	}
 	
 	//if I'm above the line point and not moving vertically, bring me down to the line
@@ -74,7 +74,7 @@ if l_slope != noone
 	{	
 		y = test_y;
 		on_l_slope = true;
-		/*if !sliding*/ vsp = 0;
+		vsp = 0;
 	}
 
 	//if I'm above the line point and not moving vertically, bring me down to the line

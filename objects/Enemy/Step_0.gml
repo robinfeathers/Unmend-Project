@@ -41,7 +41,7 @@ if got_hit == true and sleeping != true
 	//Juggle air gain
 	if launchingup || bounce
 	{
-		vsp = -2.5;
+		vsp = -2.25;
 		show_debug_message("JUGGLE AIR")
 	}
 
@@ -59,6 +59,7 @@ if got_hit == true and sleeping != true
 	//Cut effect if the enemy was actually hurt and not just poise damage
 	if dmg_taken != 0
 	{
+		show_debug_message("CUT")
 	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",cut_impact)
 	}
 	

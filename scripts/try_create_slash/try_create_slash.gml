@@ -160,6 +160,36 @@ and (slashcreated == false)
 	}
 }
 
+//FIRE MAGIC
+if (sprite_index == s_player_magic_circle)
+and (floor(argument[0]) == 1)
+and (lockout_time > 0)
+and (slashcreated == false)
+{
+	slashcreated = true;
+	var inst;
+	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	with (inst)
+	{
+		reset_allowance = 1;
+		intended_radius = 28;
+		rotation_speed = -0.35 * other.intended_direction;
+		origin_x = other.x
+		origin_y = other.y - 16
+		sprite_index = s_firespell_main;
+	}
+	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	with (inst)
+	{
+		reset_allowance = 1;
+		intended_radius = -28;
+		rotation_speed = -0.35 * other.intended_direction;
+		origin_x = other.x
+		origin_y = other.y - 16
+		sprite_index = s_firespell_main;
+	}
+}
+
 //DIVE CUT
 if (sprite_index == s_player_divecut_fall)
 and (floor(argument[0]) == 0)

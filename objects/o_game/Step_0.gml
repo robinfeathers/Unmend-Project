@@ -27,5 +27,3 @@ else
 	stop_time = 0;
 	instance_activate_all();
 }
-
-show_debug_message(fps)

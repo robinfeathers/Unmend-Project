@@ -45,6 +45,33 @@ if o_player.maxhp > 1000
 
 //Draw Pulse Meter
 
+if o_player.pulse_obtained
+{	
+	shader_set(pulse_meter);
+	
+	var baseUVs = texture_get_uvs(uni_base_texture);
+	var alphaUVs = texture_get_uvs(uni_alpha_texture);
+	
+	texture_set_stage(uni_base_texture, base_t);
+	texture_set_stage(uni_alpha_texture, alpha_t);
+	
+	shader_set_uniform_f(shader_get_uniform(pulse_meter, "baseUVs"), baseUVs[0], baseUVs[1], baseUVs[2] - baseUVs[0], baseUVs[3] - baseUVs[1]);
+	shader_set_uniform_f(shader_get_uniform(pulse_meter, "alphaUVs"), alphaUVs[0], alphaUVs[1], alphaUVs[2] - alphaUVs[0], alphaUVs[3] - alphaUVs[1]);
+	
+	var pulse_current = o_player.pulse_points / o_player.pulse_points_requirement
+	shader_set_uniform_f(uni_percent, pulse_current);
+	
+	draw_sprite(pulse_meter_ring, 0, 20, 24);
+	shader_reset();
+	
+	
+	
+	//var pulse_ring = draw_sprite(s_spiral_gradient,0,20,24);
+	
+}
+
+//draw_sprite(pulse_meter_circle,0,20,24);
+
 
 
 

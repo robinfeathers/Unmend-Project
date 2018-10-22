@@ -526,6 +526,8 @@ if holding_ledge and key_up
 
 
 //Combat Input reader
+
+//Basic Attacks
 if (key_attack == true) || (mybuffer == buffer_input.light_hit)
 {
 	if mystate == player_state.neutral and !holding_ledge
@@ -684,6 +686,43 @@ if (key_attack == true) || (mybuffer == buffer_input.light_hit)
 					stinger = false;
 					spin_attacking = true;
 			}
+		}
+	}
+}
+
+//Special Attacks
+if (key_specialattack == true) || (mybuffer == buffer_input.special_hit)
+{
+	if mystate == player_state.neutral and !holding_ledge
+	{
+		if pulse_points >= pulse_points_requirement
+		and delay_input != stop_attack.pulse_neutral
+		{
+			attack(s_player_pulse_neutral, 0, 35, 45, 0, 0);
+			combo_counter = 0;
+			delay_input = stop_attack.pulse_neutral;
+		}
+	}
+}
+
+//Spell Attacks and Grab
+if (key_grab == true) || (mybuffer == buffer_input.grab)
+{
+	if mystate == player_state.neutral and !holding_ledge
+	{
+		if mana_points > 0
+		and my_direction != 0
+		and !key_up
+		and !key_down
+		and delay_input != stop_attack.spell_fire
+		{
+			attack(s_player_magic_circle, 0, 35, 45, 2, 2);
+			delay_input = stop_attack.spell_fire;
+			if combo_counter < 4
+			{
+				combo_counter += 1;
+			}
+			else combo_counter = 0;
 		}
 	}
 }
@@ -991,7 +1030,7 @@ and common_action_denial(0,0,0,0,0,0,1,1)
 	}
 }
 
-var inst;
+/*var inst;
 inst = instance_create_depth(x, y,"FX_Objects",grow_effect)
 with (inst)
 {
@@ -999,4 +1038,4 @@ with (inst)
 	growth_rate = .1;
 	max_alpha = 1;
 	sprite_index = s_glow;
-}
+}*/

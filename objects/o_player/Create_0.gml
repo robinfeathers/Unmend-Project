@@ -8,10 +8,12 @@ hp = 1250;
 maxhp = 1750;
 starting_maxhp = 1000;
 invincible = false;
-pulse_points = 0;
-max_pulse_points = 50;
-pulse_points_requirement = 50;
-pulse_ready = false;
+pulse_points = 500;
+max_pulse_points = 500;
+pulse_points_requirement = 500;
+pulse_obtained = true;
+mana_points = 250;
+max_mana_points = 250;
 
 //WALKING VARS
 hsp = 0;
@@ -129,6 +131,7 @@ mystate = player_state.neutral;
 enum buffer_input
 {
 	none,
+	grab,
 	light_hit,
 	special_hit,
 	backstep,
@@ -145,6 +148,8 @@ enum stop_attack
 	launch,
 	backstep,
 	stinger,
+	pulse_neutral,
+	spell_fire,
 }
 delay_input = stop_attack.none;
 

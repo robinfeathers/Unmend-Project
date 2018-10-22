@@ -36,6 +36,7 @@ if controller == false
 	key_jump = keyboard_check_pressed(vk_space);
 	key_jump_held = keyboard_check(vk_space);
 	key_dodge = keyboard_check_pressed(vk_shift);
+	key_grab = keyboard_check_pressed(ord("A"));
 	key_attack = keyboard_check_pressed(ord("D"));
 	key_specialattack = keyboard_check_pressed(ord("S"));
 }
@@ -57,6 +58,7 @@ else
 	key_jump_held = gamepad_button_check(0,gp_face1);
 	
 	key_attack = gamepad_button_check_pressed(0,gp_face3);
+	key_grab = gamepad_button_check_pressed(0,gp_face2);
 	key_specialattack = gamepad_button_check_pressed(0,gp_face4);
 	key_dodge = gamepad_button_check_pressed(0,gp_shoulderr);
 }
@@ -82,15 +84,18 @@ and !dive_cutting
 	{
 		mybuffer = buffer_input.dash
 	}
-	else if key_specialattack == true
+	else if key_grab == true
 	{
-		mybuffer = buffer_input.special_hit
+		mybuffer = buffer_input.grab
 	}
 	else if key_attack == true
 	{
 		mybuffer = buffer_input.light_hit
 	}
-
+	else if key_specialattack == true
+	{
+		mybuffer = buffer_input.special_hit
+	}
 
 
 

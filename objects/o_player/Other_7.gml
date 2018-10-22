@@ -104,6 +104,7 @@ if sprite_index = s_player_divecut_spin
 	play_animation(s_player_divecut_fall);
 	dive_cutting = true;
 }
+
 if sprite_index = s_player_divecut_land
 {
 	play_animation(s_player_idle);
@@ -138,7 +139,6 @@ if sprite_index == s_player_air03_alt
 {
 	play_animation(s_player_idle);
 }
-
 if sprite_index == s_player_launch
 {
 	play_animation(s_player_idle);
@@ -148,6 +148,18 @@ if sprite_index == s_player_stingerattack
 	play_animation(s_player_idle);
 }
 if sprite_index == s_player_slideattack
+{
+	play_animation(s_player_idle);
+}
+
+//Pulse Attack Animations
+if sprite_index == s_player_pulse_neutral
+{
+	play_animation(s_player_idle);
+}
+
+//Spell Animations
+if sprite_index == s_player_magic_circle
 {
 	play_animation(s_player_idle);
 }
