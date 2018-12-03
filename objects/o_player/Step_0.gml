@@ -7,14 +7,14 @@ if key_restart game_restart();
 //if sliding show_debug_message(vsp)
 //Help animator figure out which way you wanna look
 if (intended_direction == 1) || (intended_direction == -1)
+{
+	if my_direction != 0
+	and common_action_denial(1,1,1,1,1,1,1,1)
+	and mystate != player_state.acting
 	{
-		if my_direction != 0
-		and common_action_denial(1,1,1,1,1,1,1,1)
-		and mystate != player_state.acting
-		{
-			intended_direction = my_direction;
-		}
+		intended_direction = my_direction;
 	}
+}
 
 //Make the player dive
 if run_dive_script == true

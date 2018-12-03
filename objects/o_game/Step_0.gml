@@ -1,7 +1,3 @@
-if keyboard_check_released(ord("Q"))
-{
-	paused = !paused;
-}
 var w = 1024
 var h = 768
 if stop_time > 0

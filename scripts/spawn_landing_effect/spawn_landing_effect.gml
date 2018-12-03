@@ -1,4 +1,4 @@
-///@arg x displacement
+///@arg x_displacement
 
 var inst = instance_create_depth(x + argument[0],y,"Particle_Objects",fx_animate_disappear_object)
 	with inst

@@ -12,8 +12,8 @@ if (place_meeting(x,y+2,o_t_solid))
 else if r_slope != noone
 {
 	slope_colliding = true;
-	var local_slope = ((r_slope.y+16)-r_slope.y)/((r_slope.x+16)-r_slope.x);
-	var test_y = x - (r_slope.x * local_slope) + r_slope.y;
+	var local_slope = ((r_slope.bbox_bottom)-r_slope.bbox_top)/((r_slope.bbox_bottom)-r_slope.bbox_top);
+	var test_y = x - (r_slope.x * local_slope) + r_slope.bbox_top;
 	if y+1+argument[0] > test_y
 	{
 		return true;		
@@ -28,8 +28,8 @@ else if r_slope != noone
 else if l_slope != noone
 {
 	slope_colliding = true;
-	var local_slope = ((l_slope.y+16)-l_slope.y)/((l_slope.x+16)-l_slope.x);
-	var test_y = (l_slope.x * local_slope) -x + l_slope.y+16;
+	var local_slope = ((l_slope.bbox_bottom)-l_slope.bbox_top)/((l_slope.bbox_bottom)-l_slope.bbox_top);
+	var test_y = (l_slope.x * local_slope) -x + l_slope.bbox_bottom;
 	if y+1+argument[0] > test_y
 	{
 		return true;

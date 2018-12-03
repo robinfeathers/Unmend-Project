@@ -7,6 +7,15 @@ camera_set_proj_mat(camera,pm);
 
 view_camera[0] = camera;
 
-follow = o_player;
+follow = noone;
+
+with (o_base_entity)
+{
+	if Player_Object = true
+	{
+		o_camera.follow = id
+	}
+}
+
 xto = x;
 yto = y;

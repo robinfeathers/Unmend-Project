@@ -110,7 +110,6 @@ if (r_slope == noone) and (l_slope == noone)
 
 else if ((r_slope != noone) || (l_slope != noone)) || (!place_meeting(x,y+1,o_t_solid))
 {
-	
 	if argument[0] == true
 	{
 		if backstep || stinger || dash || spin_attacking || slide_stopping

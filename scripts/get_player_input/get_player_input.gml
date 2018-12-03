@@ -63,41 +63,57 @@ else
 	key_dodge = gamepad_button_check_pressed(0,gp_shoulderr);
 }
 
-if mystate == player_state.acting
-and lockout_time < 12
-and !diving
-and !dive_cutting
+if my_entity_state == entity_state.acting
+//and lockout_time < 12
+//and !diving
+
+//MISSING: Need to redo inputs on dodge since they're the only directional based actions
 {
-	if key_jump == true and !key_down and !stinger
+	//ActionBuffers
+	if key_jump == true
 	{
-		mybuffer = buffer_input.jump
+		my_action_buffer = action_input_buffer.jump
 	}
-	else if key_jump == true and key_down and !stinger
-	{
-		mybuffer = buffer_input.dive
-	}
-	else if key_dodge == true and my_direction == 0
-	{
-		mybuffer = buffer_input.backstep
-	}
+	//else if key_jump == true and key_down and !stinger
+	//{
+		//mybuffer = buffer_input.dive
+	//}
+	//else if key_dodge == true and my_direction == 0
+	//{
+		//mybuffer = buffer_input.backstep
+	//}
 	else if key_dodge == true and my_direction != 0
 	{
-		mybuffer = buffer_input.dash
+		my_action_buffer = action_input_buffer.dodge
 	}
-	else if key_grab == true
+	else if key_grab
 	{
-		mybuffer = buffer_input.grab
+		my_action_buffer = action_input_buffer.grab
 	}
-	else if key_attack == true
+	else if key_attack
 	{
-		mybuffer = buffer_input.light_hit
+		my_action_buffer = action_input_buffer.n_attack
 	}
-	else if key_specialattack == true
+	else if key_specialattack
 	{
-		mybuffer = buffer_input.special_hit
+		my_action_buffer = action_input_buffer.s_attack
 	}
-
-
-
-
+	//Input buffers
+	my_direction_buffer = direction_input_buffer.neutral;
+	if key_left or key_right and (!key_down or !key_up)
+	{
+		my_direction_buffer = direction_input_buffer.neutral
+	}
+	if key_up
+	{
+		my_direction_buffer = direction_input_buffer.up
+	}
+	if key_down
+	{
+		my_direction_buffer = direction_input_buffer.down
+	}
 }
+
+if key_restart game_restart();
+
+input_direction = key_right - key_left;

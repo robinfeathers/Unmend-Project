@@ -1,0 +1,1 @@
+if sprite_index == argument[0] play_animation(idle_animation_01);

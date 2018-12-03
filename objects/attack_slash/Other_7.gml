@@ -1,0 +1,1 @@
+if !continuous_action instance_destroy();

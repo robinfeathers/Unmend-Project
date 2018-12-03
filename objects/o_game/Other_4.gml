@@ -1,8 +1,21 @@
 /// @description Setting up standard parameters
-//Creat macros
+//Create macros
 
-//THIS IS TI PREVENT A BUG
+//THIS IS TO PREVENT A BUG
 get_delta_time()
+
+paused = false;
+surface = -1;
+
+//Establishing Tile Type Array
+tile_types[0] = "blank";
+tile_types[1] = "solid";
+tile_types[2] = "solid_slope_left";
+tile_types[3] = "solid_slope_right";
+tile_types[4] = "blank";
+tile_types[5] = "ridge";
+tile_types[6] = "ridge_slope_left";
+tile_types[7] = "ridge_slope_right";
 
 //Create layers
 layer_create(5,"Collision_Objects");
@@ -13,7 +26,6 @@ layer_create(8,"FX_Objects");
 layer_create(19,"Mid_Game_UI");
 layer_create(20,"Game");
 instance_create_depth(0,0,"Game",o_camera);
-//instance_create_depth(x,y,"Game",o_gamepause);
 
 // Creating Collision based on tile data
 layers = layer_get_all()
