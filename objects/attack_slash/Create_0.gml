@@ -36,4 +36,4 @@ enum cc_properties
 crowd_control_property = cc_properties.none;
 
 character_listindex = 1;
-character_hit[0] = id;
+character_array[0] = id;

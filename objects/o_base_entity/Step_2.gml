@@ -173,3 +173,12 @@ else
 	previous_generic_action = generic_actions.idle;
 	current_generic_action = generic_actions.idle;
 }
+//Shaking
+if shake > 0
+{
+	shake -= 0.5* get_delta_time();
+}
+else
+{
+	shake = 0;
+}

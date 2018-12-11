@@ -1311,6 +1311,14 @@
             }
         },
         {
+            "Key": "a3de4f26-9a84-4d36-ac30-f0bae4f8a3ca",
+            "Value": {
+                "id": "6add022e-677e-48a8-afda-cd560fd85bc7",
+                "resourcePath": "objects\\o_damage_tester\\o_damage_tester.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a6111cbb-68f3-463c-b926-44664fa25d2a",
             "Value": {
                 "id": "f0517366-e731-48b7-9810-4c0b56b26859",

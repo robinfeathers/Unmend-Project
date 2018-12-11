@@ -21,10 +21,25 @@ slope_speed_cap = true;
 
 slide_sp = 0;
 
+//Taking Damage Variables
+got_hit = false;
+shake = 0;
+dmg_taken = 0;
+poise_dmg_taken = 0;
+
+enum cc
+{
+	none,
+	launch_up,
+	launch_down,
+	launch_side,
+	bounce,
+}
+launch_property = cc.none;
+
 //Combat Variables
 pulse_points = 0;
 mana_points = 0;
-
 
 dmg_taken = 0;
 poise_dmg_taken = 0;

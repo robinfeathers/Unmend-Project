@@ -11,7 +11,7 @@ if hit_count > 0
 		
 		character_hit = 0;
 		for(i=0; i<array_length_1d(character_hit); i++)
-		enemy_hit[i] = 0;
+		character_array[i] = 0;
 	}
 }
 
@@ -42,19 +42,19 @@ if floor(image_index) <= starting_frame
 	if character_hit != creator
 	and !ignore_character
 	{
-		for(i=0; i<array_length_1d(character_hit); i++)
+		for(i=0; i<array_length_1d(character_array); i++)
 		{
-			if character_hit[i] == character_hit do_nothing = true;
+			if character_array[i] == character_hit do_nothing = true;
 		}
 		if !do_nothing
 		{
-			character_hit[character_listindex] = character_hit;
+			character_array[character_listindex] = character_hit;
 			character_listindex += 1;
 			character_hit.shake = 2;
 			//MISSING ADD THESE VARIABLES TO THE CHARACTER OBJECT
-			character_hit.dmg_taken = dmg;
-			character_hit.poise_dmg_taken = poise_dmg;
-			character_hit.got_hit = true;
+			dmg_taken = dmg;
+			poise_dmg_taken = poise_dmg;
+			got_hit = true;
 			if crowd_control_property = cc_properties.l_up
 			{
 				character_hit.launch_property = cc.launch_up
