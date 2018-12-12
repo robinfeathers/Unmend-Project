@@ -4,7 +4,7 @@ if  floor(argument[0]) == create_slash_starting_frame
 	create_slash = false;
 	slash_created = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",attack_slash)
+	inst = instance_create_depth(x,y,8,attack_slash)
 	with inst
 	{
 		creator = other.id

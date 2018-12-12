@@ -931,7 +931,7 @@ and common_action_denial(0,0,0,0,0,0,1,1)
 		{
 			play_animation(s_player_turn_idle);
 			
-			var inst = instance_create_depth(x - (intended_direction*8),y,"Particle_Objects",fx_animate_disappear_object)
+			var inst = instance_create_depth(x - (intended_direction*8),y,7,fx_animate_disappear_object)
 			with inst
 			{
 				play_animation(s_fx_landing_dust);
@@ -944,7 +944,7 @@ and common_action_denial(0,0,0,0,0,0,1,1)
 		and (sprite_index != s_player_turn_idle)
 		{
 			play_animation(s_player_turn_idle);
-			var inst = instance_create_depth(x - (intended_direction*8),y,"Particle_Objects",fx_animate_disappear_object)
+			var inst = instance_create_depth(x - (intended_direction*8),y,7,fx_animate_disappear_object)
 			with inst
 			{
 				play_animation(s_fx_landing_dust);
@@ -961,7 +961,7 @@ and common_action_denial(0,0,0,0,0,0,1,1)
 		{
 	
 			play_animation(s_player_turn_run);
-			var inst = instance_create_depth(x - (intended_direction*8), y, "Particle_Objects",fx_animate_disappear_object)
+			var inst = instance_create_depth(x - (intended_direction*8), y, 7,fx_animate_disappear_object)
 			with inst
 			{
 				play_animation(s_fx_landing_dust);
@@ -1029,13 +1029,3 @@ and common_action_denial(0,0,0,0,0,0,1,1)
 		image_xscale = -1;
 	}
 }
-
-/*var inst;
-inst = instance_create_depth(x, y,"FX_Objects",grow_effect)
-with (inst)
-{
-	max_scale = .25;
-	growth_rate = .1;
-	max_alpha = 1;
-	sprite_index = s_glow;
-}*/

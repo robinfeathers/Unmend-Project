@@ -47,7 +47,7 @@ if got_hit == true and sleeping != true
 
 	//Glow effect when hit
 	var inst;
-	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",grow_effect)
+	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,8,grow_effect)
 	with (inst)
 	{
 		max_scale = .5;
@@ -60,7 +60,7 @@ if got_hit == true and sleeping != true
 	if dmg_taken != 0
 	{
 		show_debug_message("CUT")
-	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",cut_impact)
+	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,8,cut_impact)
 	}
 	
 	//graphical effects for when the enemy is not stunned by a hit.
@@ -68,7 +68,7 @@ if got_hit == true and sleeping != true
 	{
 		if poise > 0
 			{
-			inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",grow_effect)
+			inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,8,grow_effect)
 			with (inst)
 			{
 				max_scale = 1;
@@ -84,9 +84,9 @@ if got_hit == true and sleeping != true
 		if poise <= 0
 		{
 			stop_time = 8;
-			instance_create_depth(x, y + enemy_action_y,"Particle_Objects",o_particle_test)
+			instance_create_depth(x, y + enemy_action_y,7,o_particle_test)
 			var inst;
-			inst = instance_create_depth(x, y + enemy_action_y,"FX_Objects",grow_effect)
+			inst = instance_create_depth(x, y + enemy_action_y,8,grow_effect)
 			with (inst)
 			{
 				max_scale = .75;
@@ -197,7 +197,7 @@ if my_state == enemy_state.stunned
 		show_debug_message("INITIAL LAUNCH")
 		play_animation(launch_up_h_sprite);
 		var inst;
-		inst = instance_create_depth(x, y,"FX_Objects",launch_gust)
+		inst = instance_create_depth(x, y,8,launch_gust)
 		with inst
 		{
 		}
@@ -212,7 +212,7 @@ if my_state == enemy_state.stunned
 		vsp = launchup_sp
 		play_animation(launch_down_sprite);
 		var inst;
-		inst = instance_create_depth(x,bbox_top + 12,"FX_Objects",launch_gust)
+		inst = instance_create_depth(x,bbox_top + 12,8,launch_gust)
 		with inst
 		{
 			image_angle = 180
@@ -232,7 +232,7 @@ if my_state == enemy_state.stunned
 		if hit_direction == -1 launchdirection = bbox_left + 8;
 		else launchdirection = bbox_right - 8;
 		var inst;
-		inst = instance_create_depth(launchdirection,y + enemy_action_y,"FX_Objects",launch_gust)
+		inst = instance_create_depth(launchdirection,y + enemy_action_y,8,launch_gust)
 		with inst
 		{
 			image_angle = 90
@@ -255,7 +255,7 @@ if (launchingup || launchingdown || launchinghorizontal) and check_if_ground(0) 
 	{
 		//Emit Stun Damage
 		var inst;
-		inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",hitslash)
+		inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,8,hitslash)
 		with (inst)
 		{
 			sprite_index = s_fx_launch_impact;
@@ -294,7 +294,7 @@ if launchinghorizontal and place_meeting(x+hsp,y,o_t_solid) and r_slope == noone
 	
 	//Emit Stun Damage
 	var inst;
-	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x + enemy_action_x, y + enemy_action_y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_fx_launch_impact;

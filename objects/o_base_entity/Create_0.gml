@@ -22,6 +22,8 @@ slope_speed_cap = true;
 slide_sp = 0;
 
 //Taking Damage Variables
+hp = 1000;
+hp_max = 2000;
 got_hit = false;
 shake = 0;
 dmg_taken = 0;
@@ -39,7 +41,12 @@ launch_property = cc.none;
 
 //Combat Variables
 pulse_points = 0;
+pulse_points_requirement = 1000;
+pulse_points_max = 2000
 mana_points = 0;
+
+//TEMPORARY MUST BE MOVED TO A DOC
+pulse_obtained = true;
 
 dmg_taken = 0;
 poise_dmg_taken = 0;
@@ -50,15 +57,15 @@ action_min_time = 0;
 action_max_time = 0;
 action_await = false; //Is set on an individual basis
 
-enum create_slash_cc
+enum create_slash_p
 {
 	none,
 	l_up,
 	l_down,
 	l_side,
-	bounce,
+	bounce
 }
-create_slash_attack_properties = create_slash_cc.none;
+create_slash_attack_properties = create_slash_p.none;
 
 create_slash_sprite = 0;
 create_slash_starting_frame = 0;
@@ -116,7 +123,7 @@ enum alliance_group
 	none,
 	player,
 	enemy,
-	ally,
+	ally
 }
 character_alliance = alliance_group.none
 
@@ -130,21 +137,21 @@ enum entity_state
 	none,
 	neutral,
 	acting,
-	dead,
+	dead
 }
 my_entity_state = entity_state.neutral;
 
 //Abilities Allowed
 enum ability_allowed
 {
-	none,
+	none
 }
 
 enum generic_actions
 {
 	idle,
 	run,
-	jump,
+	jump
 }
 
 current_generic_action = generic_actions.idle;
@@ -157,7 +164,7 @@ enum action_input_buffer
 	s_attack,
 	grab,
 	jump,
-	dodge,
+	dodge
 }
 
 my_action_buffer = action_input_buffer.none
@@ -166,20 +173,21 @@ enum direction_input_buffer
 {
 	neutral,
 	up,
-	down,
+	down
 }
 my_direction_buffer = direction_input_buffer.neutral;
 saved_direction_buffer = direction_input_buffer.neutral;
 
-enum cc
+
+enum l_property
 {
 	none,
 	launch_up,
 	launch_down,
 	launch_side,
-	bounce,
+	bounce
 }
-launch_property = cc.none
+launch_property = l_property.none
 
 //establishing functions
 play_animation(idle_animation_01);

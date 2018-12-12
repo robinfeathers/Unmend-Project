@@ -4,7 +4,7 @@
 if Player_Object = true
 {
 	get_player_input()
-
+ 
 	//Set face direction to that of input
 	//MISSING: common_action_denial script needs to be rewritten and included as a condition
 	if (input_direction == 1) || (input_direction == -1)
