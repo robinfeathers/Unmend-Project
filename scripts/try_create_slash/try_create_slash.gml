@@ -12,7 +12,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_ground01_fx;
@@ -27,7 +27,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_ground02_fx;
@@ -42,7 +42,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_ground03_fx;
@@ -57,7 +57,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_launch_fx;
@@ -73,7 +73,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_stinger_fx;
@@ -89,7 +89,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		reset_allowance = 1;
@@ -105,7 +105,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_air01_fx;
@@ -120,7 +120,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_air02_fx;		
@@ -135,7 +135,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_air03_fx;		
@@ -152,7 +152,7 @@ and (slashcreated == false)
 	vsp = -3.2;
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		reset_allowance = 1;
@@ -168,7 +168,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		reset_allowance = 1;
@@ -178,7 +178,7 @@ and (slashcreated == false)
 		origin_y = other.y - 16
 		sprite_index = s_firespell_main;
 	}
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		reset_allowance = 1;
@@ -198,7 +198,7 @@ and (slashcreated == false)
 {
 	slashcreated = true;
 	var inst;
-	inst = instance_create_depth(x,y,"FX_Objects",hitslash)
+	inst = instance_create_depth(x,y,8,hitslash)
 	with (inst)
 	{
 		sprite_index = s_player_divecut_fall_fx;		

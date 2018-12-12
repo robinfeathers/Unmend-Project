@@ -3,7 +3,7 @@
 // @arg y
 // @arg scale
 
-var inst = instance_create_depth(argument[0], argument[1],"FX_Objects",grow_effect)
+var inst = instance_create_depth(argument[0], argument[1],8,grow_effect)
 with (inst)
 {
 	max_scale = argument[2];

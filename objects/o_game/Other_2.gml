@@ -1,8 +1,38 @@
 //window_set_fullscreen(true);
-window_set_min_width(960)
-window_set_min_height(540)
+//window_set_min_width(960)
+//window_set_min_height(540)
 
-display_reset(8, true);
+//display_reset(8, true);
+randomize()
+
+global.display_width = display_get_width();
+global.display_height = display_get_height();
+
+global.view_width = 480;
+global.view_height = 270;
+
+global.gameScale = 2;
+global.game_Fullscreen = 0;
+
+global.screen_width = global.view_width * global.gameScale;
+global.screen_height = global.view_height * global.gameScale
+
+draw_ready = false;
+
+
+application_surface_draw_enable(false);
+surface_resize(application_surface, global.view_width, global.view_height);
+
+if global.game_Fullscreen = 0
+{
+window_set_size(global.view_width*global.gameScale, global.view_height*global.gameScale);
+alarm[1] = 1;
+}
+else
+{
+	window_set_fullscreen(true);
+}
+alarm[2] = 10;
 
 globalvar stop_time;
 stop_time = 0;

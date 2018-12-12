@@ -86,7 +86,6 @@ if my_entity_state = entity_state.neutral
 	{
 		play_animation(stop_animation_01);
 		play_stop_animation = false;
-		show_debug_message("stop")
 	}
 	
 	//Turn Animations

@@ -7,25 +7,27 @@ if ((input_direction == 1) || (input_direction == -1))
 	{
 		if abs(hsp) <= max_walk_sp
 		{
-			hsp = (hsp * input_direction) + walk_sp;
+			//hsp = (hsp * input_direction) + walk_sp *;
+			hsp += walk_sp * get_delta_time() * input_direction;
 		}
 		if abs(hsp) > max_walk_sp
 		{
-			hsp = max_walk_sp;
+			hsp = max_walk_sp * input_direction;
 		}
 	}
 	if check_if_ground(0) == false
 	{
 		if abs(hsp) <= max_air_sp
 		{
-			hsp = (hsp * input_direction) + walk_sp;
+			//hsp = (hsp * input_direction) + walk_sp;
+			hsp += walk_sp * get_delta_time() * input_direction;
 		}
 		if abs(hsp) > max_air_sp
 		{
-			hsp = max_air_sp;
+			hsp = max_air_sp * input_direction;
 		}
 	}
-	hsp = (hsp * get_delta_time()) * sign(input_direction);
+	//hsp = (hsp * sign(input_direction);
 	current_generic_action = generic_actions.run;
 }
 

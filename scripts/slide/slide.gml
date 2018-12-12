@@ -84,7 +84,7 @@ and abs(hsp) > 3
 	if slide_dust_timer <= 0
 	{
 		slide_dust_timer = 2;
-		var inst = instance_create_depth(x - (intended_direction * 4),y,"Particle_Objects",fx_animate_disappear_object)
+		var inst = instance_create_depth(x - (intended_direction * 4),y,7,fx_animate_disappear_object)
 		with inst
 		{
 			image_xscale = fx_dir;

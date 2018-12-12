@@ -6,7 +6,7 @@ if check_if_ground(1) == false
 else
 {
 	dash_allowed = true;
-	var inst = instance_create_depth(x - (intended_direction*8),y,"Particle_Objects",fx_animate_disappear_object)
+	var inst = instance_create_depth(x - (intended_direction*8),y,8,fx_animate_disappear_object)
 			with inst
 			{
 				play_animation(s_fx_landing_dust);

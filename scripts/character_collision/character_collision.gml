@@ -115,13 +115,13 @@ var collision_testing_hsp = hsp;
 //collide with side
 if (r_slope != noone or l_slope != noone) and slope_speed_cap = true
 {
-	x+= hsp * 0.8;
+	x += hsp * 0.8 * get_delta_time();
 	collision_testing_hsp = hsp *0.8;
 	
 }
 else
 {
-	x += hsp;
+	x += hsp * get_delta_time();
 }
 
 //snap
@@ -152,7 +152,7 @@ if place_meeting(x+sign(hsp),y,o_t_solid)
 }
 
 
-y += vsp;
+y += vsp * get_delta_time();
 //snap
 if place_meeting(x,y+sign(vsp),o_t_solid)
 {
