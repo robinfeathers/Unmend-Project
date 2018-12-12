@@ -1,0 +1,1 @@
+if !instance_exists(pulse_effect) {instance_create_depth(x, y, 800, pulse_effect)}

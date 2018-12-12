@@ -1191,6 +1191,14 @@
             }
         },
         {
+            "Key": "946ad923-8f0b-48c4-8f38-339526d875cd",
+            "Value": {
+                "id": "efeee48c-8ec2-45d6-8773-00420021638a",
+                "resourcePath": "objects\\pulse_effect\\pulse_effect.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "95c4e8af-2f61-4c89-abae-29716eb9ec04",
             "Value": {
                 "id": "b646156f-25d2-47a2-99c7-f3de13d7d0f2",
@@ -1348,6 +1356,14 @@
                 "id": "1db886ea-9ee5-40b4-b132-3fe012e84fa1",
                 "resourcePath": "views\\a7477f38-51e0-4831-b257-336f5c8a9f50.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "69b2fb31-e2a4-4306-a046-3bc47a65722f",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
             }
         },
         {
@@ -1956,6 +1972,14 @@
                 "id": "fc0af7d7-a1b8-41f4-a6e4-6bdaa7270062",
                 "resourcePath": "sprites\\s_player_jump\\s_player_jump.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
+            "Value": {
+                "id": "0cc3e4f6-f6d2-4e7f-9aef-83e9fc4069a8",
+                "resourcePath": "options\\mac\\options_mac.yy",
+                "resourceType": "GMMacOptions"
             }
         },
         {

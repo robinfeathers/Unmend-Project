@@ -1,28 +1,28 @@
 {
-    "id": "d1cc006e-7be3-4e5b-803b-bd5baf77bacb",
+    "id": "946ad923-8f0b-48c4-8f38-339526d875cd",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_health_bar",
+    "name": "pulse_effect",
     "eventList": [
         {
-            "id": "2f1fde1e-330f-4a93-a7ed-1091c26ae77d",
+            "id": "7b1d7778-4f75-4da2-af5a-0a8a8fd4589b",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "946ad923-8f0b-48c4-8f38-339526d875cd"
+        },
+        {
+            "id": "7f77565a-67df-4a96-ac8e-4b5ab49c776d",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "d1cc006e-7be3-4e5b-803b-bd5baf77bacb"
-        },
-        {
-            "id": "4d8ad158-acc1-4a1e-a20c-e68ab5045c8a",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 64,
-            "eventtype": 8,
-            "m_owner": "d1cc006e-7be3-4e5b-803b-bd5baf77bacb"
+            "m_owner": "946ad923-8f0b-48c4-8f38-339526d875cd"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
