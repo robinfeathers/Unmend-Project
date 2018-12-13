@@ -29,6 +29,11 @@ if gravity_allowed and !check_if_ground(abs(hsp)+1)
 	character_gravity(Player_Object);
 	current_generic_action = generic_actions.jump;
 }
+if !gravity_allowed and !check_if_ground(abs(hsp)+1) and my_entity_state == entity_state.acting
+{
+	vsp = 0.2
+}
+
 
 //basic_move(8);
 

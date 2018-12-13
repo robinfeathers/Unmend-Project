@@ -5,6 +5,7 @@ image_speed = 1;
 //Input Information Variables
 input_direction = 0;
 facing_direction = 1;
+jump_buffered = false;
 
 //Movement Variables
 hsp = 0;
