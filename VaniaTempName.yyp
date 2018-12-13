@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "00bc041e-9a96-4a7b-a909-1be703fcbbbe",
+            "Value": {
+                "id": "b9dee2ff-7e9a-4e5e-b40b-9bf6e280794f",
+                "resourcePath": "scripts\\end_attack\\end_attack.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "02014713-e459-45b7-861b-b1a31e01db86",
             "Value": {
                 "id": "eeafd68c-bb3b-4052-a602-8ec354b1ae45",
@@ -348,6 +356,14 @@
                 "id": "d12c9357-c158-4e0b-bfb2-41390378a072",
                 "resourcePath": "objects\\rock_big03\\rock_big03.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2dde0437-7c42-4b4e-986d-e856d72d7911",
+            "Value": {
+                "id": "6bf965c8-a8c2-4238-8e2a-d3ee30474337",
+                "resourcePath": "sprites\\s_p_bigtree02\\s_p_bigtree02.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -740,6 +756,14 @@
                 "id": "a22b13c6-019d-4066-9902-e4fcd2cbbbae",
                 "resourcePath": "rooms\\S\\S.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "6032e8cd-d54a-4283-97da-d2037555f794",
+            "Value": {
+                "id": "5c4882a0-82ec-43db-8e3b-55de58d5c1af",
+                "resourcePath": "objects\\tree_big02\\tree_big02.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2152,6 +2176,7 @@
         "a013c509-a1fe-4ef1-ab9b-6cbb73af351c",
         "317840e5-a15f-4e23-b253-ba86d46dc89c",
         "9f36ac8f-ca99-46dd-aeff-db7393c0da1c",
+        "00bc041e-9a96-4a7b-a909-1be703fcbbbe",
         "bf4d6a32-f618-47d2-b877-23e0ba11d04b",
         "9064ff38-63c0-4fd2-99d7-dc29c24763b2",
         "4fa00dc9-8424-4238-b47d-9cbabdbd9f91",

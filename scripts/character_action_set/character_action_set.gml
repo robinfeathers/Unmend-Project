@@ -12,7 +12,8 @@ else play_animation(argument[0])
 image_xscale = facing_direction;
 
 //MAKE THESE 0 IF YOU PLAN ON CREATING AN ACTION WITH UNIQUE PLAYER MOVEMENT
-hsp = argument[1] * facing_direction;
+hsp = 0;
+attack_hsp = argument[1];
 vsp = argument[2];
 
 action_min_time = argument[3];

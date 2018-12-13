@@ -74,14 +74,6 @@ if my_entity_state == entity_state.acting
 	{
 		my_action_buffer = action_input_buffer.jump
 	}
-	//else if key_jump == true and key_down and !stinger
-	//{
-		//mybuffer = buffer_input.dive
-	//}
-	//else if key_dodge == true and my_direction == 0
-	//{
-		//mybuffer = buffer_input.backstep
-	//}
 	else if key_dodge == true and my_direction != 0
 	{
 		my_action_buffer = action_input_buffer.dodge
