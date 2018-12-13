@@ -14,7 +14,8 @@
         "95c4e8af-2f61-4c89-abae-29716eb9ec04",
         "8e32485a-ae9d-4363-8159-1000279fc2c0",
         "e6e8c2ce-2676-4571-a9ab-767f6dd99301",
-        "f4b6f7e8-3af6-48df-99ac-b8635dd7c5f6"
+        "f4b6f7e8-3af6-48df-99ac-b8635dd7c5f6",
+        "86858ec7-9979-46a1-968e-f5097b0ffc25"
     ],
     "filterType": "GMSprite",
     "folderName": "Combat",
