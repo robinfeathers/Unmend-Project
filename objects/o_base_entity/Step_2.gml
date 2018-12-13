@@ -10,7 +10,7 @@ if action_max_time > 0
 	action_max_time -= get_delta_time();
 }
 
-if action_min_time <= 0 and action_await and my_entity_state == entity_state.acting
+if action_min_time <= 0 and !action_await and my_entity_state == entity_state.acting
 {
 	my_entity_state = entity_state.neutral;
 	action_min_time = 0;
@@ -20,12 +20,7 @@ if action_min_time <= 0 and action_await and my_entity_state == entity_state.act
 }
 if action_max_time <= 0
 {
-	my_entity_state = entity_state.neutral;
-	action_min_time = 0;
-	action_max_time = 0;
-	combo_counter = 0;
-	slash_created = false;
-	gravity_allowed = true;
+	end_attack();
 }
 
 //Collision and Movement
@@ -50,7 +45,7 @@ if my_entity_state = entity_state.neutral
 	and sprite_index != land_idle_animation
 	and sprite_index != turn_idle_animation
 	and sprite_index != turn_run_animation
-	
+	and sprite_index != reset_animation
 	and !play_stop_animation
 	{
 		play_animation(idle_animation_01);
@@ -153,7 +148,7 @@ if my_entity_state = entity_state.neutral
 	}
 	
 	//For turning the player handling.
-	if sprite_index != turn_idle_animation or turn_run_animation
+	if sprite_index != turn_idle_animation or turn_run_animation or reset_animation
 	{
 		disallow_turning = false;
 	}
