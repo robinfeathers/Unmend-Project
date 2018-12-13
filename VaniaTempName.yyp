@@ -1095,6 +1095,14 @@
             }
         },
         {
+            "Key": "86858ec7-9979-46a1-968e-f5097b0ffc25",
+            "Value": {
+                "id": "db488ede-f8c7-4e23-a8a9-dd983e39162a",
+                "resourcePath": "sprites\\s_pulseparticle\\s_pulseparticle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "87b122fa-74b7-4d20-86e7-27f374e31d1f",
             "Value": {
                 "id": "66387b35-be96-4046-85c2-272d0fea6c49",
@@ -1532,6 +1540,14 @@
                 "id": "eb693c7b-4e1e-4f26-8f58-bd016f35a311",
                 "resourcePath": "sprites\\s_player_dive_land\\s_player_dive_land.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b8307d40-a716-4464-b956-36a685074bc4",
+            "Value": {
+                "id": "2aca7f15-c627-4b1d-b353-dd7aab173047",
+                "resourcePath": "objects\\pulse_particle\\pulse_particle.yy",
+                "resourceType": "GMObject"
             }
         },
         {
