@@ -16,7 +16,7 @@ attack_hsp = 0;
 
 gravity_allowed = true;
 fall_sp = 0;
-max_fallsp = 7;
+max_fallsp = 5.25;
 slope_speed_cap = true;
 
 slide_sp = 0;
@@ -45,7 +45,7 @@ pulse_points_requirement = 1000;
 pulse_points_max = 2000
 mana_points = 0;
 
-//TEMPORARY MUST BE MOVED TO A DOC
+//TEMPORARY MUST BE MOVED TO A SEPERATE FILE
 pulse_obtained = true;
 
 dmg_taken = 0;
@@ -167,7 +167,7 @@ enum action_input_buffer
 	dodge
 }
 
-my_action_buffer = action_input_buffer.none
+my_action_buffer = action_input_buffer.none;
 
 enum direction_input_buffer
 {
