@@ -116,6 +116,8 @@ fall_anim_delay = -2;
 
 play_land_animation = false;
 
+shadow_width = bbox_right - bbox_left
+
 //Lists
 
 //Faction
