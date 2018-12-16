@@ -5,6 +5,7 @@ image_speed = 1;
 //Input Information Variables
 input_direction = 0;
 facing_direction = 1;
+jump_buffered = false;
 
 //Movement Variables
 hsp = 0;
@@ -40,7 +41,7 @@ enum cc
 launch_property = cc.none;
 
 //Combat Variables
-pulse_points = 0;
+pulse_points = 250;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
 mana_points = 0;

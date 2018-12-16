@@ -14,19 +14,19 @@ draw_surface(surf, x, y)
 surface_free(surf)
 */
 
-if radius < 10 {radius += 0.2}
+if radius < 20 {radius += 2}
 else
 {
-	radius += 3
-	radius2 += 4
+	radius += 5
+	radius2 += 8
 }
 
-if radius > 40 {image_alpha -= 0.1}
+if radius > 125 {image_alpha -= 0.05}
 if image_alpha <= 0 {instance_destroy()}
 draw_set_alpha(image_alpha)
-//gpu_set_blendmode(bm_add)
+gpu_set_blendmode(bm_add)
 draw_ellipse_color(x - radius, y - radius, x + radius, y + radius, c1, c1, 0)
 draw_ellipse_color(x - radius2, y - radius2, x + radius2, y + radius2, c2, c2, 0)
-//gpu_set_blendmode(bm_normal)
+gpu_set_blendmode(bm_normal)
 
 draw_set_alpha(1)

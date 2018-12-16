@@ -17,8 +17,10 @@ if Player_Object = true
 	}
 
 	//INPUTS
+	
 	current_generic_action = generic_actions.idle;
 	
+	//Horizontal input
 	if my_entity_state == entity_state.neutral
 	and action_max_time <= 0
 	{
@@ -29,12 +31,20 @@ if Player_Object = true
 		hsp = attack_hsp * input_direction;
 	}
 	
-	if key_jump or my_action_buffer == action_input_buffer.jump
+	//Jump key
+	if key_jump and check_if_ground(4) and my_entity_state == entity_state.neutral
+	{
+		jump_buffered = true;
+	}
+	
+	
+	if key_jump or my_action_buffer == action_input_buffer.jump or (jump_buffered and check_if_ground(0))
 	{
 		if check_if_ground(7) and (my_entity_state == entity_state.neutral or action_min_time <= 0)
 		{
 			vsp = jump_height;
 			end_attack();
+			jump_buffered = false;
 		}
 	}
 	if vsp < jump_height / 3
