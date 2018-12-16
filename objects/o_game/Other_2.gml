@@ -19,6 +19,7 @@ global.screen_height = global.view_height * global.gameScale
 
 draw_ready = false;
 
+tile_layers = -1
 
 application_surface_draw_enable(false);
 surface_resize(application_surface, global.view_width, global.view_height);

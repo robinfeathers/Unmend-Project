@@ -1687,6 +1687,14 @@
             }
         },
         {
+            "Key": "d1013593-2fd0-484a-b9bc-bc6e45367314",
+            "Value": {
+                "id": "97d3d2ef-7e51-494f-a0ca-5e4834d92e7a",
+                "resourcePath": "scripts\\check_ground\\check_ground.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d185ff2b-b9fd-4f0e-9c79-aa5ba1443c55",
             "Value": {
                 "id": "0934de19-8fe1-410e-8cf6-ba26d1f675a7",
@@ -2227,7 +2235,8 @@
         "da82c6bd-7abf-48bb-b58a-14b872442740",
         "296a9092-d39d-4c3d-a131-998a659fac9d",
         "115fd4e1-badf-436e-aa7d-87c65e87bfa8",
-        "e8f4f53e-6b1b-459a-98fd-a30ea3eb8d32"
+        "e8f4f53e-6b1b-459a-98fd-a30ea3eb8d32",
+        "d1013593-2fd0-484a-b9bc-bc6e45367314"
     ],
     "tutorial": ""
 }

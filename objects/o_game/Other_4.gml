@@ -27,6 +27,9 @@ layer_create(19,"Mid_Game_UI");
 layer_create(20,"Game");
 instance_create_depth(0,0,20,o_camera);
 
+if tile_layers != -1 {ds_list_destroy(tile_layers)}
+tile_layers = ds_list_create()
+
 // Creating Collision based on tile data
 layers = layer_get_all()
 tile_layer = -1
@@ -38,7 +41,8 @@ for (var i = 0; i < array_length_1d(layers); i += 1)
 	{
 		if layer_get_element_type(elements[j]) == layerelementtype_tilemap
 		{
-			tile_layer = layer_tilemap_get_id(layers[i])	
+			tile_layer = layer_tilemap_get_id(layers[i])
+			ds_list_add(tile_layers, tile_layer)
 		}
 		if layer_get_element_type(elements[j]) == layerelementtype_instance
 		{
