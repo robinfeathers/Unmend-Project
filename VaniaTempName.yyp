@@ -2023,6 +2023,14 @@
             }
         },
         {
+            "Key": "f4623a03-578d-4ee3-98a7-92ee624a8681",
+            "Value": {
+                "id": "707416dd-990f-452b-80c8-eeb8285d103f",
+                "resourcePath": "objects\\o_sword_hitFX01\\o_sword_hitFX01.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f4b6f7e8-3af6-48df-99ac-b8635dd7c5f6",
             "Value": {
                 "id": "c0d4dc89-3379-4160-8a44-67b3ee18c6b6",

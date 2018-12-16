@@ -19,7 +19,8 @@
         "a6d14ae2-6f4f-42a6-884f-75d967700c82",
         "4e5f0d54-7f2e-482e-893f-a89f7298e388",
         "86377dfa-cbd5-4450-8904-68601f0776d2",
-        "ea336670-1e06-43a0-8282-355cfd19ff64"
+        "ea336670-1e06-43a0-8282-355cfd19ff64",
+        "d78166dc-57fb-4cf2-8331-f421b579dce3"
     ],
     "IsDnD": false,
     "layers": [
@@ -235,7 +236,8 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-{"name": "inst_74197EB0","id": "8a76e0df-5842-448d-94c1-1501287940f7","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_74197EB0","objId": "4ebd3b08-5565-4bb5-9df6-1b948844439d","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 656,"y": 256}
+{"name": "inst_74197EB0","id": "8a76e0df-5842-448d-94c1-1501287940f7","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_74197EB0","objId": "4ebd3b08-5565-4bb5-9df6-1b948844439d","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 368,"y": 368},
+{"name": "inst_601295F5","id": "d78166dc-57fb-4cf2-8331-f421b579dce3","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_601295F5","objId": "f4623a03-578d-4ee3-98a7-92ee624a8681","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 288,"y": 304}
             ],
             "layers": [
 
@@ -753,7 +755,7 @@
             "grid_x": 16,
             "grid_y": 16,
             "hierarchyFrozen": false,
-            "hierarchyVisible": true,
+            "hierarchyVisible": false,
             "hspeed": 0.2,
             "htiled": true,
             "inheritLayerDepth": false,
@@ -771,7 +773,7 @@
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,
-            "visible": true,
+            "visible": false,
             "vspeed": 0,
             "vtiled": false,
             "x": 0,
@@ -788,7 +790,7 @@
             "grid_x": 16,
             "grid_y": 16,
             "hierarchyFrozen": false,
-            "hierarchyVisible": true,
+            "hierarchyVisible": false,
             "hspeed": 0,
             "htiled": false,
             "inheritLayerDepth": false,
@@ -806,7 +808,7 @@
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,
-            "visible": true,
+            "visible": false,
             "vspeed": 0,
             "vtiled": false,
             "x": 0,
