@@ -17,7 +17,7 @@ var surf = surface_create(surfw, surfh)
 surface_set_target(surf)
 draw_set_color(c_black)
 draw_set_alpha(0.5)
-draw_ellipse(1, 1, surfw - 1, surfh - 1, false)
+draw_ellipse(0, 0, surfw - 1, surfh - 1, false)
 draw_set_alpha(1)
 surface_reset_target()
 	
@@ -31,7 +31,7 @@ for (var i = 0; i < surfw; i += 1)
 	var xpos = x - floor(shadow_width / 2) + i + xmod
 	var ypos = y + ymod
 	while !check_ground(xpos, ypos) and ypos < room_height {ypos += 1}
-	ypos -= 3
+	ypos -= 4
 	draw_surface(surf2, xpos, ypos)
 	surface_free(surf2)
 }

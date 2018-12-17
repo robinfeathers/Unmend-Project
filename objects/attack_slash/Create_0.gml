@@ -24,6 +24,7 @@ hit_delay = 0;
 base_hit_delay = 0;
 hsp = 0;
 vsp = 0;
+damage_angle = 0;
 
 enum cc_properties
 {

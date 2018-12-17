@@ -1,4 +1,19 @@
 /// @desc Takes place before child step event
+//Damage Taking Events
+if got_hit
+{
+	if !invincible and !sleeping
+	{
+		got_hit = false;
+		shake = 2;
+		hp -= max(0,dmg_taken)
+		poise -= max(0,poise_dmg_taken)
+	}
+}
+
+
+
+
 
 //The following can only occur if the object is a Player_Object
 if Player_Object = true

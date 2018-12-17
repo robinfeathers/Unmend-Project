@@ -23,9 +23,11 @@ slope_speed_cap = true;
 slide_sp = 0;
 
 //Taking Damage Variables
-hp = 1000;
-hp_max = 2000;
+hp = hp_max;
+poise = poise_max;
 got_hit = false;
+attacker = noone;
+damage_angle = 0;
 shake = 0;
 dmg_taken = 0;
 poise_dmg_taken = 0;
@@ -56,6 +58,7 @@ pulse_obtained = true;
 dmg_taken = 0;
 poise_dmg_taken = 0;
 invincible = false;
+sleeping = false;
 
 combo_counter = 0;
 action_min_time = 0;
@@ -144,6 +147,7 @@ enum entity_state
 	none,
 	neutral,
 	acting,
+	stunned,
 	dead
 }
 my_entity_state = entity_state.neutral;
