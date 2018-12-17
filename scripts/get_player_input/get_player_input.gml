@@ -64,7 +64,7 @@ else
 }
 
 if my_entity_state == entity_state.acting
-//and lockout_time < 12
+and action_min_time < 15
 //and !diving
 
 //MISSING: Need to redo inputs on dodge since they're the only directional based actions
@@ -90,7 +90,7 @@ if my_entity_state == entity_state.acting
 	{
 		my_action_buffer = action_input_buffer.s_attack
 	}
-	//Input buffers
+	//Direction buffers
 	my_direction_buffer = direction_input_buffer.neutral;
 	if key_left or key_right and (!key_down or !key_up)
 	{
