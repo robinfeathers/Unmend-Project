@@ -29,7 +29,7 @@ for (var i = 0; i < surfw; i += 1)
 	surface_reset_target()
 		
 	var xpos = x - floor(shadow_width / 2) + i + xmod
-	var ypos = y + ymod
+	var ypos = bbox_top
 	var failed = false
 	while !check_ground(xpos, ypos)
 	{
