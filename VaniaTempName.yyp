@@ -1575,6 +1575,14 @@
             }
         },
         {
+            "Key": "b9eee5a5-6511-46f5-ae13-4465f3c624af",
+            "Value": {
+                "id": "b94e182f-8a52-4208-9b0a-0f206062ec70",
+                "resourcePath": "objects\\o_particles\\o_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "bd159675-d01b-4bc8-a685-33d725a121af",
             "Value": {
                 "id": "8ad581d5-c907-4d6f-bac7-6b9144f2baf3",

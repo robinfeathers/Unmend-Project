@@ -30,9 +30,21 @@ for (var i = 0; i < surfw; i += 1)
 		
 	var xpos = x - floor(shadow_width / 2) + i + xmod
 	var ypos = y + ymod
-	while !check_ground(xpos, ypos) and ypos < room_height {ypos += 1}
-	ypos -= 4
-	draw_surface(surf2, xpos, ypos)
+	var failed = false
+	while !check_ground(xpos, ypos)
+	{
+		ypos += 1
+		if ypos > y + ymod + 100
+		{
+			failed = true
+			break
+		}
+	}
+	if !failed
+	{
+		ypos -= 4
+		draw_surface(surf2, xpos, ypos)
+	}
 	surface_free(surf2)
 }
 	
