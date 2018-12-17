@@ -1,1 +1,1 @@
-if !instance_exists(pulse_effect) {instance_create_depth(x, y, 800, pulse_effect)}
+if !instance_exists(pulse_effect) {instance_create_depth(x, y, 800, pulse_effect)} {instance_create_depth(x, y, 800, o_sword_hitFX01)}

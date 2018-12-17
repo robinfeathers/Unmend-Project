@@ -44,6 +44,10 @@ launch_property = cc.none;
 pulse_points = 250;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
+create_pulse = false;
+pulse_o_x = x;
+pulse_o_y = y;
+pulse_start_frame = 0;
 mana_points = 0;
 
 //TEMPORARY MUST BE MOVED TO A SEPERATE FILE

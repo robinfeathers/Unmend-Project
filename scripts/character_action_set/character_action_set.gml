@@ -9,6 +9,7 @@
 
 if argument[0] == noone{}
 else play_animation(argument[0])
+image_index = 0;
 image_xscale = facing_direction;
 
 //MAKE THESE 0 IF YOU PLAN ON CREATING AN ACTION WITH UNIQUE PLAYER MOVEMENT

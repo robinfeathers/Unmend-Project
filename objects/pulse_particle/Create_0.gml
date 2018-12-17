@@ -1,2 +1,2 @@
 target = noone
-image_alpha = .75
+image_alpha = .1

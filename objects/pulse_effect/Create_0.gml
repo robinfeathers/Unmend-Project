@@ -2,9 +2,9 @@ radius = 5
 radius2 = 0
 image_alpha = 0.25
 
-x = o_vernal.x
-y = o_vernal.y - sprite_get_height(o_vernal.sprite_index) / 2
-depth = 500
+//x = o_vernal.x
+//y = o_vernal.y - sprite_get_height(o_vernal.sprite_index) / 2
+//depth = 8
 
 var partcount = 16
 for (var i = 0; i < partcount; i += 1)
