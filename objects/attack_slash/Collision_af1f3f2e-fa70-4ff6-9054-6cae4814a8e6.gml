@@ -50,11 +50,35 @@ if floor(image_index) <= starting_frame
 		{
 			character_array[character_listindex] = character_hit;
 			character_listindex += 1;
-			character_hit.shake = 2;
-			//MISSING ADD THESE VARIABLES TO THE CHARACTER OBJECT
-			dmg_taken = dmg;
-			poise_dmg_taken = poise_dmg;
+			with character_hit
+			{
+			dmg_taken = other.dmg;
+			poise_dmg_taken = other.poise_dmg;
 			got_hit = true;
+			}
+			if character_hit.invincible == false and character_hit.sleeping == false
+			{
+				damage_angle = point_direction(
+				creator.bbox_right-((creator.bbox_right-creator.bbox_left)/2),
+				creator.bbox_bottom-((creator.bbox_bottom-creator.bbox_top)/2),
+				character_hit.bbox_right-((character_hit.bbox_right-character_hit.bbox_left)/2),
+				character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2));
+				var hit_effect = instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, o_sword_hitFX01)
+				with hit_effect
+				{
+					hit_angle = other.damage_angle;
+					event_user(0);
+				}
+				instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, cut_impact);
+				var grow = instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, grow_effect)
+				with (grow)
+				{
+					max_scale = .5;
+					growth_rate = .1;
+					max_alpha = .4;
+					sprite_index = s_glow;
+				}
+			}		
 			if crowd_control_property = cc_properties.l_up
 			{
 				character_hit.launch_property = cc.launch_up

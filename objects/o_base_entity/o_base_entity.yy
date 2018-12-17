@@ -115,6 +115,34 @@
             "varType": 3
         },
         {
+            "id": "e6eaa933-edae-4471-b71a-9e9ba103b6ea",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "2000",
+            "varName": "hp_max",
+            "varType": 1
+        },
+        {
+            "id": "5bed4370-32d4-40b6-a92e-27716094917c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1000",
+            "varName": "poise_max",
+            "varType": 0
+        },
+        {
             "id": "48b646d2-f49b-46ce-8f09-ab0eecab195e",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
