@@ -14,3 +14,6 @@ with (o_base_entity)
 
 xto = x;
 yto = y;
+
+view_x = 0
+view_y = 0
