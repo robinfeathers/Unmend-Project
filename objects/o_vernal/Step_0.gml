@@ -30,7 +30,7 @@ and my_entity_state == entity_state.neutral
 				{
 					combo_counter += 1
 					character_action_set(s_player_ground03, 0.75, 0, 30, 40, true, false)
-					character_slash_set(s_player_ground03_fx, 5, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+					character_slash_set(s_player_ground03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false)
 				}
 			}
 			else
@@ -51,7 +51,7 @@ and my_entity_state == entity_state.neutral
 				{
 					combo_counter += 1
 					character_action_set(s_player_air03, 0.75, 0, 25, 30, true, false)
-					character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+					character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false)
 				}
 			}
 			

@@ -5,13 +5,76 @@ if got_hit
 	if !invincible and !sleeping
 	{
 		got_hit = false;
-		shake = 2;
-		hp -= max(0,dmg_taken)
-		poise -= max(0,poise_dmg_taken)
+		hp -= dmg_taken;
+		hp = max(hp, 0);
+		if my_entity_state != entity_state.stunned
+		{
+			poise -= poise_dmg_taken;
+			poise = max(poise,0);
+			shake = 2;
+			shake_amount = 1;
+		}
+		else
+		{
+			stun_time -= poise_dmg_taken/3;
+			stun_time = max(stun_time,0);
+			shake = 3;
+			shake_amount = 2;
+		}
+	}
+	if poise > 0 and poise < poise_max and my_entity_state != entity_state.stunned
+	{
+		poise_regain = poise_regain_max;
+	}
+	else if poise <= 0 and my_entity_state != entity_state.stunned
+	{
+		my_entity_state = entity_state.stunned;
+		end_attack();
+		play_animation(stun_animation);
+		stun_time = max_stun_time;
+		poise_regain = 0;
+		//Robin
+		//BAR GETS CREATED HERE
+		//Vaiables are "stun_time" and "max_stun_time"
+	}
+	if my_entity_state == entity_state.stunned
+	{
+		stun_delay = stun_delay_max;
 	}
 }
+//time down to regain poise
+if poise_regain > 0 and my_entity_state != entity_state.stunned
+{
+	poise_regain -= get_delta_time();
+	poise_regain = max(poise_regain, 0);
+}
+//regain poise after delay
+else if poise_regain <= 0 and poise < poise_max and my_entity_state != entity_state.stunned
+{
+	poise += get_delta_time();
+	min(poise,poise_max);
+}
 
-
+//The delay until the stun timer is allowed to tick again
+if stun_delay > 0 and my_entity_state == entity_state.stunned
+{
+	stun_delay -= get_delta_time();
+	stun_delay  = max(stun_delay , 0);
+	show_debug_message("STOP")
+}
+//time down to ending stunned state
+if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunned
+{
+	stun_time -= (max_stun_time/100) * stun_recovery_rate * get_delta_time();
+	show_debug_message("subtracting")
+}
+//return to neutral
+else if stun_time <= 0 and my_entity_state == entity_state.stunned
+{
+	stun_time = 0;
+	my_entity_state = entity_state.neutral;
+	poise = poise_max;
+}
 
 
 
@@ -52,13 +115,13 @@ if Player_Object = true
 		jump_buffered = true;
 	}
 	
-	
 	if key_jump or my_action_buffer == action_input_buffer.jump or (jump_buffered and check_if_ground(0))
 	{
 		if check_if_ground(7) and (my_entity_state == entity_state.neutral or action_min_time <= 0)
 		{
 			vsp = jump_height;
 			end_attack();
+			my_entity_state = entity_state.neutral;
 			jump_buffered = false;
 		}
 	}

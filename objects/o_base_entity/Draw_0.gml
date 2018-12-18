@@ -1,12 +1,9 @@
-
-
-
 var xmod = 0
 var ymod = 0
 if shake > 0
 {
-	xmod = random_range(1, 1)
-	ymod = random_range(1, 1)
+	xmod = random_range(shake_amount, -shake_amount)
+	ymod = random_range(shake_amount, -shake_amount)
 }
 	
 var surfw = shadow_width
