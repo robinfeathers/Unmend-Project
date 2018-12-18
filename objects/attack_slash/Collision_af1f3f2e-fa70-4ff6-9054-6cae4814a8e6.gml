@@ -81,19 +81,19 @@ if floor(image_index) <= starting_frame
 			}		
 			if crowd_control_property = cc_properties.l_up
 			{
-				character_hit.launch_property = cc.launch_up
+				character_hit.launch_property = l_property.launch_up
 			}
 			if crowd_control_property = cc_properties.l_down
 			{
-				character_hit.launch_property = cc.launch_down
+				character_hit.launch_property = l_property.launch_down
 			}
 			if crowd_control_property = cc_properties.l_side
 			{
-				character_hit.launch_property = cc.launch_side
+				character_hit.launch_property = l_property.launch_side
 			}
 			if crowd_control_property = cc_properties.bounce
 			{
-				character_hit.launch_property = cc.bounce
+				character_hit.launch_property = l_property.bounce
 			}
 		}
 	}

@@ -26,21 +26,18 @@ slide_sp = 0;
 hp = hp_max;
 poise = poise_max;
 got_hit = false;
-attacker = noone;
-damage_angle = 0;
-shake = 0;
 dmg_taken = 0;
 poise_dmg_taken = 0;
 
-enum cc
-{
-	none,
-	launch_up,
-	launch_down,
-	launch_side,
-	bounce,
-}
-launch_property = cc.none;
+poise_regain = 0;
+stun_delay = 0;
+stun_time = 0;
+
+attacker = noone;
+damage_angle = 0;
+shake = 0;
+shake_amount = 0;
+
 
 //Combat Variables
 pulse_points = 250;

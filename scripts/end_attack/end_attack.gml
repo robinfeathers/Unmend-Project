@@ -1,4 +1,3 @@
-my_entity_state = entity_state.neutral;
 action_min_time = 0;
 action_max_time = 0;
 combo_counter = 0;

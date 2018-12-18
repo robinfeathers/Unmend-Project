@@ -10,7 +10,7 @@ if action_max_time > 0
 	action_max_time -= get_delta_time();
 }
 
-if action_min_time <= 0 and !action_await and my_entity_state == entity_state.acting
+if action_min_time <= 0 and !action_await and my_entity_state == entity_state.acting and my_entity_state != entity_state.stunned
 {
 	my_entity_state = entity_state.neutral;
 	action_min_time = 0;
@@ -18,9 +18,10 @@ if action_min_time <= 0 and !action_await and my_entity_state == entity_state.ac
 	hsp = 0;
 	slash_created = false;
 }
-if action_max_time <= 0
+if action_max_time <= 0 and my_entity_state != entity_state.stunned
 {
 	end_attack();
+	my_entity_state = entity_state.neutral;
 }
 
 //Collision and Movement
@@ -40,7 +41,7 @@ if !gravity_allowed and !check_if_ground(abs(hsp)+1) and my_entity_state == enti
 character_collision(Player_Object);
 
 //ANIMATOR
-if my_entity_state = entity_state.neutral
+if my_entity_state == entity_state.neutral
 {
 	if current_generic_action = generic_actions.idle
 	and sprite_index != stop_animation_01
@@ -54,6 +55,7 @@ if my_entity_state = entity_state.neutral
 	and !play_stop_animation
 	{
 		play_animation(idle_animation_01);
+		
 	}
 	
 	//Run Animations
@@ -85,6 +87,7 @@ if my_entity_state = entity_state.neutral
 	if stop_animation_delay <= 0 and play_stop_animation
 	{
 		play_animation(stop_animation_01);
+		reset_animation = stop_animation_01
 		play_stop_animation = false;
 	}
 	
@@ -99,6 +102,7 @@ if my_entity_state = entity_state.neutral
 			disallow_turning = true;
 			play_stop_animation = false;
 			play_animation(turn_idle_animation);
+			reset_animation = turn_idle_animation
 		}
 		if abs(hsp) > 1
 		and anim_allow_turn_run
@@ -106,6 +110,7 @@ if my_entity_state = entity_state.neutral
 			disallow_turning = true;
 			play_stop_animation = false;
 			play_animation(turn_run_animation);
+			reset_animation = turn_run_animation
 		}
 	}
 	
@@ -136,6 +141,7 @@ if my_entity_state = entity_state.neutral
 	{
 		play_land_animation = true;
 		play_animation(land_idle_animation);
+		reset_animation = land_idle_animation
 	}
 	if current_generic_action == generic_actions.run
 	and previous_generic_action == generic_actions.jump
@@ -143,6 +149,7 @@ if my_entity_state = entity_state.neutral
 	{
 		play_land_animation = true;
 		play_animation(land_run_animation);
+		reset_animation = land_run_animation
 	}
 	if current_generic_action == generic_actions.idle
 	and previous_generic_action == generic_actions.jump
