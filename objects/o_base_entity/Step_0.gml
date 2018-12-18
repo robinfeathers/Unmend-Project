@@ -40,7 +40,13 @@ if got_hit
 	if my_entity_state == entity_state.stunned
 	{
 		stun_delay = stun_delay_max;
+		//CCtypes
+		if launch_property == l_property.launch_up show_debug_message("UP")
+		else if launch_property == l_property.launch_down show_debug_message("DOWN")
+		else if launch_property == l_property.launch_side show_debug_message("SIDE")
+		else if launch_property == l_property.launch_bounce show_debug_message("BOUNCE")
 	}
+	launch_property = l_property.none;
 }
 //time down to regain poise
 if poise_regain > 0 and my_entity_state != entity_state.stunned
