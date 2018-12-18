@@ -49,6 +49,8 @@ pulse_o_y = y;
 pulse_start_frame = 0;
 mana_points = 0;
 
+disallowed_action = noone;
+
 //TEMPORARY MUST BE MOVED TO A SEPERATE FILE
 pulse_obtained = true;
 
@@ -197,6 +199,5 @@ enum l_property
 }
 launch_property = l_property.none
 
-//establishing functions
-play_animation(idle_animation_01);
+
 

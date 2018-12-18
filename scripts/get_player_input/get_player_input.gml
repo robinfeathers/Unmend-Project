@@ -90,20 +90,20 @@ and action_min_time < 15
 	{
 		my_action_buffer = action_input_buffer.s_attack
 	}
-	//Direction buffers
-	my_direction_buffer = direction_input_buffer.neutral;
-	if key_left or key_right and (!key_down or !key_up)
-	{
-		my_direction_buffer = direction_input_buffer.neutral
-	}
-	if key_up
-	{
-		my_direction_buffer = direction_input_buffer.up
-	}
-	if key_down
-	{
-		my_direction_buffer = direction_input_buffer.down
-	}
+}
+//Direction buffers
+my_direction_buffer = direction_input_buffer.neutral;
+if key_left or key_right and (!key_down or !key_up)
+{
+	my_direction_buffer = direction_input_buffer.neutral
+}
+if key_up
+{
+	my_direction_buffer = direction_input_buffer.up
+}
+if key_down
+{
+	my_direction_buffer = direction_input_buffer.down
 }
 
 if key_restart game_restart();
