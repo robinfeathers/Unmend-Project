@@ -49,3 +49,17 @@ surface_free(surf)
 
 
 draw_sprite_ext(sprite_index, image_index, x + xmod, y + ymod, image_xscale, image_yscale, 0, -1, 1);
+
+if stun_time > 0
+{
+	var chunknum = sprite_get_number(s_Stun)
+	for (var i = 0; i < chunknum; i += 1)
+	{
+		var chunksize = max_stun_time / chunknum
+		var a = (stun_time - i * chunksize) / chunksize
+		a = max(0.2, a)
+		draw_set_alpha(a)
+		draw_sprite(s_Stun, i, x + xmod, y - sprite_yoffset + sprite_get_height(sprite_index) / 2 + ymod)
+	}
+	draw_set_alpha(1)
+}

@@ -35,6 +35,7 @@ if got_hit
 		poise_regain = 0;
 		//Robin
 		//BAR GETS CREATED HERE
+		//lmao nah fam look in draw event
 		//Vaiables are "stun_time" and "max_stun_time"
 		instance_create_depth(x, bbox_bottom - ((bbox_bottom-bbox_top)/2),7,o_particle_test)
 		stop_time = 8;
