@@ -22,8 +22,8 @@ action_min_time = argument[3];
 action_max_time = argument[4];
 gravity_allowed = argument[6];
 
-if argument[7]{disallowed_action = argument [0]; show_debug_message("IM DOIN IT")}
-else {disallowed_action = noone; show_debug_message("IM FUCKIN IT")}
+if argument[7]{disallowed_action = argument [0];}
+else {disallowed_action = noone;}
 
 if argument[5] reset_animation = argument[0];
 else resent_animation = noone;

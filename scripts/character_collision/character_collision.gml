@@ -34,7 +34,7 @@ if r_slope != noone
 	}
 	
 	//If I'm going beneath the line point, bring me up to it
-	if y > test_y 
+	if y > test_y and vsp >= 0
 	{	
 		y = test_y;
 		on_r_slope = true;
@@ -83,10 +83,10 @@ if l_slope != noone
 	}
 	
 	//If I'm going beneath the line point, bring me up to it
-	if y > test_y 
+	if y > test_y and vsp >= 0
 	{	
 		y = test_y;
-		//on_l_slope = true;
+		on_l_slope = true;
 		vsp = 0;
 	}
 
@@ -125,13 +125,13 @@ else
 }
 
 //snap
-if place_meeting(x+sign(hsp),y,o_t_solid)
+if place_meeting(x+sign(hsp),bbox_bottom-1,o_t_solid)
 {
-	var wall = instance_place(x+sign(hsp),y,o_t_solid);
+	var wall = instance_place(x+sign(hsp),bbox_bottom,o_t_solid);
 	
 	if slope_block != noone
 	{
-		if instance_position(slope_block.x+1, slope_block.y-1,o_t_solid)
+		if instance_position(slope_block.x, slope_block.y-1,o_t_solid)
 		{
 			slope_block = noone;
 		}
@@ -146,6 +146,7 @@ if place_meeting(x+sign(hsp),y,o_t_solid)
 		else if collision_testing_hsp <= 0
 		{
 			x = (wall.bbox_right+1) - (bbox_left-x);//sprite_bbox_left;
+			show_debug_message(y)
 		}
 		hsp = 0;
 	}
@@ -157,7 +158,9 @@ y += vsp * get_delta_time();
 if place_meeting(x,y+sign(vsp),o_t_solid)
 {
 	var plane = instance_place(x,y+sign(vsp),o_t_solid);
-	if vsp > 0
+	
+	
+	if vsp >= 0 and slope_block != plane
 	{
 		y = (plane.bbox_top - 1) - (bbox_bottom-y);//sprite_bbox_bottom;
 	}
@@ -239,5 +242,5 @@ with (inst)
 	max_alpha = 1;
 	sprite_index = s_glow;
 }
-*/
+
 
