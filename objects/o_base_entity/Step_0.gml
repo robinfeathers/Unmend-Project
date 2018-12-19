@@ -43,7 +43,13 @@ if got_hit
 	{
 		stun_delay = stun_delay_max;
 		//CCtypes
-		if launch_property == l_property.launch_up show_debug_message("UP")
+		if launch_property == l_property.launch_up
+		{
+			hsp = 0;
+			vsp = -5.5;
+			instance_create_depth(x, bbox_bottom, 8, launch_gust);
+			play_animation(launch_up_animation);
+		}
 		else if launch_property == l_property.launch_down show_debug_message("DOWN")
 		else if launch_property == l_property.launch_side show_debug_message("SIDE")
 		else if launch_property == l_property.bounce show_debug_message("BOUNCE")

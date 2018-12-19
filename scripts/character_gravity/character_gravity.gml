@@ -22,13 +22,15 @@ if argument[0] = true
 //slow the character during their ascent
 if vsp < 0
 {
-	vsp += weight * get_delta_time();
+	if my_entity_state == entity_state.stunned vsp += weight * get_delta_time()/2;
+	else vsp += weight * get_delta_time();
 }
 
 //make character fall at a certain rate and cap the player's fall speed
 else if (vsp >= 0) and (vsp < max_fallsp)
 {
 	vsp += (weight * gravity_resistance) * get_delta_time();
+	if my_entity_state == entity_state.stunned vsp = min(max_fallsp/1.5,vsp);
 }
 else
 {
