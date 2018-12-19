@@ -271,14 +271,6 @@
             }
         },
         {
-            "Key": "21e463b9-04a4-41a5-881f-9d9b3e056dcf",
-            "Value": {
-                "id": "ef78083c-90e4-4b71-84e0-bd81a4903ae3",
-                "resourcePath": "rooms\\DummyShowcaseRoom\\DummyShowcaseRoom.yy",
-                "resourceType": "GMRoom"
-            }
-        },
-        {
             "Key": "233e8b95-5434-4de2-ab7e-17a648285499",
             "Value": {
                 "id": "028e2dc5-7c03-401f-a99b-6654fd996f36",

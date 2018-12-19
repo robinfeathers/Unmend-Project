@@ -6,6 +6,7 @@
 ///@arg action_max_time
 ///@arg reset_animation
 ///@arg gravity_allowed
+///@arg disallow_twice?
 
 if argument[0] == noone{}
 else play_animation(argument[0])
@@ -19,10 +20,13 @@ vsp = argument[2];
 
 action_min_time = argument[3];
 action_max_time = argument[4];
-
 gravity_allowed = argument[6];
+
+if argument[7]{disallowed_action = argument [0]; show_debug_message("IM DOIN IT")}
+else {disallowed_action = noone; show_debug_message("IM FUCKIN IT")}
 
 if argument[5] reset_animation = argument[0];
 else resent_animation = noone;
 my_action_buffer = action_input_buffer.none;
 my_entity_state = entity_state.acting;
+

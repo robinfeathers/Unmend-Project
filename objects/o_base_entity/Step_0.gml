@@ -36,11 +36,19 @@ if got_hit
 		//Robin
 		//BAR GETS CREATED HERE
 		//Vaiables are "stun_time" and "max_stun_time"
+		instance_create_depth(x, bbox_bottom - ((bbox_bottom-bbox_top)/2),7,o_particle_test)
+		stop_time = 8;
 	}
 	if my_entity_state == entity_state.stunned
 	{
 		stun_delay = stun_delay_max;
+		//CCtypes
+		if launch_property == l_property.launch_up show_debug_message("UP")
+		else if launch_property == l_property.launch_down show_debug_message("DOWN")
+		else if launch_property == l_property.launch_side show_debug_message("SIDE")
+		else if launch_property == l_property.bounce show_debug_message("BOUNCE")
 	}
+	launch_property = l_property.none;
 }
 //time down to regain poise
 if poise_regain > 0 and my_entity_state != entity_state.stunned
@@ -60,13 +68,11 @@ if stun_delay > 0 and my_entity_state == entity_state.stunned
 {
 	stun_delay -= get_delta_time();
 	stun_delay  = max(stun_delay , 0);
-	show_debug_message("STOP")
 }
 //time down to ending stunned state
 if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunned
 {
 	stun_time -= (max_stun_time/100) * stun_recovery_rate * get_delta_time();
-	show_debug_message("subtracting")
 }
 //return to neutral
 else if stun_time <= 0 and my_entity_state == entity_state.stunned

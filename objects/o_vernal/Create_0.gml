@@ -8,3 +8,10 @@ with hpbar
 {
 	owner = other;
 }
+
+enum non_repeatable_actions
+{
+	none,
+	s_player_launch_fx,
+}
+repeat_action = non_repeatable_actions.none;

@@ -8,7 +8,7 @@
 ///@arg hit_count
 ///@arg hit_delay MAKE 0 IF HIT_COUNT IS 1
 ///@arg continous_action does this go on forever
-///@arg start_action when the slash start's dealing damage
+///@arg start_damage_frame when the slash start's dealing damage
 ///@arg special_case
 
 create_slash_sprite = argument[0];
