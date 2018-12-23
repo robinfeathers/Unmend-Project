@@ -154,8 +154,7 @@ enum stop_attack
 delay_input = stop_attack.none;
 
 //Create any objects that the player specifically needs to create
-instance_create_depth(x,y,19,o_health_bar);
-
+var hpbar = instance_create_depth(x,y,19,o_health_bar);
 
 
 //Testing Variables

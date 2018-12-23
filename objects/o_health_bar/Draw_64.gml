@@ -1,79 +1,127 @@
-draw_sprite(pulse_meter_blank,0,0,4);
-draw_sprite(pulse_meter_left_02,0,0,4);
-var red_bar_size = owner.hp / 10;
-
-//Draw top hp bar
-draw_sprite_stretched(hp_bar_blank_fill,0,46,15,100,6)
-draw_sprite(hp_bar_cap,0,146,15)
-
-if owner.hp >= 1000
+if instance_exists(owner)
 {
-draw_sprite_stretched(hp_bar_red_fill,0,46,15,100,6)	
-}
-else draw_sprite_stretched(hp_bar_red_fill,0,46,15,red_bar_size,6)
+	var xpos = 10
+	var ypos = 10
+	
+	var late_delay = 30
+	
+	var hp = owner.hp
+	var hp_max = 2001//owner.hp_max
+	var hp_max_default = 2000
+	var mana = owner.mana_points
+	var mana_max = 250//owner.max_mana_points
+	var pulse = pulse_dbg//owner.pulse_points
+	var pulse_max = 1001//owner.max_pulse_points
+	var pulse_req = 1000//owner.pulse_points_requirement
+	var combo = combo_dbg
+	var combo_max = 4
 
-//draw top hp decoration
-if owner.hp > 0
-{
-	draw_sprite(hp_top_full,0,19,2)
-}
-else draw_sprite(hp_top_blank,0,19,2)
-
-
-var second_hpbar_exists = false;
-if owner.hp_max > 1000
-{
-	second_red_bar_exists = true;
+	// Draw back bar
+	draw_sprite(s_Hud_Back, 0, xpos, ypos)
 	
-	//draw bottom hp bar
-	var blank_bar_length;
-	var bottom_red_bar_size = (owner.hp - 1000) / 10;
-	blank_bar_length = (owner.hp_max - 1000) / 10;
-	
-	draw_sprite_stretched(hp_bar_blank_fill,0,46,26,blank_bar_length,6)
-	draw_sprite(hp_bar_cap,0,46+blank_bar_length,26)
-	
-	draw_sprite_stretched(hp_bar_red_fill,0,46,26,bottom_red_bar_size,6)
-	
-	//draw bottom hp decoration
-	if owner.hp >= 1000
+	// Overload health
+	var hp_trunc = hp
+	if hp > hp_max_default
 	{
-		draw_sprite(hp_bottom_full,0,19,25)
+		hp_trunc = hp - hp_max_default
+		draw_sprite(s_Hud_Extra, 1, xpos, ypos)
 	}
-	else draw_sprite(hp_bottom_blank,0,19,25)
+	
+	// Actual health value shown
+	if true_health != hp_trunc
+	{
+		true_health += floor(hp_max_default / 10) * sign(hp_trunc - true_health)
+		if abs(hp_trunc - true_health) < floor(hp_max_default / 10) {true_health = hp_trunc}
+	}
+	
+	// Late health
+	var healthx = xpos + 31
+	var healthy = ypos + 9
+	if late_health < true_health {late_health = true_health}
+	if old_health != hp
+	{
+		late_health_delay = late_delay
+		old_health = hp
+	}
+	if late_health != hp
+	{
+		if late_health_delay > 0 {late_health_delay -= 1}
+		else
+		{
+			late_health += floor(hp_max_default / 10) * sign(hp - late_health)
+			if abs(hp - late_health) < floor(hp_max_default / 10) {late_health = hp}
+		}
+	}
+	late_health = clamp(late_health, 0, hp_max_default)
+	var late_health_drawn = late_health
+	if late_health > hp_trunc && hp > hp_trunc {late_health_drawn = hp_trunc}
+	draw_sprite_part(s_Hud_HealthBack, 0, 0, 0, floor(late_health_drawn * (sprite_get_width(s_Hud_HealthBack) / hp_max_default)), sprite_get_height(s_Hud_HealthBack), healthx, healthy)
+	
+	// Health
+	draw_sprite_part(s_Hud_Health, 0, 0, 0, floor(true_health * (sprite_get_width(s_Hud_Health) / hp_max_default)), sprite_get_height(s_Hud_Health), healthx, healthy)
+
+	// Actual mana value shown
+	if true_mana != mana
+	{
+		true_mana += floor(mana_max / 10) * sign(mana - true_mana)
+		if abs(mana - true_mana) < floor(mana_max / 10) {true_mana = mana}
+	}
+
+	// Late mana
+	var manax = xpos + 31
+	var manay = ypos + 18
+	if late_mana < true_mana {late_mana = true_mana}
+	if old_mana != mana
+	{
+		late_mana_delay = late_delay
+		old_mana = mana
+	}
+	if late_mana != mana
+	{
+		if late_mana_delay > 0 {late_mana_delay -= 1}
+		else
+		{
+			late_mana += floor(mana_max / 10) * sign(mana - late_mana)
+			if abs(mana - late_mana) < floor(mana_max / 10) {late_mana = mana}
+		}
+	}
+	draw_sprite_part(s_Hud_ManaBack, 0, 0, 0, floor(late_mana * (sprite_get_width(s_Hud_ManaBack) / mana_max)), sprite_get_height(s_Hud_ManaBack), manax, manay)
+
+	// Mana
+	draw_sprite_part(s_Hud_Mana, 0, 0, 0, floor(true_mana * (sprite_get_width(s_Hud_Mana) / mana_max)), sprite_get_height(s_Hud_Mana), manax, manay)
+
+	// Pulse
+	var pulse_trunc = pulse
+	if pulse > pulse_req
+	{
+		pulse_trunc = pulse - pulse_req
+		draw_sprite(s_Hud_Extra, 0, xpos, ypos)
+	}
+	
+	var imgind = floor(pulse_trunc / (pulse_req / sprite_get_number(s_Hud_Pulse)))
+	draw_sprite(s_Hud_Pulse, imgind, xpos, ypos)
+	
+	// Combo
+	draw_sprite(s_Hud_Combo, min(combo, combo_max), xpos, ypos)
+
+	// Combo fire
+	if combo > 3
+	{
+		if sprite_index == -1 {sprite_index = s_Hud_ComboFire_Start}
+	}
+	else
+	{
+		if sprite_index != -1 {sprite_index = s_Hud_ComboFire_Miss}
+	}
+	if sprite_index != -1 {draw_sprite(sprite_index, image_index, xpos, ypos)}
+
+	// Caps
+	if hp_max <= hp_max_default
+	{
+		draw_sprite(s_Hud_Caps, 1, xpos, ypos)
+	}
+	if pulse_max <= pulse_req
+	{
+		draw_sprite(s_Hud_Caps, 0, xpos, ypos)
+	}
 }
-
-//Draw Pulse Meter
-
-if owner.pulse_obtained
-{	
-	shader_set(pulse_meter);
-	
-	var baseUVs = texture_get_uvs(uni_base_texture);
-	var alphaUVs = texture_get_uvs(uni_alpha_texture);
-	
-	texture_set_stage(uni_base_texture, base_t);
-	texture_set_stage(uni_alpha_texture, alpha_t);
-	
-	shader_set_uniform_f(shader_get_uniform(pulse_meter, "baseUVs"), baseUVs[0], baseUVs[1], baseUVs[2] - baseUVs[0], baseUVs[3] - baseUVs[1]);
-	shader_set_uniform_f(shader_get_uniform(pulse_meter, "alphaUVs"), alphaUVs[0], alphaUVs[1], alphaUVs[2] - alphaUVs[0], alphaUVs[3] - alphaUVs[1]);
-	
-	var pulse_current = owner.pulse_points / owner.pulse_points_requirement
-	shader_set_uniform_f(uni_percent, pulse_current);
-	
-	draw_sprite(pulse_meter_ring, 0, 20, 24);
-	shader_reset();
-	
-	
-	
-	//var pulse_ring = draw_sprite(s_spiral_gradient,0,20,24);
-	
-}
-
-//draw_sprite(pulse_meter_circle,0,20,24);
-
-
-
-
-
-
