@@ -40,7 +40,7 @@ shake_amount = 0;
 
 
 //Combat Variables
-pulse_points = 250;
+pulse_points = 1000000;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
 create_pulse = false;

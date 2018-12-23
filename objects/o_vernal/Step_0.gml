@@ -86,11 +86,20 @@ and my_entity_state == entity_state.neutral
 	{
 		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
 		character_prep_pulse(-4,-39,1);
-		show_debug_message(my_action_buffer)
 	}
 	//Neutral Attacks
 	if my_direction_buffer == direction_input_buffer.neutral
-	{	
+	{
+		if pulse_points >= pulse_points_requirement and disallowed_action != s_player_pulse_stab
+		and (combo_counter == 1 or combo_counter == 2)
+		{
+			character_action_set(s_player_pulse_stab, 0, 0, 45, 50, true, true, true);
+			character_prep_pulse(-18,-24,0);
+			pulse_stab_start = true;
+			hsp = facing_direction * -1 * 4;
+			vsp = -1.6;
+			combo_counter += 1;
+		}
 	}
 	//Up Attacks
 	if my_direction_buffer == direction_input_buffer.up
@@ -104,5 +113,20 @@ and my_entity_state == entity_state.neutral
 	}
 }
 
+if sprite_index == s_player_pulse_stab
+{
+	if floor(image_index) == 2 hsp = 0;
+	if floor(image_index) == 7 and pulse_stab_start
+	{
+		pulse_stab_start = false
+		var i = 80;
+		while(i > 0 and character_collision(Player_Object, true))
+		{
+			x = floor(x) + facing_direction;
+			i-= 1;
+		}
+		
+	}
+}
 var index = image_index;
 spawn_pulse(index);

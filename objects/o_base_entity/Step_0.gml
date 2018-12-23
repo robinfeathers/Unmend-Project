@@ -115,9 +115,9 @@ if Player_Object = true
 	if my_entity_state == entity_state.neutral
 	and action_max_time <= 0
 	{
-	walk_with_input();
+		walk_with_input();
 	}
-	if my_entity_state == entity_state.acting
+	if my_entity_state == entity_state.acting and attack_hsp != 0
 	{
 		hsp = attack_hsp * input_direction;
 	}

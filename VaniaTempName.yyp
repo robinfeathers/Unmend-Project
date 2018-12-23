@@ -399,6 +399,14 @@
             }
         },
         {
+            "Key": "35d18b4c-5999-42ee-8201-510248275f91",
+            "Value": {
+                "id": "32f498a3-9c0a-4102-b58e-803df808e0c6",
+                "resourcePath": "sprites\\s_Stun\\s_Stun.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "36458be6-5e75-48dc-abe5-14886a06b728",
             "Value": {
                 "id": "1f1f13ee-c481-4050-81b6-4ded9ed5cd6e",
@@ -1916,6 +1924,14 @@
                 "id": "f9e40a8d-9246-4a3d-911a-40132cb21638",
                 "resourcePath": "views\\e39fb8df-7381-4eda-b784-bffc6da4766c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e4b817f7-730b-4f5b-adb3-adcc8a96f2ab",
+            "Value": {
+                "id": "f160f4fc-ed19-408c-ad87-86d1e23d2255",
+                "resourcePath": "sprites\\s_player_pulse_stab\\s_player_pulse_stab.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

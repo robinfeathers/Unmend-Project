@@ -15,3 +15,4 @@ enum non_repeatable_actions
 	s_player_launch_fx,
 }
 repeat_action = non_repeatable_actions.none;
+pulse_stab_start = false;

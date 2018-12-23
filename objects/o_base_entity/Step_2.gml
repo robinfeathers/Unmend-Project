@@ -35,7 +35,7 @@ if !gravity_allowed and !check_if_ground(abs(hsp)+1) and my_entity_state == enti
 	vsp = 0.2
 }
 
-character_collision(Player_Object);
+character_collision(Player_Object, false);
 
 //ANIMATOR
 if my_entity_state == entity_state.neutral
