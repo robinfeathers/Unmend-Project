@@ -38,6 +38,15 @@ damage_angle = 0;
 shake = 0;
 shake_amount = 0;
 
+enum stunned_state
+{
+	none,
+	launch_up,
+	launch_down,
+	launch_side,
+	bounce
+}
+character_stunned_state = stunned_state.none;
 
 //Combat Variables
 pulse_points = 1000000;
@@ -58,6 +67,7 @@ dmg_taken = 0;
 poise_dmg_taken = 0;
 invincible = false;
 sleeping = false;
+sleep_time = 0;
 
 combo_counter = 0;
 action_min_time = 0;

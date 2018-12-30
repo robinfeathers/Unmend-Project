@@ -1,27 +1,26 @@
 /// @desc Takes place before child step event
 //Damage Taking Events
-if got_hit
+if got_hit and !invincible and !sleeping
 {
-	if !invincible and !sleeping
+//standard damage_taking
+	got_hit = false;
+	hp -= dmg_taken;
+	hp = max(hp, 0);
+	if my_entity_state != entity_state.stunned
 	{
-		got_hit = false;
-		hp -= dmg_taken;
-		hp = max(hp, 0);
-		if my_entity_state != entity_state.stunned
-		{
-			poise -= poise_dmg_taken;
-			poise = max(poise,0);
-			shake = 2;
-			shake_amount = 1;
-		}
-		else
-		{
-			stun_time -= poise_dmg_taken/3;
-			stun_time = max(stun_time,0);
-			shake = 3;
-			shake_amount = 2;
-		}
+		poise -= poise_dmg_taken;
+		poise = max(poise,0);
+		shake = 2;
+		shake_amount = 1;
 	}
+	else
+	{
+		stun_time -= poise_dmg_taken/3;
+		stun_time = max(stun_time,0);
+		shake = 3;
+		shake_amount = 2;
+	}
+	
 	if poise > 0 and poise < poise_max and my_entity_state != entity_state.stunned
 	{
 		poise_regain = poise_regain_max;
@@ -50,13 +49,68 @@ if got_hit
 			vsp = -5.5;
 			instance_create_depth(x, bbox_bottom, 8, launch_gust);
 			play_animation(launch_up_animation);
+			character_stunned_state = stunned_state.launch_up
 		}
 		else if launch_property == l_property.launch_down show_debug_message("DOWN")
 		else if launch_property == l_property.launch_side show_debug_message("SIDE")
-		else if launch_property == l_property.bounce show_debug_message("BOUNCE")
+		else if launch_property == l_property.bounce or character_stunned_state != stunned_state.none
+		{
+			character_stunned_state = stunned_state.bounce;
+			vsp = -4;
+			play_animation(bounce_floor_animation);
+		}
 	}
-	launch_property = l_property.none;
+	launch_property = l_property.none
+	//launch_property = l_property.none;
 }
+
+if got_hit and (invincible or sleeping)
+{
+	launch_property = l_property.none;
+	dmg_taken = 0;
+	poise_dmg_taken = 0;
+	got_hit = false;
+}
+
+//Launch Functions
+
+//bounce on ground
+if character_stunned_state == stunned_state.launch_up and vsp >= 0 and check_if_ground(1)
+{
+	character_stunned_state = stunned_state.bounce;
+	vsp = -4;
+	play_animation(bounce_floor_animation);
+}
+
+if character_stunned_state == stunned_state.bounce
+{
+	if vsp >= 0 and !check_if_ground(1)
+	{
+		play_animation(launch_down_animation);
+	}
+	else if vsp >= 0 and check_if_ground(1)
+	{
+		play_animation(sleep_animation);
+		character_stunned_state = stunned_state.none;
+		sleeping = true;
+		sleep_time = 45;
+		invincible = true;
+		stun_time = 0;
+		poise = poise_max;
+	}
+}
+
+//sleep
+if sleep_time > 0 and sleeping
+{
+	sleep_time -= get_delta_time();
+}
+if sleep_time <= 0 and sleeping and my_entity_state == entity_state.stunned
+{
+	sleep_time = 0;
+	play_animation(wake_animation);
+}
+
 //time down to regain poise
 if poise_regain > 0 and my_entity_state != entity_state.stunned
 {
@@ -74,7 +128,7 @@ else if poise_regain <= 0 and poise < poise_max and my_entity_state != entity_st
 if stun_delay > 0 and my_entity_state == entity_state.stunned
 {
 	stun_delay -= get_delta_time();
-	stun_delay  = max(stun_delay , 0);
+	stun_delay = max(stun_delay , 0);
 }
 //time down to ending stunned state
 if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunned
@@ -82,11 +136,12 @@ if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunne
 	stun_time -= (max_stun_time/100) * stun_recovery_rate * get_delta_time();
 }
 //return to neutral
-else if stun_time <= 0 and my_entity_state == entity_state.stunned
+else if stun_time <= 0 and my_entity_state == entity_state.stunned and !sleeping
 {
 	stun_time = 0;
 	my_entity_state = entity_state.neutral;
 	poise = poise_max;
+	character_stunned_state = stunned_state.none
 }
 
 
