@@ -21,3 +21,18 @@ if sprite_index == wake_animation
 	sleeping = false;
 	my_entity_state = entity_state.neutral
 }
+
+//special actions
+if sprite_index == ground_pound_animation_01
+{
+	play_animation(ground_pound_animation_02)
+	vsp = max(max_fallsp*2,vsp);
+}
+
+if sprite_index == invincible_animation
+{
+	invincible_animation = noone;
+	invincibility_starting_frame = 0;
+	invincibility_ending_frame = 0;
+	invincible = false;
+}

@@ -27,12 +27,10 @@ if vsp < 0
 }
 
 //make character fall at a certain rate and cap the player's fall speed
-else if (vsp >= 0) and (vsp < max_fallsp)
+else if (vsp >= 0)
 {
 	vsp += (weight * gravity_resistance) * get_delta_time();
 	if my_entity_state == entity_state.stunned vsp = min(max_fallsp/1.5,vsp);
-}
-else
-{
-	vsp = max_fallsp
+	else if character_ground_pound vsp = min(max_fallsp*10,vsp)
+	else vsp = min(max_fallsp,vsp)
 }

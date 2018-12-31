@@ -8,7 +8,8 @@
         "a013c509-a1fe-4ef1-ab9b-6cbb73af351c",
         "317840e5-a15f-4e23-b253-ba86d46dc89c",
         "9f36ac8f-ca99-46dd-aeff-db7393c0da1c",
-        "00bc041e-9a96-4a7b-a909-1be703fcbbbe"
+        "00bc041e-9a96-4a7b-a909-1be703fcbbbe",
+        "1656f255-6c9b-4863-bb90-6af127357424"
     ],
     "filterType": "GMScript",
     "folderName": "Character_actions",

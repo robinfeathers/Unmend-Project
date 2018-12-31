@@ -10,32 +10,35 @@ if action_max_time > 0
 	action_max_time -= get_delta_time();
 }
 
-if action_min_time <= 0 and !action_await and my_entity_state == entity_state.acting and my_entity_state != entity_state.stunned
+if action_min_time <= 0 and !action_await
+and my_entity_state == entity_state.acting and my_entity_state != entity_state.stunned
+and check_special_action_states(1,1,1,1,1)
 {
 	my_entity_state = entity_state.neutral;
 	action_min_time = 0;
 	attack_hsp = 0;
 	hsp = 0;
 	slash_created = false;
+	gravity_allowed = true;
 }
 if action_max_time <= 0 and my_entity_state != entity_state.stunned
+and check_special_action_states(1,1,1,1,1)
 {
 	end_attack();
 	my_entity_state = entity_state.neutral;
 }
 
 //Collision and Movement
-if gravity_allowed and !check_if_ground(abs(hsp)+1)
+if gravity_allowed and character_collision(Player_Object, false, true, false, false) == "none"
 {
 	character_gravity(Player_Object);
 	current_generic_action = generic_actions.jump;
 }
 if !gravity_allowed and !check_if_ground(abs(hsp)+1) and my_entity_state == entity_state.acting
 {
-	vsp = 0.2
+	vsp = min(vsp,0.2)
 }
-
-character_collision(Player_Object, false);
+character_collision(Player_Object, false, false, false, false);
 
 //ANIMATOR
 if my_entity_state == entity_state.neutral
@@ -185,3 +188,5 @@ else
 {
 	shake = 0;
 }
+
+character_debug = false;

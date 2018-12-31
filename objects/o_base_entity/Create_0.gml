@@ -20,7 +20,11 @@ fall_sp = 0;
 max_fallsp = 5.25;
 slope_speed_cap = true;
 
-slide_sp = 0;
+slide_timer = 0;
+max_slide_sp = 7;
+
+slide_left = false;
+slide_right = false;
 
 //Taking Damage Variables
 hp = hp_max;
@@ -37,6 +41,10 @@ attacker = noone;
 damage_angle = 0;
 shake = 0;
 shake_amount = 0;
+
+invincibility_starting_frame = 0;
+invincibility_ending_frame = 0;
+invincible_animation = noone;
 
 enum stunned_state
 {
@@ -161,6 +169,13 @@ enum entity_state
 }
 my_entity_state = entity_state.neutral;
 
+//Special Action States
+character_ground_pound = false;
+character_slide = false;
+character_air_step = false;
+character_dash = false;
+character_ledge_hold = false;
+
 //Abilities Allowed
 enum ability_allowed
 {
@@ -209,5 +224,6 @@ enum l_property
 }
 launch_property = l_property.none
 
-
+//debug vars
+character_debug = true;
 
