@@ -239,6 +239,14 @@
             }
         },
         {
+            "Key": "1656f255-6c9b-4863-bb90-6af127357424",
+            "Value": {
+                "id": "4e413563-a6fc-47a1-8eba-311a4f9f5573",
+                "resourcePath": "scripts\\invincibility_anim_set\\invincibility_anim_set.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "178b1ec3-98f9-4f77-9bea-ae572b722478",
             "Value": {
                 "id": "a3d6fd8e-cd8f-4e24-a92c-b60d186b7c25",
@@ -460,6 +468,14 @@
                 "id": "ce7846c9-27ba-4f58-a7b7-95eaced0ee01",
                 "resourcePath": "objects\\grappler\\grappler.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "39a4eac4-3631-4ba8-ae07-dc27f33229c5",
+            "Value": {
+                "id": "25482286-775f-4fb8-ad5e-46bb4bea151a",
+                "resourcePath": "scripts\\character_debugger\\character_debugger.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -860,6 +876,14 @@
                 "id": "e31d1583-b318-4184-875e-8aab32d1b4a1",
                 "resourcePath": "objects\\testbox\\testbox.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "65e19028-d013-470f-becc-c025d91f4319",
+            "Value": {
+                "id": "671b4950-cbbf-4dfb-8d46-170eab1a18ed",
+                "resourcePath": "scripts\\check_special_action_states\\check_special_action_states.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2369,18 +2393,21 @@
         "317840e5-a15f-4e23-b253-ba86d46dc89c",
         "9f36ac8f-ca99-46dd-aeff-db7393c0da1c",
         "00bc041e-9a96-4a7b-a909-1be703fcbbbe",
+        "1656f255-6c9b-4863-bb90-6af127357424",
         "bf4d6a32-f618-47d2-b877-23e0ba11d04b",
         "9064ff38-63c0-4fd2-99d7-dc29c24763b2",
         "4fa00dc9-8424-4238-b47d-9cbabdbd9f91",
         "c42c244f-4dda-461b-a6fc-4d0b69e3d2a0",
         "8d6c3797-5eb4-408d-8925-0a41dcf69bf9",
         "cffd791c-cdc0-4961-aef4-706bfb0ba2e5",
+        "65e19028-d013-470f-becc-c025d91f4319",
         "2c1d6d11-fa80-49b0-b783-10019128ad3c",
         "290ec6ce-4cbc-457a-8bef-0102e6d6f991",
         "f37586f2-f2bd-45bb-9af5-aaf19c6234e5",
         "19dd2038-a08f-4ec8-a4cf-4ca24be4287d",
         "88cf10be-bcc6-4a7e-8ff1-47593870848d",
         "529fd3bd-7689-45db-9d91-e4b9d3549d16",
+        "39a4eac4-3631-4ba8-ae07-dc27f33229c5",
         "53533dee-12eb-41d6-a296-8330e536ddea",
         "66602592-8e24-4a7b-afc9-c704581cb9cf",
         "f91131fb-709d-4e50-8550-af3f39e67706",

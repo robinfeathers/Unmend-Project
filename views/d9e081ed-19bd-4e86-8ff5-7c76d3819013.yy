@@ -9,7 +9,8 @@
         "10235b39-4ecc-4540-86e9-fda6856e361f",
         "ad078b56-d2de-46c1-90d7-13dc2de0c347",
         "a091ea4c-1bec-4f09-aa50-5a3296aad59f",
-        "0fab4eda-1f3e-46af-b9bc-6de706f782d9"
+        "0fab4eda-1f3e-46af-b9bc-6de706f782d9",
+        "65e19028-d013-470f-becc-c025d91f4319"
     ],
     "filterType": "GMScript",
     "folderName": "Character_functions",

@@ -4,7 +4,6 @@ get_player_input()
 
 if key_restart game_restart();
 
-//if sliding show_debug_message(vsp)
 //Help animator figure out which way you wanna look
 if (intended_direction == 1) || (intended_direction == -1)
 {

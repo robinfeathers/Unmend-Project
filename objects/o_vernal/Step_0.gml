@@ -4,6 +4,15 @@ event_inherited();
 //MISSING: Unspammable attacks, prevents reuse until combo ends or new move is used
 
 //INPUT BASED UNIQUE PLAYER ACTIONS
+if key_dodge or my_action_buffer == action_input_buffer.dodge
+{
+	if input_direction == 0 and character_collision(Player_Object, false, true, false, false) != "none"
+	{
+		character_action_set(s_player_backflip,0,0,20,23,true,true,true)
+		invincibility_anim_set(0,5);
+		hsp = 1.4 * image_xscale * -1
+	}
+}
 //Normal Attacks
 if (key_attack or my_action_buffer == action_input_buffer.n_attack)
 and my_entity_state == entity_state.neutral
@@ -82,10 +91,11 @@ if (key_specialattack or my_action_buffer == action_input_buffer.s_attack)
 and my_entity_state == entity_state.neutral
 {
 	//Base Pulse
-	if pulse_points < pulse_points_requirement and disallowed_action != s_player_pulse_neutral
+	if /*pulse_points < pulse_points_requirement and */disallowed_action != s_player_pulse_neutral
 	{
 		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
 		character_prep_pulse(-4,-39,1);
+		invincibility_anim_set(2,5);
 	}
 	//Neutral Attacks
 	if my_direction_buffer == direction_input_buffer.neutral
@@ -120,7 +130,7 @@ if sprite_index == s_player_pulse_stab
 	{
 		pulse_stab_start = false
 		var i = 80;
-		while(i > 0 and character_collision(Player_Object, true))
+		while(i > 0 and character_collision(Player_Object, true, false, false, false))
 		{
 			x = floor(x) + facing_direction;
 			i-= 1;
