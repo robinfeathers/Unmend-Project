@@ -1,9 +1,9 @@
+/*
 var draw_dumb = 0;
 if Player_Object draw_dumb = 1;
 
 draw_sprite_ext(sprite_index, image_index, x , y + draw_dumb, image_xscale, image_yscale, 0, -1, 1);
-
-/*
+*/
 
 var xmod = 0
 var ymod = 0
@@ -13,27 +13,19 @@ if shake > 0
 	ymod = random_range(shake_amount, -shake_amount)
 }
 	
-var surfw = shadow_width
-var surfh = 7
-var surf = surface_create(surfw, surfh)
-
-	
-surface_set_target(surf)
+// Shadow drawing	
 draw_set_color(c_black)
 draw_set_alpha(0.5)
-draw_ellipse(0, 0, surfw - 1, surfh - 1, false)
-draw_set_alpha(1)
-surface_reset_target()
-	
-for (var i = 0; i < surfw; i += 1)
+for (var ind = 0; ind < shadow_width; ind += 1)
 {
-	var surf2 = surface_create(1, surfh)
-	surface_set_target(surf2)
-	draw_surface(surf, 0 - i, 0)
-	surface_reset_target()
-		
-	var xpos = x - floor(shadow_width / 2) + i + xmod
+	// Get subimage - 0 for edge, 1 for inner
+	var sind = 1
+	if ind == 0 || ind == shadow_width - 1 {sind = 0}
+	
+	var xpos = x - floor(shadow_width / 2) + ind + xmod
 	var ypos = bbox_top
+	
+	// Place shadow onto ground
 	var failed = false
 	while !check_ground(xpos, ypos)
 	{
@@ -46,15 +38,13 @@ for (var i = 0; i < surfw; i += 1)
 	}
 	if !failed
 	{
-		ypos -= 4
-		draw_surface(surf2, xpos, ypos)
+		//ypos -= 4
+		draw_sprite(s_shadow, sind, xpos, ypos)
 	}
-	surface_free(surf2)
 }
-	
-surface_free(surf)
+draw_set_alpha(1)
 
-
+// Draw regular sprite
 draw_sprite_ext(sprite_index, image_index, x + xmod, y + ymod, image_xscale, image_yscale, 0, -1, 1);
 
 if stun_time > 0
