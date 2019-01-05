@@ -3,14 +3,16 @@ cam = view_camera[0]
 
 follow = noone;
 
-with (o_base_entity)
+/*with (o_base_entity)
 {
 	if Player_Object = true
 	{
 		other.follow = id
 		break
 	}
-}
+}*/
+
+follow = o_vernal;
 
 xto = x;
 yto = y;

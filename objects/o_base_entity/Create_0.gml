@@ -21,7 +21,7 @@ max_fallsp = 5.25;
 slope_speed_cap = true;
 
 slide_timer = 0;
-max_slide_sp = 7;
+max_slide_sp = 6.8;
 
 slide_left = false;
 slide_right = false;
@@ -57,7 +57,7 @@ enum stunned_state
 character_stunned_state = stunned_state.none;
 
 //Combat Variables
-pulse_points = 1000000;
+pulse_points = 10000;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
 create_pulse = false;

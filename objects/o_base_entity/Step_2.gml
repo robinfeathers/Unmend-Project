@@ -120,6 +120,7 @@ if my_entity_state == entity_state.neutral
 		if (vsp < 0)
 		and (vsp <= fall_anim_delay)
 		and sprite_index != air_rise_animation
+		and sprite_index != slide_jump_animation_02
 		{
 			play_animation(air_rise_animation);
 		}
