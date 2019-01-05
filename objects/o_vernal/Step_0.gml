@@ -7,8 +7,9 @@ event_inherited();
 if key_dodge or my_action_buffer == action_input_buffer.dodge
 {
 	if input_direction == 0 and character_collision(Player_Object, false, true, false, false) != "none"
+	and disallowed_action != s_player_backflip
 	{
-		character_action_set(s_player_backflip,0,0,20,23,true,true,true)
+		character_action_set(s_player_backflip,0,0,20,30,true,true,true)
 		invincibility_anim_set(0,5);
 		hsp = 1.4 * image_xscale * -1
 	}
@@ -114,7 +115,7 @@ and my_entity_state == entity_state.neutral
 	//Up Attacks
 	if my_direction_buffer == direction_input_buffer.up
 	{
-			
+		
 	}
 	//Down Attacks
 	if my_direction_buffer == direction_input_buffer.down

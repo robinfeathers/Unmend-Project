@@ -3,6 +3,11 @@ if (follow != noone)
 	xto = follow.x
 	yto = follow.y - 48
 }
+else
+{
+	xto = 0;
+	yto = 0;
+}
 
 x += (xto - x)/10;
 y += (yto - y)/10;

@@ -824,7 +824,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "s_e_george_airidle",
+            "value": "s_player_slide_highjump",
             "varName": "slide_jump_animation_02",
             "varType": 5
         }

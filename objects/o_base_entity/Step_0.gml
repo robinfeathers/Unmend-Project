@@ -4,7 +4,7 @@
 if invincible_animation = sprite_index
 {
 	if floor(image_index) >= invincibility_starting_frame
-	or floor(image_index) <= invincibility_ending_frame
+	and floor(image_index) <= invincibility_ending_frame
 	{
 		invincible = true;
 	}
@@ -187,7 +187,7 @@ if character_ground_pound
 		{
 			slide_right = false;
 			slide_left = true;
-			hsp = max_slide_sp * 0.75 * -1;
+			hsp = max_slide_sp * 0.25 * -1;
 			vsp = 0;
 			facing_direction = -1;
 			image_xscale = -1;
@@ -196,7 +196,7 @@ if character_ground_pound
 		{
 			slide_right = true;
 			slide_left = false;
-			hsp = max_slide_sp * 0.75;
+			hsp = max_slide_sp * 0.25;
 			vsp = 0;
 			facing_direction = 1;
 			image_xscale = 1;
@@ -214,14 +214,15 @@ if character_slide
 		if collision_results == "lslope"
 		{
 			play_animation(slide_down_animation);
-			hsp -= 0.2;
+			hsp -= 0.5 * get_delta_time();
 			hsp = max(hsp, max_slide_sp * -1);
-			slide_timer = 20;
+			slide_timer = (abs(hsp)/max_slide_sp) * 20;
 		}
 		if collision_results == "rslope"
 		{
 			play_animation(slide_up_animation);
 			slide_timer = 0;
+			hsp = image_xscale * min(max_slide_sp * 0.9, abs(hsp));
 		}
 	}
 	
@@ -231,13 +232,14 @@ if character_slide
 		{
 			play_animation(slide_up_animation);
 			slide_timer = 0;
+			hsp = image_xscale * min(max_slide_sp * 0.9, abs(hsp));
 		}
 		if collision_results == "rslope"
 		{
 			play_animation(slide_down_animation);
-			hsp += 0.2;
+			hsp += 0.5 * get_delta_time();
 			hsp = min(hsp, max_slide_sp);
-			slide_timer = 20;
+			slide_timer = (abs(hsp)/max_slide_sp) * 20;
 		}
 	}
 	
@@ -252,6 +254,7 @@ if character_slide
 			//TO BE ADJUSTED FOR FUTURE JUMP
 			play_animation(slide_jump_animation_01);
 			slide_time = false;
+			hsp = image_xscale * min(max_slide_sp * 0.95, abs(hsp));
 		}
 	}
 	
@@ -353,7 +356,11 @@ if Player_Object = true
 				{
 					character_slide = false;
 					hsp = hsp * 0.8;
-					vsp = max(jump_height * 1.25, jump_height - abs(hsp));
+					vsp = max(jump_height * 1.4, jump_height - abs(hsp));
+					instance_create_depth(x, bbox_bottom-4, 8, launch_gust);
+					//CHANGE TO VARIABLE LATER
+					play_animation(slide_jump_animation_02);
+					reset_animation = slide_jump_animation_02;
 				}
 				else
 				{
@@ -383,6 +390,7 @@ if Player_Object = true
 	if vsp < jump_height / 3
 	and !key_jump_held
 	and my_entity_state == entity_state.neutral
+	and sprite_index != slide_jump_animation_02
 	{
 		vsp = jump_height / 3;
 	}

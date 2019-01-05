@@ -2,7 +2,7 @@
 // You can write your code in this editor
 event_inherited();
 
-if test_attack_time <= 0
+if test_attack_time <= 0 and check_if_ground(1) and my_entity_state == entity_state.neutral
 {
 	test_attack_time = test_attack_time_max;
 	character_action_set(s_e_yknight_maincombo,0,0,80,80,true,false,false);

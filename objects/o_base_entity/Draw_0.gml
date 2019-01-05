@@ -1,3 +1,10 @@
+var draw_dumb = 0;
+if Player_Object draw_dumb = 1;
+
+draw_sprite_ext(sprite_index, image_index, x , y + draw_dumb, image_xscale, image_yscale, 0, -1, 1);
+
+/*
+
 var xmod = 0
 var ymod = 0
 if shake > 0

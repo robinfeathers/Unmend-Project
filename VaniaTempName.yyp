@@ -1151,6 +1151,14 @@
             }
         },
         {
+            "Key": "827353fd-e817-43dc-bd8a-3e9b85b1980f",
+            "Value": {
+                "id": "c26090ee-ad8a-44bf-85bc-852180b95315",
+                "resourcePath": "sprites\\s_player_slide_highjump\\s_player_slide_highjump.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8289d217-4b13-4387-bdbf-163225b38346",
             "Value": {
                 "id": "e672791f-2f38-4bee-9d38-e510e7598b51",
