@@ -17,6 +17,8 @@ attack_hsp = 0;
 
 gravity_allowed = true;
 fall_sp = 0;
+slow_gravity = 0;
+
 max_fallsp = 5.25;
 slope_speed_cap = true;
 
@@ -65,6 +67,12 @@ pulse_o_x = x;
 pulse_o_y = y;
 pulse_start_frame = 0;
 mana_points = 0;
+
+rise_attack = false;
+rise_confirm = false;
+rise_vsp = 0;
+
+spell_cast = "none";
 
 disallowed_action = noone;
 

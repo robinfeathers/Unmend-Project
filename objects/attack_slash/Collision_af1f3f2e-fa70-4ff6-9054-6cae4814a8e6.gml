@@ -55,6 +55,7 @@ if floor(image_index) <= starting_frame
 			dmg_taken = other.dmg;
 			poise_dmg_taken = other.poise_dmg;
 			got_hit = true;
+			attacker = other.creator
 			}
 			if character_hit.invincible == false and character_hit.sleeping == false
 			{

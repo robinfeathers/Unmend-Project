@@ -24,3 +24,5 @@ create_slash_start_action = argument[9];
 
 if !argument[10] create_slash = true;
 else create_slash_special_case = true;
+
+rise_attack = false;

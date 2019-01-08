@@ -22,7 +22,8 @@ if argument[0] = true
 //slow the character during their ascent
 if vsp < 0
 {
-	if my_entity_state == entity_state.stunned vsp += weight * get_delta_time()/2;
+	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp += weight * get_delta_time()/2.5;
+	else if sprite_index == slide_jump_animation_02 vsp += weight * get_delta_time()/1.75;
 	else vsp += weight * get_delta_time();
 }
 
@@ -30,7 +31,7 @@ if vsp < 0
 else if (vsp >= 0)
 {
 	vsp += (weight * gravity_resistance) * get_delta_time();
-	if my_entity_state == entity_state.stunned vsp = min(max_fallsp/1.5,vsp);
+	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp = min(max_fallsp/1.75,vsp);
 	else if character_ground_pound vsp = min(max_fallsp*10,vsp)
 	else vsp = min(max_fallsp,vsp)
 }

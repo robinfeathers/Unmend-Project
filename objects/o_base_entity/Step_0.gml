@@ -79,8 +79,13 @@ if got_hit and !invincible and !sleeping
 		else if launch_property == l_property.bounce or character_stunned_state != stunned_state.none
 		{
 			character_stunned_state = stunned_state.bounce;
-			vsp = -4;
+			vsp = -3;
 			play_animation(bounce_floor_animation);
+			if attacker != noone
+			{
+				attacker.rise_confirm = true;
+				attacker.slow_gravity = 20;
+			}
 		}
 	}
 	launch_property = l_property.none
@@ -356,7 +361,8 @@ if Player_Object = true
 				{
 					character_slide = false;
 					hsp = hsp * 0.8;
-					vsp = max(jump_height * 1.4, jump_height - abs(hsp));
+					//vsp = max(jump_height * 1.4, jump_height - abs(hsp));
+					vsp = jump_height * 1.1;
 					instance_create_depth(x, bbox_bottom-4, 8, launch_gust);
 					//CHANGE TO VARIABLE LATER
 					play_animation(slide_jump_animation_02);
@@ -394,4 +400,29 @@ if Player_Object = true
 	{
 		vsp = jump_height / 3;
 	}
+}
+
+//Pop up when you hit an enemy and pop up with them
+if slow_gravity > 0
+{
+	/*if rise_confirm
+	{
+		vsp = -2.5;
+		rise_confirm = false;
+	}*/
+	
+	if rise_attack
+	{
+		slow_gravity -= get_delta_time();
+		slow_gravity = max(0,slow_gravity);
+		if rise_confirm vsp = rise_vsp; //-2.5 is a good base value
+	}
+	else slow_gravity = 0;
+	rise_confirm = false;
+}
+
+if rise_attack and action_min_time <= 0
+{
+	rise_attack = false;
+	slow_gravity = 0;
 }
