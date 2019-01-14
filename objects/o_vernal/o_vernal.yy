@@ -188,6 +188,70 @@
             "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
             "propertyId": "e50e7c38-2a08-4c82-b8f4-0d3b620b51cd",
             "value": "True"
+        },
+        {
+            "id": "9006251a-5f6b-4f8f-8922-672f7cc875db",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "9b6f2d3f-c99b-404f-95d9-8ce9a5f875ec",
+            "value": "s_player_stunned"
+        },
+        {
+            "id": "3ba009aa-e18e-4f9f-8320-112c8002759e",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "3a5d11d1-5a11-4c40-87f4-d363cdcaeb86",
+            "value": "s_player_launch_h"
+        },
+        {
+            "id": "0c33b4ce-2f18-4b72-aa8a-3c94603a9cc0",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "9154e5b1-f6d0-4ad3-bd63-df6fa584007e",
+            "value": "s_player_launch_v"
+        },
+        {
+            "id": "4970bf03-10dc-4ebd-aefb-00ad056deb4b",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "026c6140-6411-456c-a03d-fa01ab49c89d",
+            "value": "s_player_launch_v_fall"
+        },
+        {
+            "id": "2c6e4803-bb05-4bbd-96e4-06afae326e49",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "5a1066a2-231c-4489-b988-9ff27ca93a8b",
+            "value": "s_player_launch_h_fall"
+        },
+        {
+            "id": "e6c0db69-7de4-4471-9df7-5b9d38a44ba7",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "2ef50ded-de52-4097-8317-4a9d9d833e98",
+            "value": "s_player_bounce_up"
+        },
+        {
+            "id": "150e75d1-7381-478b-a91c-52a7f1188dd6",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "e64cc576-a9c2-4149-aa1d-3ec290ac29e5",
+            "value": "s_player_bounce_fall"
+        },
+        {
+            "id": "bbf542c1-3c8e-4247-82b8-5e6fbeb5fd7d",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",
+            "propertyId": "a09a7493-6b28-4eca-b849-3c301a925e61",
+            "value": "s_player_rest"
         }
     ],
     "parentObjectId": "2660ec59-535c-4bb4-9170-e49b8b8550bc",

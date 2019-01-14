@@ -103,6 +103,11 @@ if got_hit and (invincible or sleeping)
 //Launch Functions
 
 //bounce on ground
+if character_stunned_state == stunned_state.launch_up and vsp >= 0
+{
+	play_animation(launch_down_animation);
+}
+
 if character_stunned_state == stunned_state.launch_up and vsp >= 0 and check_if_ground(1)
 {
 	character_stunned_state = stunned_state.bounce;
@@ -114,7 +119,7 @@ if character_stunned_state == stunned_state.bounce
 {
 	if vsp >= 0 and !check_if_ground(1)
 	{
-		play_animation(launch_down_animation);
+		play_animation(bounce_fall_animation);
 	}
 	else if vsp >= 0 and check_if_ground(1)
 	{

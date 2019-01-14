@@ -675,6 +675,20 @@
             "varType": 5
         },
         {
+            "id": "e64cc576-a9c2-4149-aa1d-3ec290ac29e5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_e_george_launch02",
+            "varName": "bounce_fall_animation",
+            "varType": 5
+        },
+        {
             "id": "a09a7493-6b28-4eca-b849-3c301a925e61",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

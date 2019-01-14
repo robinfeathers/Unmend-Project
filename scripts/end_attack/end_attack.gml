@@ -7,3 +7,5 @@ gravity_allowed = true;
 my_action_buffer = action_input_buffer.none;
 my_direction_buffer = direction_input_buffer.neutral;
 disallowed_action = noone;
+create_slash = false;
+create_slash_special_case = false;
