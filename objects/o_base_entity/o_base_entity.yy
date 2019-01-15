@@ -841,6 +841,48 @@
             "value": "s_player_slide_highjump",
             "varName": "slide_jump_animation_02",
             "varType": 5
+        },
+        {
+            "id": "efd40b4d-7f18-48c6-ab1e-69f575ba3764",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_ledge_grab",
+            "varName": "ledge_grab_animation",
+            "varType": 5
+        },
+        {
+            "id": "e1ada7ff-2758-42ba-be24-fd6241855920",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_ledge_hold",
+            "varName": "ledge_hold_animation",
+            "varType": 5
+        },
+        {
+            "id": "1922dd16-a72d-41e7-bc0d-fe58206405ca",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_ledge_getup",
+            "varName": "ledge_climb_animation",
+            "varType": 5
         }
     ],
     "solid": false,

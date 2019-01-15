@@ -4,7 +4,8 @@ event_inherited();
 //MISSING: Unspammable attacks, prevents reuse until combo ends or new move is used
 
 //INPUT BASED UNIQUE PLAYER ACTIONS
-if key_dodge or my_action_buffer == action_input_buffer.dodge
+if (key_dodge or my_action_buffer == action_input_buffer.dodge)
+and my_entity_state == entity_state.neutral
 {
 	if input_direction == 0 and character_collision(Player_Object, false, true, false, false) != "none"
 	and disallowed_action != s_player_backflip

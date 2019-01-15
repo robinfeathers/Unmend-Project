@@ -4,13 +4,18 @@
 if invincible_animation = sprite_index
 {
 	if floor(image_index) >= invincibility_starting_frame
-	and floor(image_index) <= invincibility_ending_frame
+	and (floor(image_index) <= invincibility_ending_frame or invincibility_ending_frame == -1)
 	{
 		invincible = true;
 	}
 	if floor(image_index) > invincibility_ending_frame
+	and invincibility_ending_frame != -1
 	{
+		show_debug_message(invincibility_ending_frame)
 		invincible = false;
+		invincible_animation = noone;
+		invincibility_starting_frame = 0;
+		invincibility_ending_frame = 0;
 	}
 }
 
@@ -310,7 +315,7 @@ if character_slide
 	}
 }
 
-//The following can only occur if the object is a Player_Object
+//INPUTS
 if Player_Object = true
 {
 	get_player_input()
@@ -325,7 +330,7 @@ if Player_Object = true
 		}
 	}
 
-	//INPUTS
+	//Reset generic action for animator
 	current_generic_action = generic_actions.idle;
 	
 	//Horizontal input
@@ -338,6 +343,86 @@ if Player_Object = true
 	if my_entity_state == entity_state.acting and attack_hsp != 0
 	{
 		hsp = attack_hsp * input_direction;
+	}
+	
+	//Grabbing a ledge
+	var block = instance_place(x +(input_direction * 4), y-24, o_t_solid);
+	if block != noone
+	and (key_up || input_direction != 0)
+	and vsp >= 0
+	and check_if_ground(3) == false
+	and place_meeting(x, y + 16, o_t_solid) == false
+	and place_meeting(x, y + vsp, o_t_solid) == false
+	and check_special_action_states(1,1,1,1,1)
+	and block.y > y - 32
+	and block.y < y - 20
+	{
+		var ledge_viable = false;
+		if input_direction == -1
+		and x > block.x + 16
+		{
+			ledge_x = block.x + 16
+			ledge_y = block.y
+			ledge_viable = true;
+			var facethisway = -1;
+		}
+		else if input_direction == 1
+		and x < block.x
+		{
+			ledge_x = block.x
+			ledge_y = block.y
+			ledge_viable = true;
+			var facethisway = 1;
+		}
+		
+		var denyblock = instance_place(ledge_x + input_direction, ledge_y - 8, o_t_solid)
+		if denyblock == noone
+		and ledge_viable == true
+		{
+			var denyblock = instance_place (ledge_x + input_direction, ledge_y - 16, o_t_solid)
+		}
+	
+			if denyblock == noone
+			and ledge_viable == true
+		{
+			character_ledge_hold = true;
+			character_action_set(ledge_grab_animation,0,0,100,100,false,false,false);
+			image_xscale = facethisway;
+			x = ledge_x;
+			y = ledge_y;
+		}
+	}
+	else
+	{
+		ledge_x = 0;
+		ledge_y = 0;
+	}
+	
+	if character_ledge_hold and sprite_index != ledge_climb_animation
+	{
+		if key_jump or my_action_buffer == action_input_buffer.jump
+		{
+			my_action_buffer = action_input_buffer.none;
+			jump_buffered = false;
+			vsp = jump_height;
+			end_attack();
+			x += 12 * (image_xscale * -1);
+			y += 32;
+		}
+		
+		else if key_down and sprite_index != ledge_climb_animation
+		{
+		play_animation(idle_animation_01)
+		end_attack()
+		x += 12 * (image_xscale * -1);
+		y += 32;
+		}
+		
+		if key_up
+		{
+			play_animation(ledge_climb_animation);
+			invincibility_anim_set(0,-1);
+		}
 	}
 	
 	//Jump key

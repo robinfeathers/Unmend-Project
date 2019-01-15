@@ -9,3 +9,9 @@ my_direction_buffer = direction_input_buffer.neutral;
 disallowed_action = noone;
 create_slash = false;
 create_slash_special_case = false;
+
+character_ledge_hold = false;
+character_air_step = false;
+character_dash = false;
+character_ground_pound = false;
+character_slide = false;

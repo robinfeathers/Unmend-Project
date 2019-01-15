@@ -28,6 +28,10 @@ max_slide_sp = 6.8;
 slide_left = false;
 slide_right = false;
 
+grabbing_ledge = false;
+ledge_x = 0;
+ledge_y = 0;
+
 //Taking Damage Variables
 hp = hp_max;
 poise = poise_max;

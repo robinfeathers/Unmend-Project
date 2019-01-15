@@ -36,3 +36,14 @@ if sprite_index == invincible_animation
 	invincibility_ending_frame = 0;
 	invincible = false;
 }
+
+if sprite_index == ledge_grab_animation
+{
+	play_animation(ledge_hold_animation);
+}
+if sprite_index == ledge_climb_animation
+{
+	x += image_xscale * 11
+	end_attack()
+	play_animation(idle_animation_01);
+}
