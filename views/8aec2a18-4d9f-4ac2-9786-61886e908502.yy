@@ -19,7 +19,8 @@
         "e2c735c8-3846-4420-ac56-287bb40af411",
         "93a26328-f2bc-4222-97ac-c08c0b0a7ad1",
         "3d089a9a-3b04-4348-b52c-72d67662b9a3",
-        "9e05243f-2287-4232-bd47-938d5762178c"
+        "9e05243f-2287-4232-bd47-938d5762178c",
+        "23388835-33ff-4f5b-a036-d37a038dd130"
     ],
     "filterType": "GMSprite",
     "folderName": "PlayerAdvancedMotions",

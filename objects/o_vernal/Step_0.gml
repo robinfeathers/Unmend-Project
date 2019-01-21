@@ -92,13 +92,7 @@ and my_entity_state == entity_state.neutral
 if (key_specialattack or my_action_buffer == action_input_buffer.s_attack)
 and my_entity_state == entity_state.neutral
 {
-	//Base Pulse
-	if /*pulse_points < pulse_points_requirement and */disallowed_action != s_player_pulse_neutral
-	{
-		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
-		character_prep_pulse(-4,-39,1);
-		invincibility_anim_set(2,5);
-	}
+	
 	//Neutral Attacks
 	if my_direction_buffer == direction_input_buffer.neutral
 	{
@@ -122,6 +116,15 @@ and my_entity_state == entity_state.neutral
 	if my_direction_buffer == direction_input_buffer.down
 	{
 			
+	}
+	//base_pulse
+	if disallowed_action != s_player_pulse_neutral
+	and !create_pulse
+	{
+		show_debug_message(pulse_points)
+		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
+		character_prep_pulse(-4,-39,1);
+		invincibility_anim_set(2,5);
 	}
 }
 

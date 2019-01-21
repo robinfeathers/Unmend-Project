@@ -267,6 +267,8 @@ if character_slide
 		if collision_results == "none"
 		{
 			//TO BE ADJUSTED FOR FUTURE JUMP
+			if my_action_buffer == action_input_buffer.jump and airstep_time <=0
+			{my_action_buffer = action_input_buffer.none}
 			play_animation(slide_jump_animation_01);
 			slide_time = false;
 			hsp = image_xscale * min(max_slide_sp * 0.95, abs(hsp));
@@ -278,29 +280,37 @@ if character_slide
 		slide_timer -= get_delta_time();
 		slide_timer = max(0,slide_timer);
 	}
-	
+	//stop slide on wall
 	if character_collision(Player_Object, false, false, true, false, false) == "wall"
+	and airstep_time <= 0
 	{
+		show_debug_message("airstep time shouldnt be up at all")
 		character_slide = false;
-		character_action_set(stop_animation_01,0,0,10,15,true,true,false)
 		slide_timer = 0;
+		if collision_results != "none" character_action_set(stop_animation_01,0,0,10,15,true,true,false)
+		else end_attack();
 	}
-	
-	if abs(hsp) < max_walk_sp/2 or input_direction + image_xscale == 0
+	//stop slide when speed is insufficient
+	if (abs(hsp) < max_walk_sp/2 or input_direction + image_xscale == 0) and character_slide
 	{
-		character_slide = false;
-		character_action_set(stop_animation_01,0,0,10,15,true,true,false);
-		slide_timer = 0;
-		if slide_left
+		if abs(hsp) < max_walk_sp/2 and airstep_time > 0
+		{show_debug_message("WHY")}
+		else
 		{
-			hsp = max(abs(hsp), max_walk_sp/2) * image_xscale;
-		}
-		if slide_right
-		{
-			hsp = max(abs(hsp), max_walk_sp/2) * image_xscale;
+			character_slide = false;
+			character_action_set(stop_animation_01,0,0,10,15,true,true,false);
+			slide_timer = 0;
+			if slide_left
+			{
+				hsp = max(abs(hsp), max_walk_sp/2) * image_xscale;
+			}
+			if slide_right
+			{
+				hsp = max(abs(hsp), max_walk_sp/2) * image_xscale;
+			}
 		}
 	}
-	
+	//subtract slide speed once timer is out
 	if slide_timer = 0 and character_slide and collision_results != "none"
 	{
 		hsp -= sign(image_xscale) * 0.1 * get_delta_time();
@@ -314,6 +324,10 @@ if character_slide
 		}
 	}
 }
+
+//A quick check for airstepping
+var collision_results = character_collision(Player_Object, false, true, false, false)
+if collision_results == "ground" airstep_wall = false;
 
 //INPUTS
 if Player_Object = true
@@ -373,6 +387,7 @@ if Player_Object = true
 			ledge_y = block.y
 			ledge_viable = true;
 			var facethisway = 1;
+			airstep_wall = false;
 		}
 		
 		var denyblock = instance_place(ledge_x + input_direction, ledge_y - 8, o_t_solid)
@@ -390,12 +405,8 @@ if Player_Object = true
 			image_xscale = facethisway;
 			x = ledge_x;
 			y = ledge_y;
+			airstep_wall = false;
 		}
-	}
-	else
-	{
-		ledge_x = 0;
-		ledge_y = 0;
 	}
 	
 	if character_ledge_hold and sprite_index != ledge_climb_animation
@@ -474,9 +485,85 @@ if Player_Object = true
 		}
 	}
 	
-	if key_jump and key_down and !check_if_ground(4) and (my_entity_state == entity_state.neutral or character_slide)
+	if (((key_jump or my_action_buffer == action_input_buffer.jump) and !key_down) or airstep_time > 0 or character_ground_pound)
+	and !check_if_ground(4) and (my_entity_state == entity_state.neutral or character_slide or character_ground_pound)
+	and check_special_action_states(0,0,1,1,1)
+	{
+		if airstep_time <= 0 airstep_time = airstep_time_max;
+		
+		var block = instance_position(x + image_xscale * ((bbox_right - bbox_left)/2 + 1), y-8, o_t_solid);
+		var enemy = instance_place(x + image_xscale, y, o_base_entity);
+		var airstep_viable = false;
+		
+		if block != noone
+		{
+			if image_xscale == 1
+			{
+				ledge_x = block.x
+			}
+			if image_xscale == -1
+			{
+				ledge_x = block.x + 16
+			}
+		}
+			
+		if enemy != noone
+		and y-8 < enemy.y
+		and y+32 > enemy.y
+		and !place_meeting(enemy.x, enemy.bbox_top + 2, o_t_solid)
+		{ 
+			airstep_wall = false;
+			airstep_viable = true;
+			show_debug_message("ENEMY")
+		}	
+		
+		else if
+		block != noone
+		and y - 10 > block.y
+		and y -30 < block.y
+		and !airstep_wall
+		and !character_ground_pound
+		{
+			show_debug_message("WALL")
+			if 
+			(image_xscale == 1 and x <= ledge_x)
+			or (image_xscale == -1 and x >= ledge_x)
+			{
+				airstep_wall = true;
+				x = ledge_x + (((bbox_right - bbox_left)/2) * image_xscale * -1);
+				airstep_viable = true;
+			}
+		}
+		
+		
+		if airstep_viable
+		{
+			if enemy != noone
+			{
+				play_animation(airstep_step_animation_01);
+				y = enemy.bbox_top + 2;
+				x = enemy.x;
+				stepped_target = enemy;
+				enemy.stepped_on = true;
+				spawn_landing_effect(1)
+			}
+			else if block != noone
+			{
+				play_animation(airstep_step_animation_02);
+			}
+			character_action_set(sprite_index,0,0,15,15,false,false,false);
+			character_air_step = true;
+			character_ground_pound = false;
+			character_slide = false;
+			airstep_step_time = airstep_step_time_max;
+		}
+	}
+	
+	if key_jump and key_down and !check_if_ground(4)
+	and (my_entity_state == entity_state.neutral or check_special_action_states(1,0,1,1,1))
 	{
 		character_action_set(s_player_dive_start,0,-1,0,0,false,true,false);
+		vsp = -3
 		vsp = -3
 		character_ground_pound = true;
 		character_slide = false;
@@ -490,7 +577,53 @@ if Player_Object = true
 	{
 		vsp = jump_height / 3;
 	}
+	
+	//subtract from airstep timers and make happen when sufficient
+	if airstep_time > 0 airstep_time -= get_delta_time();
+	if airstep_step_time > 0 airstep_step_time -= get_delta_time();
+	if airstep_step_time <= 0 and character_air_step
+	{
+		character_air_step = false;
+		var force_high_jump = false;
+		if key_left and !key_right
+		{
+			if airstep_wall == true and x > ledge_x
+			{
+				force_high_jump = true;
+			}
+			else
+			{
+				character_action_set(slide_jump_animation_01,0,jump_height*0.9, 15, 15, true, true, false);
+				hsp = input_direction * 4;
+				image_xscale = sign(hsp);
+			}
+		}
+	
+		if !key_left and key_right
+		{
+			if airstep_wall == true and x < ledge_x
+			{
+				force_high_jump = true;
+				show_debug_message(x)
+				show_debug_message(ledge_x)
+			}
+			else 
+			{
+				character_action_set(slide_jump_animation_01,0,jump_height*0.9, 15, 15, true, true, false);
+				hsp = input_direction * 4;
+				image_xscale = sign(hsp);
+			}
+		}
+	
+		if (!key_left and !key_right) or force_high_jump
+		{
+			character_action_set(slide_jump_animation_02,0,jump_height*0.85, 15, 15, true, true, false);
+		}
+		reset_animation = sprite_index;
+	}
 }
+
+
 
 //Pop up when you hit an enemy and pop up with them
 if slow_gravity > 0

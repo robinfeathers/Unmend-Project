@@ -17,7 +17,7 @@ and check_special_action_states(1,1,1,1,1)
 	my_entity_state = entity_state.neutral;
 	action_min_time = 0;
 	attack_hsp = 0;
-	hsp = 0;
+	//hsp = 0;
 	slash_created = false;
 	gravity_allowed = true;
 }
@@ -121,10 +121,13 @@ if my_entity_state == entity_state.neutral
 		and (vsp <= fall_anim_delay)
 		and sprite_index != air_rise_animation
 		and sprite_index != slide_jump_animation_02
+		and sprite_index != airstep_spin_animation
 		{
 			play_animation(air_rise_animation);
 		}
 		if (vsp >= fall_anim_delay)
+		and sprite_index != airstep_spin_animation
+		and sprite_index != slide_jump_animation_02
 		{
 			if vsp > 2.5
 			{

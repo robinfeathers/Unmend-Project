@@ -883,6 +883,48 @@
             "value": "s_player_ledge_getup",
             "varName": "ledge_climb_animation",
             "varType": 5
+        },
+        {
+            "id": "485c7209-5951-4623-9f0b-e30e689cf7fd",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_airstep_jump",
+            "varName": "airstep_spin_animation",
+            "varType": 5
+        },
+        {
+            "id": "1aefc2c7-e8e2-4bd6-af68-a54f2b29d3bb",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_airstep_enemy",
+            "varName": "airstep_step_animation_01",
+            "varType": 5
+        },
+        {
+            "id": "859e29b9-1e41-4236-b65c-3c44d9e5908b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_airstep_wall",
+            "varName": "airstep_step_animation_02",
+            "varType": 5
         }
     ],
     "solid": false,

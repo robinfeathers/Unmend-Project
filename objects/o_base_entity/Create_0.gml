@@ -32,12 +32,20 @@ grabbing_ledge = false;
 ledge_x = 0;
 ledge_y = 0;
 
+airstep_time_max = 10;
+airstep_time = 0;
+airstep_step_time_max = 15;
+airstep_step_time = 0;
+airstep_wall = false;
+stepped_target = noone;
+
 //Taking Damage Variables
 hp = hp_max;
 poise = poise_max;
-got_hit = false;
 dmg_taken = 0;
 poise_dmg_taken = 0;
+got_hit = false;
+stepped_on = false;
 
 poise_regain = 0;
 stun_delay = 0;
@@ -63,7 +71,7 @@ enum stunned_state
 character_stunned_state = stunned_state.none;
 
 //Combat Variables
-pulse_points = 10000;
+pulse_points = 0;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
 create_pulse = false;
@@ -122,21 +130,6 @@ bounce = false;
 launching_up = false;
 launching_down = false;
 launching_horizontal = false;
-
-//Special Action Variables
-air_stepping = false;
-air_step_wall = false;
-air_step_wall_id = noone;
-air_step_entity = false;
-air_step_entity_id = noone;
-airstep_holding = false;
-airstep_input_timer_max = 15;
-airstep_input_timer = 0;
-airstep_lock_max = 10;
-airstep_lock = 0;
-
-sliding = false;
-slide_stopping = false;
 
 //Animation Variables
 reset_animation = noone;

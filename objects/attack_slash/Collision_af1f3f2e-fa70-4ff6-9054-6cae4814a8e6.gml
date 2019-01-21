@@ -48,6 +48,7 @@ if floor(image_index) <= starting_frame
 		}
 		if !do_nothing
 		{
+			creator.pulse_points += 200;
 			character_array[character_listindex] = character_hit;
 			character_listindex += 1;
 			with character_hit

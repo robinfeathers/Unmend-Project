@@ -327,6 +327,14 @@
             }
         },
         {
+            "Key": "23388835-33ff-4f5b-a036-d37a038dd130",
+            "Value": {
+                "id": "5ef8c287-9ca0-43cf-9094-8c631632dcf3",
+                "resourcePath": "sprites\\s_player_airstep_jump\\s_player_airstep_jump.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "233e8b95-5434-4de2-ab7e-17a648285499",
             "Value": {
                 "id": "028e2dc5-7c03-401f-a99b-6654fd996f36",
