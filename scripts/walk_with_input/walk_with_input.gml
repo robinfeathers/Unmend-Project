@@ -54,6 +54,6 @@ else
 	
 	else
 	{
-		hsp = 0
+		hsp = 0;
 	}
 }

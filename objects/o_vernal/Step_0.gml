@@ -4,7 +4,8 @@ event_inherited();
 //MISSING: Unspammable attacks, prevents reuse until combo ends or new move is used
 
 //INPUT BASED UNIQUE PLAYER ACTIONS
-if key_dodge or my_action_buffer == action_input_buffer.dodge
+if (key_dodge or my_action_buffer == action_input_buffer.dodge)
+and my_entity_state == entity_state.neutral
 {
 	if input_direction == 0 and character_collision(Player_Object, false, true, false, false) != "none"
 	and disallowed_action != s_player_backflip
@@ -74,7 +75,7 @@ and my_entity_state == entity_state.neutral
 			if disallowed_action != s_player_launch
 			{
 				show_debug_message(disallowed_action)
-				character_action_set(s_player_launch, 0.5, 0, 30, 45, true, false, true);
+				character_action_set(s_player_launch, 0.5, 0, 25, 45, true, false, true);
 				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false);
 				combo_counter = 0;
 			}
@@ -91,13 +92,7 @@ and my_entity_state == entity_state.neutral
 if (key_specialattack or my_action_buffer == action_input_buffer.s_attack)
 and my_entity_state == entity_state.neutral
 {
-	//Base Pulse
-	if /*pulse_points < pulse_points_requirement and */disallowed_action != s_player_pulse_neutral
-	{
-		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
-		character_prep_pulse(-4,-39,1);
-		invincibility_anim_set(2,5);
-	}
+	
 	//Neutral Attacks
 	if my_direction_buffer == direction_input_buffer.neutral
 	{
@@ -122,8 +117,51 @@ and my_entity_state == entity_state.neutral
 	{
 			
 	}
+	//base_pulse
+	if disallowed_action != s_player_pulse_neutral
+	and !create_pulse
+	{
+		show_debug_message(pulse_points)
+		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
+		character_prep_pulse(-4,-39,1);
+		invincibility_anim_set(2,5);
+	}
 }
 
+//Spells
+if (key_grab or my_action_buffer == action_input_buffer.grab)
+and my_entity_state == entity_state.neutral
+{
+	var magic_guard = false;
+	//Read input
+	if !key_up and !key_down and !key_left and !key_right
+	{
+		magic_guard = true;
+	}
+	else if my_direction_buffer == direction_input_buffer.neutral
+	{
+		spell_cast = o_menu.spells[2]
+	}
+	else if my_direction_buffer == direction_input_buffer.down
+	{
+		spell_cast = o_menu.spells[1]
+	}
+	else if my_direction_buffer == direction_input_buffer.up
+	{
+		spell_cast = o_menu.spells[0]
+	}
+	if spell_cast == 0 magic_guard = false;
+	
+	//Try Spell
+	if spell_cast == 1
+	{
+		character_action_set(s_player_ground01, 0.5, 0, 20, 30, true, false, false)
+		character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+	}
+}
+
+
+//ETC
 if sprite_index == s_player_pulse_stab
 {
 	if floor(image_index) == 2 hsp = 0;

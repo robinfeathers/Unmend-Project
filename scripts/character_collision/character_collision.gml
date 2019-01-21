@@ -147,7 +147,6 @@ if place_meeting(x+sign(hsp),bbox_bottom-1,o_t_solid) and argument[3] == false
 		if collision_testing_hsp >= 0
 		{
 			x = (wall.bbox_left-1) - (bbox_right-x);
-			show_debug_message("heythereyall")
 		}
 		else if collision_testing_hsp <= 0
 		{

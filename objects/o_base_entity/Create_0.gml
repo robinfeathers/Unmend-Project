@@ -17,6 +17,8 @@ attack_hsp = 0;
 
 gravity_allowed = true;
 fall_sp = 0;
+slow_gravity = 0;
+
 max_fallsp = 5.25;
 slope_speed_cap = true;
 
@@ -26,12 +28,24 @@ max_slide_sp = 6.8;
 slide_left = false;
 slide_right = false;
 
+grabbing_ledge = false;
+ledge_x = 0;
+ledge_y = 0;
+
+airstep_time_max = 10;
+airstep_time = 0;
+airstep_step_time_max = 15;
+airstep_step_time = 0;
+airstep_wall = false;
+stepped_target = noone;
+
 //Taking Damage Variables
 hp = hp_max;
 poise = poise_max;
-got_hit = false;
 dmg_taken = 0;
 poise_dmg_taken = 0;
+got_hit = false;
+stepped_on = false;
 
 poise_regain = 0;
 stun_delay = 0;
@@ -57,7 +71,7 @@ enum stunned_state
 character_stunned_state = stunned_state.none;
 
 //Combat Variables
-pulse_points = 10000;
+pulse_points = 0;
 pulse_points_requirement = 1000;
 pulse_points_max = 2000
 create_pulse = false;
@@ -65,6 +79,12 @@ pulse_o_x = x;
 pulse_o_y = y;
 pulse_start_frame = 0;
 mana_points = 0;
+
+rise_attack = false;
+rise_confirm = false;
+rise_vsp = 0;
+
+spell_cast = "none";
 
 disallowed_action = noone;
 
@@ -110,21 +130,6 @@ bounce = false;
 launching_up = false;
 launching_down = false;
 launching_horizontal = false;
-
-//Special Action Variables
-air_stepping = false;
-air_step_wall = false;
-air_step_wall_id = noone;
-air_step_entity = false;
-air_step_entity_id = noone;
-airstep_holding = false;
-airstep_input_timer_max = 15;
-airstep_input_timer = 0;
-airstep_lock_max = 10;
-airstep_lock = 0;
-
-sliding = false;
-slide_stopping = false;
 
 //Animation Variables
 reset_animation = noone;
