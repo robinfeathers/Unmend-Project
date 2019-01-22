@@ -711,6 +711,14 @@
             }
         },
         {
+            "Key": "4ccbd4d5-c6ea-43ab-a4a3-923894a9fa64",
+            "Value": {
+                "id": "3a230835-a82c-4acf-a124-942f094f414d",
+                "resourcePath": "rooms\\platforminggifroom\\platforminggifroom.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "4ebd3b08-5565-4bb5-9df6-1b948844439d",
             "Value": {
                 "id": "880a6f82-0e8e-4544-99ab-6379047bdbe1",
