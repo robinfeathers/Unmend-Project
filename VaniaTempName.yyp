@@ -295,6 +295,14 @@
             }
         },
         {
+            "Key": "1e5e4621-39f3-45cc-af76-824d61a723df",
+            "Value": {
+                "id": "4523cfc1-a23a-4a0a-90b0-c6b3d4c4f587",
+                "resourcePath": "sprites\\sPauseButtonsCorners\\sPauseButtonsCorners.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1fe83ab2-d2a3-4152-ab5f-b1ca6ba1a650",
             "Value": {
                 "id": "97b65853-f13e-42eb-ad3e-fa4119e2d759",
@@ -372,6 +380,14 @@
                 "id": "39b14aef-8a52-492c-9a28-55e864c43e19",
                 "resourcePath": "objects\\o_base_entity\\o_base_entity.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "267c166c-446b-4b7f-98f2-8f42a7fcdba0",
+            "Value": {
+                "id": "2aa286c5-752a-4799-aa0a-70e7425e59db",
+                "resourcePath": "sprites\\sPauseButtonsOn\\sPauseButtonsOn.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1799,6 +1815,14 @@
             }
         },
         {
+            "Key": "bd3905bc-0e50-47c6-89d0-e3006c1ffdfa",
+            "Value": {
+                "id": "5680a50a-689c-4dc9-8b00-91a05ea113cf",
+                "resourcePath": "sprites\\sPauseCorners\\sPauseCorners.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "bd8bee80-bd65-432e-a8fd-dbc2edde2a19",
             "Value": {
                 "id": "4aa128e7-ee1e-4cb7-afb0-4a6807bc2d05",
@@ -1836,6 +1860,14 @@
                 "id": "7d23fcfb-06e7-4827-a990-84e950d9eccd",
                 "resourcePath": "scripts\\character_child_alwaysrun\\character_child_alwaysrun.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c063c86e-60aa-42d8-a5db-d6a3e707142f",
+            "Value": {
+                "id": "8f5c665e-95cd-4ef4-a084-095194e34cec",
+                "resourcePath": "sprites\\sPauseInners\\sPauseInners.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2279,6 +2311,14 @@
             }
         },
         {
+            "Key": "e9c988c3-e21b-4479-b907-051e7909bade",
+            "Value": {
+                "id": "b1cd048d-4217-455c-a54f-690055e34bea",
+                "resourcePath": "sprites\\sPauseButtonsOff\\sPauseButtonsOff.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ea6d1324-e52a-49cf-8660-e9a7f5a1b61d",
             "Value": {
                 "id": "c2e98ec9-a34b-4def-8ad2-a028791e9a54",
@@ -2331,6 +2371,14 @@
             "Value": {
                 "id": "2df2a75b-1094-495c-be13-d3132ac369c5",
                 "resourcePath": "sprites\\s_player_air01\\s_player_air01.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "eef420f9-3362-46b1-bcf4-8f54222a2b8b",
+            "Value": {
+                "id": "69e26fba-bf71-4201-8c34-98ea6c800c50",
+                "resourcePath": "sprites\\sPauseSubcorners\\sPauseSubcorners.yy",
                 "resourceType": "GMSprite"
             }
         },

@@ -39,6 +39,10 @@ globalvar stop_time;
 stop_time = 0;
 globalvar time_factor;
 time_factor = 1;
+globalvar pause;
+pause = false;
+pause_timer = 0;
+pause_tab = 0;
 
 //Establish Controller
 globalvar controller;
