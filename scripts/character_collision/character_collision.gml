@@ -102,7 +102,6 @@ if l_slope != noone
 		{}
 		else
 		{
-			show_debug_message("whatwhy")
 			if argument[2] == true return "lslope";
 			else if argument[3] == true{}
 			else if argument[4] == true{}

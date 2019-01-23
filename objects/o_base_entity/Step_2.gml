@@ -29,6 +29,9 @@ and check_special_action_states(1,1,1,0,1)
 	my_entity_state = entity_state.neutral;
 }
 
+pulse_points = max(pulse_points,0);
+pulse_points = min(pulse_points,max_pulse_points);
+
 //Collision and Movement
 if gravity_allowed and character_collision(Player_Object, false, true, false, false) == "none"
 {

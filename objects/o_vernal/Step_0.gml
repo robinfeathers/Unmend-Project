@@ -91,7 +91,7 @@ and my_entity_state == entity_state.neutral
 				show_debug_message(disallowed_action)
 				character_action_set(s_player_launch, 0.5, 0, 25, 45, true, false, true);
 				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false);
-				combo_counter = 0;
+				combo_counter +=1;//combo_counter = 0;
 			}
 		}
 	}

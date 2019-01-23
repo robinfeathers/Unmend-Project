@@ -6,14 +6,14 @@ if instance_exists(owner)
 	var late_delay = 30
 	
 	var hp = owner.hp
-	var hp_max = 2001//owner.hp_max
+	var hp_max = owner.hp_max
 	var hp_max_default = 2000
 	var mana = owner.mana_points
-	var mana_max = 250//owner.max_mana_points
-	var pulse = pulse_dbg//owner.pulse_points
-	var pulse_max = 1001//owner.max_pulse_points
-	var pulse_req = 1000//owner.pulse_points_requirement
-	var combo = combo_dbg
+	var mana_max = owner.max_mana_points
+	var pulse = owner.pulse_points
+	var pulse_max = owner.max_pulse_points
+	var pulse_req = owner.pulse_points_requirement
+	var combo = owner.combo_counter
 	var combo_max = 4
 
 	// Draw back bar
@@ -98,7 +98,7 @@ if instance_exists(owner)
 		draw_sprite(s_Hud_Extra, 0, xpos, ypos)
 	}
 	
-	var imgind = floor(pulse_trunc / (pulse_req / sprite_get_number(s_Hud_Pulse)))
+	var imgind = floor(pulse_trunc / (pulse_req / (sprite_get_number(s_Hud_Pulse)-1)))
 	draw_sprite(s_Hud_Pulse, imgind, xpos, ypos)
 	
 	// Combo

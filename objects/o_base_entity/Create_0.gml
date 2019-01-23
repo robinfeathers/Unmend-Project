@@ -77,7 +77,6 @@ character_stunned_state = stunned_state.none;
 //Combat Variables
 pulse_points = 0;
 pulse_points_requirement = 1000;
-pulse_points_max = 2000
 create_pulse = false;
 pulse_o_x = x;
 pulse_o_y = y;
