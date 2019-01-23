@@ -39,6 +39,10 @@ airstep_step_time = 0;
 airstep_wall = false;
 stepped_target = noone;
 
+dash_allowed = true;
+
+momentum_end_anim = noone;
+
 //Taking Damage Variables
 hp = hp_max;
 poise = poise_max;

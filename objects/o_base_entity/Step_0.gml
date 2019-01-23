@@ -219,6 +219,17 @@ if character_ground_pound
 	}
 }
 
+//Dash
+if character_dash and sprite_index = dash_end_animation
+{
+	hsp -= (get_delta_time()/2) * sign(hsp);
+	if sign(hsp) != image_xscale
+	{
+		hsp = 0;
+		character_dash = false;
+	}
+}
+
 //Slide
 if character_slide
 {	
@@ -325,9 +336,13 @@ if character_slide
 	}
 }
 
-//A quick check for airstepping
+//set variables if on the ground
 var collision_results = character_collision(Player_Object, false, true, false, false)
-if collision_results == "ground" airstep_wall = false;
+if collision_results == "ground" or collision_results == "lslope" or collision_results == "rslope"
+{
+	airstep_wall = false;
+	dash_allowed = true;
+}
 
 //INPUTS
 if Player_Object = true
@@ -379,6 +394,8 @@ if Player_Object = true
 			ledge_y = block.y
 			ledge_viable = true;
 			var facethisway = -1;
+			airstep_wall = false;
+			dash_allowed = true;
 		}
 		else if input_direction == 1
 		and x < block.x
@@ -388,6 +405,7 @@ if Player_Object = true
 			ledge_viable = true;
 			var facethisway = 1;
 			airstep_wall = false;
+			dash_allowed = true;
 		}
 		
 		var denyblock = instance_place(ledge_x + input_direction, ledge_y - 8, o_t_solid)
@@ -406,6 +424,7 @@ if Player_Object = true
 			x = ledge_x;
 			y = ledge_y;
 			airstep_wall = false;
+			dash_allowed = true;
 		}
 	}
 	
@@ -513,6 +532,7 @@ if Player_Object = true
 		and !place_meeting(enemy.x, enemy.bbox_top + 2, o_t_solid)
 		{ 
 			airstep_wall = false;
+			dash_allowed = true;
 			airstep_viable = true;
 			show_debug_message("ENEMY")
 		}	
@@ -530,6 +550,7 @@ if Player_Object = true
 			or (image_xscale == -1 and x >= ledge_x)
 			{
 				airstep_wall = true;
+				dash_allowed = true;
 				x = ledge_x + (((bbox_right - bbox_left)/2) * image_xscale * -1);
 				airstep_viable = true;
 			}
@@ -604,7 +625,6 @@ if Player_Object = true
 			if airstep_wall == true and x < ledge_x
 			{
 				force_high_jump = true;
-				show_debug_message(x)
 				show_debug_message(ledge_x)
 			}
 			else 

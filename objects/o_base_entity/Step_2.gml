@@ -20,9 +20,10 @@ and check_special_action_states(1,1,1,1,1)
 	//hsp = 0;
 	slash_created = false;
 	gravity_allowed = true;
+	character_dash = false;
 }
 if action_max_time <= 0 and my_entity_state != entity_state.stunned
-and check_special_action_states(1,1,1,1,1)
+and check_special_action_states(1,1,1,0,1)
 {
 	end_attack();
 	my_entity_state = entity_state.neutral;
