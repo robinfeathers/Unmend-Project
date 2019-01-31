@@ -11,15 +11,15 @@ if  floor(argument[0]) == create_slash_starting_frame
 		//REMEMBER THIS SHIT WHEN RECODING THE SLASH YOU FUCKER
 		if other.Player_Object = true
 		{
-			faction = slash_faction.player
+			slash_alliance = slash_faction.player
 		}
 		else if other.Enemy_Object = true
 		{
-			faction = slash_faction.enemy
+			slash_alliance = slash_faction.enemy
 		}
 		else if other.Ally_Object = true
 		{
-			faction = slash_faction.ally
+			slash_alliance = slash_faction.ally
 		}
 		
 		sprite_index = other.create_slash_sprite;
@@ -33,6 +33,7 @@ if  floor(argument[0]) == create_slash_starting_frame
 		hit_delay = other.create_slash_hit_delay;
 		base_hit_delay = other.create_slash_hit_delay;
 		continuous_action = other.create_slash_continuous_action;
+		damage_type = other.create_slash_damage_type
 		
 		hsp = other.hsp;
 		vsp = other.vsp;

@@ -967,6 +967,34 @@
             "value": "s_player_dashstop",
             "varName": "dash_end_animation",
             "varType": 5
+        },
+        {
+            "id": "ebfd9c77-365d-474a-8883-729d2d6cc7a5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_block",
+            "varName": "block_animation",
+            "varType": 5
+        },
+        {
+            "id": "b9d42bc7-61d0-48b1-b2cf-9c5f2bee81a6",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_block_recoil",
+            "varName": "block_recoil_animation",
+            "varType": 5
         }
     ],
     "solid": false,

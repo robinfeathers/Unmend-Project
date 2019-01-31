@@ -10,6 +10,7 @@
 ///@arg continous_action does this go on forever
 ///@arg start_damage_frame when the slash start's dealing damage
 ///@arg special_case
+///@arg damage_type
 
 create_slash_sprite = argument[0];
 create_slash_starting_frame = argument[1];
@@ -21,6 +22,7 @@ create_slash_hit_count = argument[6];
 create_slash_hit_delay = argument[7];
 create_slash_continuous_action = argument[8];
 create_slash_start_action = argument[9];
+create_slash_damage_type = argument[11];
 
 if !argument[10] create_slash = true;
 else create_slash_special_case = true;

@@ -10,6 +10,8 @@
 
 if argument[0] == noone{}
 else play_animation(argument[0])
+if argument[0] == s_player_magic_guard {}
+else character_magic_guard = false;
 image_index = 0;
 image_xscale = facing_direction;
 

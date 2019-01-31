@@ -42,20 +42,20 @@ and my_entity_state == entity_state.neutral
 			if combo_counter == 0
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground01, 0.5, 0, 20, 30, true, false, false)
-				character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+				character_action_set(s_player_ground01, 0.5, 0, 20, 35, true, false, false)
+				character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 1
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground02, 0.5, 0, 20, 30, true, false, false)
-				character_slash_set(s_player_ground02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+				character_action_set(s_player_ground02, 0.5, 0, 20, 35, true, false, false)
+				character_slash_set(s_player_ground02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 2
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground03, 0.75, 0, 30, 40, true, false, false)
-				character_slash_set(s_player_ground03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false)
+				character_action_set(s_player_ground03, 0.75, 0, 30, 45, true, false, false)
+				character_slash_set(s_player_ground03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
 		}
 		else
@@ -64,19 +64,19 @@ and my_entity_state == entity_state.neutral
 			{
 				combo_counter += 1
 				character_action_set(s_player_air01, 0.5, 0, 20, 25, true, false, false)
-				character_slash_set(s_player_air01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+				character_slash_set(s_player_air01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 1
 			{
 				combo_counter += 1
 				character_action_set(s_player_air02, 0.5, 0, 20, 25, true, false, false)
-				character_slash_set(s_player_air02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+				character_slash_set(s_player_air02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 2
 			{
 				combo_counter += 1
 				character_action_set(s_player_air03, 0.75, 0, 25, 30, true, false, false)
-				character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false)
+				character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
 		}
 			
@@ -88,17 +88,20 @@ and my_entity_state == entity_state.neutral
 		{
 			if disallowed_action != s_player_launch
 			{
-				show_debug_message(disallowed_action)
 				character_action_set(s_player_launch, 0.5, 0, 25, 45, true, false, true);
-				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false);
-				combo_counter +=1;//combo_counter = 0;
+				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false, "physical");
+				combo_counter = 0;
 			}
 		}
 	}
 	//Down Attacks
 	else if my_direction_buffer == direction_input_buffer.down  or key_down
 	{
-			
+		if check_if_ground(1) and disallowed_action != s_player_block
+		{
+			character_action_set(block_animation,0,0,30,35,true,true,true);
+			block_anim_set(2,9);
+		}
 	}
 }
 
@@ -115,6 +118,7 @@ and my_entity_state == entity_state.neutral
 		{
 			character_action_set(s_player_pulse_stab, 0, 0, 45, 50, true, true, true);
 			character_prep_pulse(-18,-24,0);
+			invincibility_anim_set(1,6);
 			pulse_stab_start = true;
 			hsp = facing_direction * -1 * 4;
 			vsp = -1.6;
@@ -138,7 +142,7 @@ and my_entity_state == entity_state.neutral
 		show_debug_message(pulse_points)
 		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
 		character_prep_pulse(-4,-39,1);
-		invincibility_anim_set(2,5);
+		invincibility_anim_set(2,4);
 	}
 }
 
@@ -164,14 +168,34 @@ and my_entity_state == entity_state.neutral
 	{
 		spell_cast = o_menu.spells[0]
 	}
-	if spell_cast == 0 magic_guard = false;
+	if spell_cast == 0 magic_guard = true;
+	
+	//Magic Guard
+	if magic_guard and !mana_recharging
+	{
+		character_action_set(s_player_magic_guard,0,0,30,35,true,false,false);
+		subtract_mana(25)
+	}
 	
 	//Try Spell
-	if spell_cast == 1
+	else if spell_cast == 1
 	{
 		character_action_set(s_player_ground01, 0.5, 0, 20, 30, true, false, false)
-		character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false)
+		character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 	}
+}
+
+if sprite_index = s_player_magic_guard and floor(image_index) >= 2
+{
+	if !character_magic_guard and action_min_time > 0
+	{
+		magic_barrier_object = instance_create_depth((bbox_right - ((bbox_right - bbox_left)/2)), bbox_bottom -((bbox_bottom-bbox_top)/2),8,o_magic_barrier);
+		with magic_barrier_object
+		{
+			owner = other.id;
+		}
+	}
+	character_magic_guard = true;
 }
 
 
