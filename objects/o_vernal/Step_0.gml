@@ -150,6 +150,8 @@ and my_entity_state == entity_state.neutral
 if (key_grab or my_action_buffer == action_input_buffer.grab)
 and my_entity_state == entity_state.neutral
 {
+	var magic_guard = true;
+	/*
 	var magic_guard = false;
 	//Read input
 	if !key_up and !key_down and !key_left and !key_right
@@ -168,7 +170,7 @@ and my_entity_state == entity_state.neutral
 	{
 		spell_cast = o_menu.spells[0]
 	}
-	if spell_cast == 0 magic_guard = true;
+	if spell_cast == 0 magic_guard = true;*/
 	
 	//Magic Guard
 	if magic_guard and !mana_recharging

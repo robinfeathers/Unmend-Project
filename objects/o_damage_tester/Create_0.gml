@@ -9,3 +9,5 @@ test_attack_time = 0;
 facing_direction = -1;
 input_direction = -1;
 gravity_allowed = false;
+
+damage_type = "physical"

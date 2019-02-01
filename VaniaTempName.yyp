@@ -1887,6 +1887,14 @@
             }
         },
         {
+            "Key": "bad24ef5-efe9-4c98-9f08-7b90764652ef",
+            "Value": {
+                "id": "4084f3df-924c-4fb5-8d6f-1986a522b7de",
+                "resourcePath": "objects\\o_glass_partical\\o_glass_partical.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "bb2c5d21-ebf1-48f8-b51c-f3fbc44f2bc9",
             "Value": {
                 "id": "8120fe78-a563-4005-bee7-0637c5ebccc8",
@@ -2276,6 +2284,14 @@
                 "id": "26f511ee-a384-4dc1-bc1b-53c5ba55cd6c",
                 "resourcePath": "views\\e118fcf9-401a-40fe-947a-edd6c4cd18cc.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e239b33d-7c71-4560-9830-016a9a8a9c7c",
+            "Value": {
+                "id": "c298735e-faa6-415a-8f7f-a1aaf9d1e2d7",
+                "resourcePath": "sprites\\s_magicglass\\s_magicglass.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
