@@ -320,7 +320,7 @@
     ],
     "origin": 9,
     "originLocked": true,
-    "playbackSpeed": 18,
+    "playbackSpeed": 16,
     "playbackSpeedType": 0,
     "premultiplyAlpha": false,
     "sepmasks": false,

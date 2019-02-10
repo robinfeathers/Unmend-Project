@@ -6,14 +6,15 @@ if instance_exists(owner)
 	var late_delay = 30
 	
 	var hp = owner.hp
-	var hp_max = 2001//owner.hp_max
+	var hp_max = owner.hp_max
 	var hp_max_default = 2000
 	var mana = owner.mana_points
-	var mana_max = 250//owner.max_mana_points
-	var pulse = pulse_dbg//owner.pulse_points
-	var pulse_max = 1001//owner.max_pulse_points
-	var pulse_req = 1000//owner.pulse_points_requirement
-	var combo = combo_dbg
+	var mana_max = owner.max_mana_points
+	var mana_recharge = owner.mana_recharging
+	var pulse = owner.pulse_points
+	var pulse_max = owner.max_pulse_points
+	var pulse_req = owner.pulse_points_requirement
+	var combo = owner.combo_counter
 	var combo_max = 4
 
 	// Draw back bar
@@ -88,7 +89,10 @@ if instance_exists(owner)
 	draw_sprite_part(s_Hud_ManaBack, 0, 0, 0, floor(late_mana * (sprite_get_width(s_Hud_ManaBack) / mana_max)), sprite_get_height(s_Hud_ManaBack), manax, manay)
 
 	// Mana
-	draw_sprite_part(s_Hud_Mana, 0, 0, 0, floor(true_mana * (sprite_get_width(s_Hud_Mana) / mana_max)), sprite_get_height(s_Hud_Mana), manax, manay)
+	var mana_sprite = noone;
+	if mana_recharge {mana_sprite = s_Hud_ManaRefill}
+	else {mana_sprite = s_Hud_Mana}
+	draw_sprite_part(mana_sprite, 0, 0, 0, floor(true_mana * (sprite_get_width(mana_sprite) / mana_max)), sprite_get_height(mana_sprite), manax, manay)
 
 	// Pulse
 	var pulse_trunc = pulse
@@ -98,7 +102,7 @@ if instance_exists(owner)
 		draw_sprite(s_Hud_Extra, 0, xpos, ypos)
 	}
 	
-	var imgind = floor(pulse_trunc / (pulse_req / sprite_get_number(s_Hud_Pulse)))
+	var imgind = floor(pulse_trunc / (pulse_req / (sprite_get_number(s_Hud_Pulse)-1)))
 	draw_sprite(s_Hud_Pulse, imgind, xpos, ypos)
 	
 	// Combo

@@ -39,6 +39,10 @@ airstep_step_time = 0;
 airstep_wall = false;
 stepped_target = noone;
 
+dash_allowed = true;
+
+momentum_end_anim = noone;
+
 //Taking Damage Variables
 hp = hp_max;
 poise = poise_max;
@@ -46,6 +50,8 @@ dmg_taken = 0;
 poise_dmg_taken = 0;
 got_hit = false;
 stepped_on = false;
+hit_direction = 0;
+take_damage_type = "none" //none, physical, magical, true
 
 poise_regain = 0;
 stun_delay = 0;
@@ -60,6 +66,14 @@ invincibility_starting_frame = 0;
 invincibility_ending_frame = 0;
 invincible_animation = noone;
 
+block_starting_frame = 0;
+block_ending_frame = 0;
+character_block = noone;
+block_attack = false;
+
+character_magic_guard = false;
+magic_barrier_object = noone;
+
 enum stunned_state
 {
 	none,
@@ -73,12 +87,13 @@ character_stunned_state = stunned_state.none;
 //Combat Variables
 pulse_points = 0;
 pulse_points_requirement = 1000;
-pulse_points_max = 2000
 create_pulse = false;
 pulse_o_x = x;
 pulse_o_y = y;
 pulse_start_frame = 0;
-mana_points = 0;
+
+mana_points = 250;
+mana_recharging = false;
 
 rise_attack = false;
 rise_confirm = false;
@@ -122,6 +137,7 @@ create_slash_hit_delay = 0;
 create_slash_continuous_action = false;
 create_slash_start_action = 0;
 create_slash_special_case = false;
+create_slash_damage_type = "none" //none, physical, magical, true
 
 create_slash = false;
 slash_created = false;

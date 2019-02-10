@@ -44,7 +44,7 @@ if r_slope != noone
 	}
 	
 	//if I'm above the line point and not moving vertically, bring me down to the line
-	else if y + abs(hsp) + 8 > test_y and vsp == 0// and !dash and !dash_ending
+	else if y + abs(hsp) + 8 > test_y and vsp == 0 and !character_dash// and !dash and !dash_ending
 	{
 		if argument[0] = false and (bounce || launching_horizontal || launching_down)
 		{}
@@ -96,7 +96,7 @@ if l_slope != noone
 	}
 
 	//if I'm above the line point and not moving vertically, bring me down to the line
-	else if y + abs(hsp) + 8 > test_y and vsp == 0// and !dash and !dash_ending
+	else if y + abs(hsp) + 8 > test_y and vsp == 0 and !character_dash// and !dash and !dash_ending
 	{
 		if argument[0] = false and (bounce || launching_horizontal || launching_down)
 		{}

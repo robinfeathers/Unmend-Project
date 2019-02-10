@@ -311,6 +311,20 @@
             "varType": 0
         },
         {
+            "id": "fefb4280-8c76-4070-b0d5-f7e947eba05d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "6",
+            "varName": "dash_sp",
+            "varType": 0
+        },
+        {
             "id": "4633f8d4-f557-4c0a-9b31-177dd41c0ec7",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -320,7 +334,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "2000",
             "varName": "max_pulse_points",
             "varType": 0
         },
@@ -334,7 +348,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "250",
             "varName": "max_mana_points",
             "varType": 0
         },
@@ -924,6 +938,62 @@
             "resourceFilter": 1023,
             "value": "s_player_airstep_wall",
             "varName": "airstep_step_animation_02",
+            "varType": 5
+        },
+        {
+            "id": "1d5774b0-1706-4ffd-b377-05c574601938",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_dash",
+            "varName": "dash_animation",
+            "varType": 5
+        },
+        {
+            "id": "97edda97-eb31-43d6-bb36-a01d57fb627e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_dashstop",
+            "varName": "dash_end_animation",
+            "varType": 5
+        },
+        {
+            "id": "ebfd9c77-365d-474a-8883-729d2d6cc7a5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_block",
+            "varName": "block_animation",
+            "varType": 5
+        },
+        {
+            "id": "b9d42bc7-61d0-48b1-b2cf-9c5f2bee81a6",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "s_player_block_recoil",
+            "varName": "block_recoil_animation",
             "varType": 5
         }
     ],

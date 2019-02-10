@@ -1,0 +1,1 @@
+momentum_end_anim = sprite_index;

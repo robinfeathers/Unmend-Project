@@ -38,6 +38,10 @@ if floor(image_index) <= starting_frame
 	{
 		ignore_character = true;
 	}
+	if character_hit.character_magic_guard and damage_type == "magical"
+	{
+		ignore_character = true;
+	}
 	
 	if character_hit != creator
 	and !ignore_character
@@ -48,16 +52,19 @@ if floor(image_index) <= starting_frame
 		}
 		if !do_nothing
 		{
-			creator.pulse_points += 200;
 			character_array[character_listindex] = character_hit;
 			character_listindex += 1;
+			creator.pulse_points += 200;
 			with character_hit
 			{
 			dmg_taken = other.dmg;
 			poise_dmg_taken = other.poise_dmg;
 			got_hit = true;
 			attacker = other.creator
+			take_damage_type = other.damage_type
 			}
+			if character_hit.x > x character_hit.hit_direction = -1;
+			else character_hit.hit_direction = 1;
 			if character_hit.invincible == false and character_hit.sleeping == false
 			{
 				damage_angle = point_direction(

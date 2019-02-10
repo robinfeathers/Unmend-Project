@@ -25,6 +25,7 @@ base_hit_delay = 0;
 hsp = 0;
 vsp = 0;
 damage_angle = 0;
+damage_type = "none" //none, physical, magical, true
 
 enum cc_properties
 {
@@ -38,3 +39,6 @@ crowd_control_property = cc_properties.none;
 
 character_listindex = 1;
 character_array[0] = id;
+
+barrier_listindex = 1;
+barrier_array[0] = id;

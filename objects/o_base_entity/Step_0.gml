@@ -1,7 +1,7 @@
 /// @desc Takes place before child step event
 //Damage Taking Events
 
-if invincible_animation = sprite_index
+if invincible_animation == sprite_index
 {
 	if floor(image_index) >= invincibility_starting_frame
 	and (floor(image_index) <= invincibility_ending_frame or invincibility_ending_frame == -1)
@@ -11,7 +11,6 @@ if invincible_animation = sprite_index
 	if floor(image_index) > invincibility_ending_frame
 	and invincibility_ending_frame != -1
 	{
-		show_debug_message(invincibility_ending_frame)
 		invincible = false;
 		invincible_animation = noone;
 		invincibility_starting_frame = 0;
@@ -19,10 +18,41 @@ if invincible_animation = sprite_index
 	}
 }
 
-if got_hit and !invincible and !sleeping
+if (block_animation == sprite_index or block_recoil_animation == sprite_index)
+and take_damage_type = "physical"
+{
+	if floor(image_index) >= block_starting_frame
+	and (floor(image_index) <= block_ending_frame or block_ending_frame == -1)
+	{
+		block_attack = true;
+	}
+	else if floor(image_index) > block_ending_frame
+	and block_ending_frame != -1
+	{
+		block_attack = false;
+		character_block = noone;
+	}
+}
+
+if got_hit and block_attack
+{
+	if image_xscale != hit_direction
+	{
+		block_attack = false
+	}
+	else 
+	{
+		character_action_set(block_recoil_animation,0,0,30,35,true,true,true);
+		image_index = 0;
+		block_anim_set(0,10);
+	}
+}
+
+if got_hit and !invincible and !sleeping and !block_attack and take_damage_type != "none"
 {
 //standard damage_taking
 	got_hit = false;
+	take_damage_type = "none"
 	hp -= dmg_taken;
 	hp = max(hp, 0);
 	if my_entity_state != entity_state.stunned
@@ -74,7 +104,7 @@ if got_hit and !invincible and !sleeping
 		if launch_property == l_property.launch_up
 		{
 			hsp = 0;
-			vsp = -5.5;
+			vsp = -5.8;
 			instance_create_depth(x, bbox_bottom, 8, launch_gust);
 			play_animation(launch_up_animation);
 			character_stunned_state = stunned_state.launch_up
@@ -97,12 +127,13 @@ if got_hit and !invincible and !sleeping
 	//launch_property = l_property.none;
 }
 
-if got_hit and (invincible or sleeping)
+if got_hit and (invincible or sleeping or block_attack)
 {
 	launch_property = l_property.none;
 	dmg_taken = 0;
 	poise_dmg_taken = 0;
 	got_hit = false;
+	take_damage_type = "none"
 }
 
 //Launch Functions
@@ -219,6 +250,17 @@ if character_ground_pound
 	}
 }
 
+//Dash
+if character_dash and sprite_index = dash_end_animation
+{
+	hsp -= (get_delta_time()/2) * sign(hsp);
+	if sign(hsp) != image_xscale
+	{
+		hsp = 0;
+		character_dash = false;
+	}
+}
+
 //Slide
 if character_slide
 {	
@@ -325,9 +367,33 @@ if character_slide
 	}
 }
 
-//A quick check for airstepping
+//set variables if on the ground
 var collision_results = character_collision(Player_Object, false, true, false, false)
-if collision_results == "ground" airstep_wall = false;
+if collision_results == "ground" or collision_results == "lslope" or collision_results == "rslope"
+{
+	airstep_wall = false;
+	dash_allowed = true;
+}
+
+if !Player_Object
+{
+	if sign(hsp) == 0
+	{
+		facing_direction = image_xscale;
+	}
+	else
+	{
+		facing_direction = sign(hsp);
+	}
+}
+
+//Timers
+if mana_recharging
+{
+	mana_points += 0.1 * get_delta_time();
+	mana_points = min(mana_points, max_mana_points);
+	if mana_points == max_mana_points mana_recharging = false;
+}
 
 //INPUTS
 if Player_Object = true
@@ -368,6 +434,7 @@ if Player_Object = true
 	and place_meeting(x, y + 16, o_t_solid) == false
 	and place_meeting(x, y + vsp, o_t_solid) == false
 	and check_special_action_states(1,1,1,1,1)
+	and my_entity_state = entity_state.neutral
 	and block.y > y - 32
 	and block.y < y - 20
 	{
@@ -379,6 +446,8 @@ if Player_Object = true
 			ledge_y = block.y
 			ledge_viable = true;
 			var facethisway = -1;
+			airstep_wall = false;
+			dash_allowed = true;
 		}
 		else if input_direction == 1
 		and x < block.x
@@ -388,6 +457,7 @@ if Player_Object = true
 			ledge_viable = true;
 			var facethisway = 1;
 			airstep_wall = false;
+			dash_allowed = true;
 		}
 		
 		var denyblock = instance_place(ledge_x + input_direction, ledge_y - 8, o_t_solid)
@@ -406,6 +476,7 @@ if Player_Object = true
 			x = ledge_x;
 			y = ledge_y;
 			airstep_wall = false;
+			dash_allowed = true;
 		}
 	}
 	
@@ -513,6 +584,7 @@ if Player_Object = true
 		and !place_meeting(enemy.x, enemy.bbox_top + 2, o_t_solid)
 		{ 
 			airstep_wall = false;
+			dash_allowed = true;
 			airstep_viable = true;
 			show_debug_message("ENEMY")
 		}	
@@ -530,6 +602,7 @@ if Player_Object = true
 			or (image_xscale == -1 and x >= ledge_x)
 			{
 				airstep_wall = true;
+				dash_allowed = true;
 				x = ledge_x + (((bbox_right - bbox_left)/2) * image_xscale * -1);
 				airstep_viable = true;
 			}
@@ -604,7 +677,6 @@ if Player_Object = true
 			if airstep_wall == true and x < ledge_x
 			{
 				force_high_jump = true;
-				show_debug_message(x)
 				show_debug_message(ledge_x)
 			}
 			else 
