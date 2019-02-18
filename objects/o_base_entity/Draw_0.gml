@@ -13,39 +13,43 @@ if shake > 0
 	ymod = random_range(shake_amount, -shake_amount)
 }
 	
-// Shadow drawing	
-draw_set_color(c_black)
-draw_set_alpha(0.5)
-for (var ind = 0; ind < shadow_width; ind += 1)
+if place_meeting(x, y, o_darkness) {shader_set(shd_donkeykong)}
+else
 {
-	// Get subimage - 0 for edge, 1 for inner
-	var sind = 1
-	if ind == 0 || ind == shadow_width - 1 {sind = 0}
-	
-	var xpos = x - floor(shadow_width / 2) + ind + xmod
-	var ypos = bbox_top
-	
-	// Place shadow onto ground
-	var failed = false
-	while !check_ground(xpos, ypos)
+	// Shadow drawing	
+	draw_set_color(c_black)
+	draw_set_alpha(0.5)
+	for (var ind = 0; ind < shadow_width; ind += 1)
 	{
-		ypos += 1
-		if ypos > y + ymod + 100
+		// Get subimage - 0 for edge, 1 for inner
+		var sind = 1
+		if ind == 0 || ind == shadow_width - 1 {sind = 0}
+	
+		var xpos = x - floor(shadow_width / 2) + ind + xmod
+		var ypos = bbox_top
+	
+		// Place shadow onto ground
+		var failed = false
+		while !check_ground(xpos, ypos)
 		{
-			failed = true
-			break
+			ypos += 1
+			if ypos > y + ymod + 100
+			{
+				failed = true
+				break
+			}
 		}
-	}
-	if !failed
-	{
-		//ypos -= 4
-		draw_sprite(s_shadow, sind, xpos, ypos)
+		if !failed
+		{
+			//ypos -= 4
+			draw_sprite(s_shadow, sind, xpos, ypos)
+		}
 	}
 }
 draw_set_alpha(1)
 
 // Draw regular sprite
-draw_sprite_ext(sprite_index, image_index, x + xmod, y + ymod, image_xscale, image_yscale, 0, -1, 1);
+draw_sprite_ext(sprite_index, image_index, x + xmod, y + ymod, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 
 if stun_time > 0
 {
@@ -60,3 +64,5 @@ if stun_time > 0
 	}
 	draw_set_alpha(1)
 }
+
+shader_reset()

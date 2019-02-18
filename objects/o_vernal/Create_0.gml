@@ -18,3 +18,7 @@ enum non_repeatable_actions
 repeat_action = non_repeatable_actions.none;
 
 pulse_stab_start = false;
+
+essencetimer = 0
+essencestrength = 0
+essenceinc = -0.1

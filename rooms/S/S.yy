@@ -7,7 +7,6 @@
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "1ba22e2d-e1b6-4667-9b26-fad3d67e3eb1",
         "8a76e0df-5842-448d-94c1-1501287940f7",
         "f78fb814-3b9c-41c0-895a-0b4d35a7f41b",
         "4c6479c0-5c87-4ae8-a396-c06f7f14c0d2",
@@ -19,7 +18,8 @@
         "4e5f0d54-7f2e-482e-893f-a89f7298e388",
         "e75be4d0-84ac-4414-bd95-89cd26bf63e2",
         "bd12073b-5fde-4e5c-8944-199c319c6acd",
-        "6a4017f9-356f-4b8c-9bb9-892e32dbf0e6"
+        "6a4017f9-356f-4b8c-9bb9-892e32dbf0e6",
+        "2b6d21d1-96de-46e5-98f5-e940dd8db4af"
     ],
     "IsDnD": false,
     "layers": [
@@ -289,7 +289,7 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-{"name": "inst_7C341718","id": "1ba22e2d-e1b6-4667-9b26-fad3d67e3eb1","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_7C341718","objId": "6b23b71e-9b3d-419d-8525-259ae780d5f7","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 160,"y": 304}
+{"name": "inst_1CE2CCE1","id": "2b6d21d1-96de-46e5-98f5-e940dd8db4af","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_1CE2CCE1","objId": "b9eee5a5-6511-46f5-ae13-4465f3c624af","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 0,"y": 0}
             ],
             "layers": [
 
@@ -753,7 +753,7 @@
             "grid_x": 16,
             "grid_y": 16,
             "hierarchyFrozen": false,
-            "hierarchyVisible": true,
+            "hierarchyVisible": false,
             "hspeed": 0.2,
             "htiled": true,
             "inheritLayerDepth": false,
@@ -771,7 +771,7 @@
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,
-            "visible": true,
+            "visible": false,
             "vspeed": 0,
             "vtiled": false,
             "x": 0,
@@ -788,7 +788,7 @@
             "grid_x": 16,
             "grid_y": 16,
             "hierarchyFrozen": false,
-            "hierarchyVisible": true,
+            "hierarchyVisible": false,
             "hspeed": 0,
             "htiled": false,
             "inheritLayerDepth": false,
@@ -806,7 +806,7 @@
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,
-            "visible": true,
+            "visible": false,
             "vspeed": 0,
             "vtiled": false,
             "x": 0,
@@ -823,7 +823,7 @@
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
-            "hierarchyVisible": true,
+            "hierarchyVisible": false,
             "hspeed": 0,
             "htiled": false,
             "inheritLayerDepth": false,
@@ -841,7 +841,7 @@
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,
-            "visible": true,
+            "visible": false,
             "vspeed": 0,
             "vtiled": false,
             "x": 0,
@@ -853,7 +853,7 @@
             "id": "9a0a38b0-4e5b-4ee1-9ca7-f354d936226d",
             "animationFPS": 15,
             "animationSpeedType": "0",
-            "colour": { "Value": 4278190080 },
+            "colour": { "Value": 4278255360 },
             "depth": 1500,
             "grid_x": 16,
             "grid_y": 16,
