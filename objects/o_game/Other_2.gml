@@ -43,6 +43,7 @@ globalvar pause;
 pause = false;
 pause_timer = 0;
 pause_tab = 0;
+stopped = false;
 
 //Establish Controller
 globalvar controller;
@@ -59,3 +60,5 @@ globalvar y_offset;
 y_offset = (monitor_h - 270)/2*/
 
 //create_initial_script()
+
+pal_swap_init_system(shd_pal_swapper)

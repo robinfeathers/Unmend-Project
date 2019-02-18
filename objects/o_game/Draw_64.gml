@@ -6,6 +6,7 @@ if !pause && pause_timer > 0 {pause_timer -= 1}
 
 if stop_time > 0 || pause_timer > 0
 {
+	stopped = true;
 	if !surface_exists(surface)
 	{
 		surface = surface_create(w,h);
@@ -16,7 +17,7 @@ if stop_time > 0 || pause_timer > 0
 	instance_deactivate_all(1);
 	if pause_timer == 0 {stop_time -= get_delta_time();}
 }
-else
+else if stopped
 {
 	if surface_exists(surface)
 	{
@@ -25,6 +26,7 @@ else
 		}
 	}
 	stop_time = 0;
+	stopped = false;
 	instance_activate_all();
 }
 
@@ -90,5 +92,16 @@ if pause_timer > 0
 	}
 	draw_sprite(sPauseButtonsCorners, 0, global.view_width / 2, 0)
 	
+	draw_set_alpha(1)
+}
+
+if fading == 1 {fadetimer += fadespd}
+if fading == -1 {fadetimer -= fadespd}
+fadetimer = clamp(fadetimer, 0, 1)
+
+if fadetimer > 0
+{
+	draw_set_alpha(fadetimer)
+	draw_rectangle_color(0, 0, global.view_width, global.view_height, fadecol, fadecol, fadecol, fadecol, 0)
 	draw_set_alpha(1)
 }

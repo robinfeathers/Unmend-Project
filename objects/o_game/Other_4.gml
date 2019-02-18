@@ -25,7 +25,7 @@ layer_create(8,"FX_Objects");
 
 layer_create(19,"Mid_Game_UI");
 layer_create(20,"Game");
-instance_create_depth(0,0,20,o_camera);
+instance_create_depth(0,0,20,o_camera)
 
 if tile_layers != -1 {ds_list_destroy(tile_layers)}
 tile_layers = ds_list_create()
