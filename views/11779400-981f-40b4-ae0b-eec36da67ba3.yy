@@ -36,7 +36,8 @@
         "b1033877-6b57-49bc-a9bd-3d1324074ae5",
         "4238f6ce-c555-4563-8d7a-2f1384df618a",
         "6aee3448-07f5-47c3-adcf-82fb0d0fb23b",
-        "76f5a467-9136-4714-a321-68e6302ce728"
+        "76f5a467-9136-4714-a321-68e6302ce728",
+        "bf1cf438-b950-42a5-ae16-daac2bf7d4f5"
     ],
     "filterType": "GMSprite",
     "folderName": "PlayerAttacks",
