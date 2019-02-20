@@ -10,7 +10,8 @@
         "dff3c1d3-e24d-428b-86e7-b67b7de24c0e",
         "946ad923-8f0b-48c4-8f38-339526d875cd",
         "b8307d40-a716-4464-b956-36a685074bc4",
-        "f489d56e-f4f3-4f37-b28b-bc969950b1b2"
+        "f489d56e-f4f3-4f37-b28b-bc969950b1b2",
+        "8099bca1-9668-4cb7-a112-3da75211a55c"
     ],
     "filterType": "GMObject",
     "folderName": "HitFX",
