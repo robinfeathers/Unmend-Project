@@ -90,7 +90,8 @@ and my_entity_state == entity_state.neutral
 			{
 				character_action_set(s_player_launch, 0.5, 0, 25, 45, true, false, true);
 				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false, "physical");
-				combo_counter = 0;
+				combo_counter+=1;
+				//combo_counter = 0;
 			}
 		}
 	}
@@ -191,7 +192,7 @@ if sprite_index = s_player_magic_guard and floor(image_index) >= 2
 {
 	if !character_magic_guard and action_min_time > 0
 	{
-		magic_barrier_object = instance_create_depth((bbox_right - ((bbox_right - bbox_left)/2)), bbox_bottom -((bbox_bottom-bbox_top)/2),8,o_magic_barrier);
+		magic_barrier_object = instance_create_depth((bbox_right - ((bbox_right - bbox_left)/2)), bbox_bottom - 4 -((bbox_bottom-bbox_top)/2),8,o_magic_barrier);
 		with magic_barrier_object
 		{
 			owner = other.id;

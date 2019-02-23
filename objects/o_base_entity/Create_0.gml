@@ -147,6 +147,11 @@ launching_up = false;
 launching_down = false;
 launching_horizontal = false;
 
+//AI Variables
+ai_type_actions=[];
+possible_actions=[];
+passive_state_allowed = true;
+
 //Animation Variables
 reset_animation = noone;
 stop_animation_delay = 0;

@@ -395,6 +395,9 @@ if mana_recharging
 	if mana_points == max_mana_points mana_recharging = false;
 }
 
+//Reset generic action for animator
+current_generic_action = generic_actions.idle;
+
 //INPUTS
 if Player_Object = true
 {
@@ -409,9 +412,6 @@ if Player_Object = true
 			facing_direction = input_direction;
 		}
 	}
-
-	//Reset generic action for animator
-	current_generic_action = generic_actions.idle;
 	
 	//Horizontal input
 	if my_entity_state == entity_state.neutral

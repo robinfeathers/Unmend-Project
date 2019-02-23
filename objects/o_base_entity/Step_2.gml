@@ -169,6 +169,7 @@ if my_entity_state == entity_state.neutral
 	{
 		play_animation(idle_animation_01);
 	}
+	else if !Player_Object and current_generic_action == generic_actions.idle {show_debug_message("wut")}
 	
 	//For turning the player handling.
 	if sprite_index != turn_idle_animation or turn_run_animation or reset_animation

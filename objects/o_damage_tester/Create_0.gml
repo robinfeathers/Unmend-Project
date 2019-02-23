@@ -11,3 +11,4 @@ input_direction = -1;
 gravity_allowed = false;
 
 damage_type = "physical"
+hit_fx = s_player_ground01_fx

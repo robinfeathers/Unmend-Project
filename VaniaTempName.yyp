@@ -1247,6 +1247,14 @@
             }
         },
         {
+            "Key": "7c2ff03d-69a0-47ab-a2cb-dfcf32b890a2",
+            "Value": {
+                "id": "10db2f2d-d8c4-4cd1-b228-63b7ab00039a",
+                "resourcePath": "sprites\\s_player_ground01_fx_magic\\s_player_ground01_fx_magic.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7c8bae7f-c55b-422e-8560-f7b5c5a3866f",
             "Value": {
                 "id": "75b25b06-1821-4973-925d-90bc676db06f",
@@ -2123,6 +2131,14 @@
             "Value": {
                 "id": "864473b3-a0c8-4ecf-948c-a8a79e151e68",
                 "resourcePath": "objects\\o_health_bar\\o_health_bar.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d2131326-46e0-4e81-8d21-484e5663fe41",
+            "Value": {
+                "id": "41c0ccde-6477-41e3-ad68-5292c8fe4b69",
+                "resourcePath": "objects\\o_enemy_knight\\o_enemy_knight.yy",
                 "resourceType": "GMObject"
             }
         },
