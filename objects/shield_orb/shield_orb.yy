@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "shield_orb",
     "eventList": [
-        
+        {
+            "id": "389e1cc0-ad43-49f6-8342-09c8620311da",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "f489d56e-f4f3-4f37-b28b-bc969950b1b2"
+        },
+        {
+            "id": "b0a50e4f-a380-4929-b0c3-bff6334d9f31",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "f489d56e-f4f3-4f37-b28b-bc969950b1b2"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

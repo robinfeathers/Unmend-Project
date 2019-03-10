@@ -1,3 +1,5 @@
+draw_self()
+/*
 var surfw = 24
 var surfh = 7
 var surf = surface_create(surfw, surfh)

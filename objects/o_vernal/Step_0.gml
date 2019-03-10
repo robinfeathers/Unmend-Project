@@ -220,3 +220,23 @@ if sprite_index == s_player_pulse_stab
 }
 var index = image_index;
 spawn_pulse(index);
+
+if pulse_points >= pulse_points_requirement
+{
+	if sign(essenceinc) == -1
+	{
+		var grow = instance_create_depth(x, bbox_bottom-((bbox_bottom-bbox_top)/2), 8, grow_effect)
+		with (grow)
+		{
+			max_scale = 1;
+			growth_rate = 0.2;
+			max_alpha = 1;
+			sprite_index = s_glow;
+		}
+	}
+	essenceinc = 0.1
+}
+else
+{
+	essenceinc = -0.1
+}

@@ -6,6 +6,17 @@ pRainF_Sys = part_system_create()
 pRainF = part_type_create()
 pRainF_Emit = part_emitter_create(pRainF_Sys)
 
+pHairessence_Sys = part_system_create()
+pHairessence = part_type_create()
+
+part_system_depth(pHairessence_Sys, 0)
+part_type_shape(pHairessence, pt_shape_flare)
+part_type_life(pHairessence, 100, 100)
+part_type_color_rgb(pHairessence, 202, 202, 213, 213, 214, 214)
+part_type_direction(pHairessence, 70, 110, 0, 0)
+part_type_speed(pHairessence, 1, 1, 0, 0)
+part_type_size(pHairessence, 0.3, 0.4, -0.005, 0)
+
 part_system_depth(pRain_Sys, 1000)
 part_type_shape(pRain, pt_shape_pixel)
 part_type_life(pRain, 200, 200)

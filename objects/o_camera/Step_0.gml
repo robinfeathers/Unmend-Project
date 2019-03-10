@@ -2,6 +2,7 @@ if (follow != noone)
 {
 	xto = follow.x
 	yto = follow.y - 48
+	if follow.object_index == o_ship {yto = follow.y}
 }
 else
 {
