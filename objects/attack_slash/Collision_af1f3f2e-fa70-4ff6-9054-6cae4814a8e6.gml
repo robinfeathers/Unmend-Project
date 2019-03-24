@@ -76,6 +76,14 @@ if floor(image_index) <= starting_frame
 				with hit_effect
 				{
 					hit_angle = other.damage_angle;
+					part_amount = round(other.dmg/10);
+					event_user(0);
+				}
+				var poise_part_amount = (poise_dmg / character_hit.poise_max) * 10;
+				var hit_effect = instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, o_sword_hitFX02)
+				with hit_effect
+				{
+					part_amount = round(poise_part_amount);
 					event_user(0);
 				}
 				instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, cut_impact);
@@ -87,7 +95,11 @@ if floor(image_index) <= starting_frame
 					max_alpha = .4;
 					sprite_index = s_glow;
 				}
-			}		
+			}
+			if character_hit.poise <= 0 or character_hit.poise - poise_dmg <= 0
+			{
+				instance_create_depth(character_hit.x, character_hit.bbox_bottom-((character_hit.bbox_bottom-character_hit.bbox_top)/2), 8, hit_ring);
+			}
 			if crowd_control_property = cc_properties.l_up
 			{
 				character_hit.launch_property = l_property.launch_up
