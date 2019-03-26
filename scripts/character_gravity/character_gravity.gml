@@ -31,7 +31,7 @@ if vsp < 0
 else if (vsp >= 0)
 {
 	vsp += (weight * gravity_resistance) * get_delta_time();
-	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp = min(max_fallsp/1.6,vsp);
+	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp = min(max_fallsp/1.9,vsp);
 	else if character_ground_pound vsp = min(max_fallsp*10,vsp)
 	else vsp = min(max_fallsp,vsp)
 }

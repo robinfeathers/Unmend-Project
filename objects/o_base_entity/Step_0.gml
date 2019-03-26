@@ -104,7 +104,7 @@ if got_hit and !invincible and !sleeping and !block_attack and take_damage_type 
 		if launch_property == l_property.launch_up
 		{
 			hsp = 0;
-			vsp = -5.8;
+			vsp = -6;
 			instance_create_depth(x, bbox_bottom, 8, launch_gust);
 			play_animation(launch_up_animation);
 			character_stunned_state = stunned_state.launch_up
@@ -114,7 +114,7 @@ if got_hit and !invincible and !sleeping and !block_attack and take_damage_type 
 		else if launch_property == l_property.bounce or character_stunned_state != stunned_state.none
 		{
 			character_stunned_state = stunned_state.bounce;
-			vsp = -3;
+			vsp = -3.4;
 			play_animation(bounce_floor_animation);
 			if attacker != noone
 			{
