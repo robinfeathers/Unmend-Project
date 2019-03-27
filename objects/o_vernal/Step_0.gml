@@ -42,19 +42,19 @@ and my_entity_state == entity_state.neutral
 			if combo_counter == 0
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground01, 0.5, 0, 20, 35, true, false, false)
+				character_action_set(s_player_ground01, 0.5, 0, 22, 40, true, false, false)
 				character_slash_set(s_player_ground01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 1
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground02, 0.5, 0, 20, 35, true, false, false)
+				character_action_set(s_player_ground02, 0.5, 0, 22, 40, true, false, false)
 				character_slash_set(s_player_ground02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 2
 			{
 				combo_counter += 1
-				character_action_set(s_player_ground03, 0.75, 0, 30, 45, true, false, false)
+				character_action_set(s_player_ground03, 0.75, 0, 28, 50, true, false, false)
 				character_slash_set(s_player_ground01_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
 		}
@@ -63,19 +63,19 @@ and my_entity_state == entity_state.neutral
 			if combo_counter == 0
 			{
 				combo_counter += 1
-				character_action_set(s_player_air01, 0.5, 0, 20, 25, true, false, false)
+				character_action_set(s_player_air01, 0.5, 0, 22, 40, true, false, false)
 				character_slash_set(s_player_air01_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 1
 			{
 				combo_counter += 1
-				character_action_set(s_player_air02, 0.5, 0, 20, 25, true, false, false)
+				character_action_set(s_player_air02, 0.5, 0, 22, 40, true, false, false)
 				character_slash_set(s_player_air02_fx, 2, create_slash_p.none, true, 200, 200, 0, 0, false, 0, false, "physical")
 			}
 			else if combo_counter == 2
 			{
 				combo_counter += 1
-				character_action_set(s_player_air03, 0.75, 0, 25, 30, true, false, false)
+				character_action_set(s_player_air03, 0.75, 0, 28, 50, true, false, false)
 				character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
 		}
