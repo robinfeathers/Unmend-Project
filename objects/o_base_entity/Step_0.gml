@@ -104,7 +104,7 @@ if got_hit and !invincible and !sleeping and !block_attack and take_damage_type 
 		if launch_property == l_property.launch_up
 		{
 			hsp = 0;
-			vsp = -6;
+			vsp = -5.5;
 			instance_create_depth(x, bbox_bottom, 8, launch_gust);
 			play_animation(launch_up_animation);
 			character_stunned_state = stunned_state.launch_up
@@ -233,7 +233,8 @@ if character_ground_pound
 		{
 			slide_right = false;
 			slide_left = true;
-			hsp = max_slide_sp * 0.25 * -1;
+			//hsp = max_slide_sp * 0.25 * -1;
+			hsp = max(vsp*-0.9, max_slide_sp*-1)
 			vsp = 0;
 			facing_direction = -1;
 			image_xscale = -1;
@@ -242,7 +243,8 @@ if character_ground_pound
 		{
 			slide_right = true;
 			slide_left = false;
-			hsp = max_slide_sp * 0.25;
+			//hsp = max_slide_sp * 0.25;
+			hsp = min(vsp*0.9,max_slide_sp)
 			vsp = 0;
 			facing_direction = 1;
 			image_xscale = 1;
@@ -273,12 +275,13 @@ if character_slide
 			play_animation(slide_down_animation);
 			hsp -= 0.5 * get_delta_time();
 			hsp = max(hsp, max_slide_sp * -1);
-			slide_timer = (abs(hsp)/max_slide_sp) * 20;
+			slide_timer = (abs(hsp)/max_slide_sp) * 16;
+			show_debug_message(slide_timer)
 		}
 		if collision_results == "rslope"
 		{
 			play_animation(slide_up_animation);
-			slide_timer = 0;
+			slide_time = true;
 			hsp = image_xscale * min(max_slide_sp * 0.9, abs(hsp));
 		}
 	}
@@ -288,7 +291,7 @@ if character_slide
 		if collision_results == "lslope"
 		{
 			play_animation(slide_up_animation);
-			slide_timer = 0;
+			slide_time = true;
 			hsp = image_xscale * min(max_slide_sp * 0.9, abs(hsp));
 		}
 		if collision_results == "rslope"
@@ -296,7 +299,7 @@ if character_slide
 			play_animation(slide_down_animation);
 			hsp += 0.5 * get_delta_time();
 			hsp = min(hsp, max_slide_sp);
-			slide_timer = (abs(hsp)/max_slide_sp) * 20;
+			slide_timer = (abs(hsp)/max_slide_sp) * 16;
 		}
 	}
 	
@@ -355,7 +358,7 @@ if character_slide
 	//subtract slide speed once timer is out
 	if slide_timer = 0 and character_slide and collision_results != "none"
 	{
-		hsp -= sign(image_xscale) * 0.1 * get_delta_time();
+		hsp -= sign(image_xscale) * 0.075 * get_delta_time();
 		if slide_right
 		{
 			hsp = max(0,hsp)
@@ -543,8 +546,8 @@ if Player_Object = true
 				else
 				{
 					vsp = jump_height * 1.1;
-					hsp += image_xscale;
-					hsp = min(abs(hsp),max_slide_sp) * image_xscale;
+					//hsp += image_xscale;
+					//hsp = min(abs(hsp),max_slide_sp) * image_xscale;
 				}
 			}
 			else

@@ -5,28 +5,31 @@ event_inherited();
 
 //INPUT BASED UNIQUE PLAYER ACTIONS
 if (key_dodge or my_action_buffer == action_input_buffer.dodge)
-and my_entity_state == entity_state.neutral
+and (my_entity_state == entity_state.neutral or character_slide)
 {
 	if input_direction == 0 and character_collision(Player_Object, false, true, false, false) != "none"
 	and disallowed_action != s_player_backflip
+	and my_entity_state == entity_state.neutral
 	{
 		character_action_set(s_player_backflip,0,0,20,30,true,true,true)
 		invincibility_anim_set(0,5);
 		hsp = 1.4 * image_xscale * -1
 		action_momentum_end()
 	}
-	if (input_direction != 0 or character_collision(Player_Object, false, true, false, false) == "none")
+	if (input_direction != 0 or character_collision(Player_Object, false, true, false, false) == "none" or character_slide)
 	and disallowed_action != dash_animation
 	and dash_allowed
 	{
 		//adjust for actual animation implementation
 		character_action_set(dash_animation,0,0,20,30,false,false,true)
 		invincibility_anim_set(0,-1);
-		if input_direction != 0	hsp = dash_sp * input_direction;
+		if input_direction != 0 and !character_slide hsp = dash_sp * input_direction;
 		else hsp = dash_sp * image_xscale;
 		combo_counter = 0;
 		dash_allowed = false;
 		character_dash = true;
+		character_slide = false;
+		slide_timer = 0;
 	}
 }
 //Normal Attacks

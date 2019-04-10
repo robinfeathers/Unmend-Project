@@ -23,7 +23,7 @@ max_fallsp = 5.25;
 slope_speed_cap = true;
 
 slide_timer = 0;
-max_slide_sp = 6.8;
+max_slide_sp = 6.5;
 
 slide_left = false;
 slide_right = false;

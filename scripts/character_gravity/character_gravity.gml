@@ -22,7 +22,7 @@ if argument[0] = true
 //slow the character during their ascent
 if vsp < 0
 {
-	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp += weight * get_delta_time()/2.3;
+	if (my_entity_state == entity_state.stunned or slow_gravity > 0) vsp += weight * get_delta_time()/3;
 	else if sprite_index == slide_jump_animation_02 vsp += weight * get_delta_time()/1.75;
 	else vsp += weight * get_delta_time();
 }
