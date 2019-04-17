@@ -10,7 +10,8 @@
         "05e3b81e-46e6-4ea6-a1f0-339be9e49d81",
         "178b1ec3-98f9-4f77-9bea-ae572b722478",
         "4abfa417-d6e6-4b35-b276-a7ba87cb8b10",
-        "606daeaf-7d76-4d5b-9973-f8f0a2f29468"
+        "606daeaf-7d76-4d5b-9973-f8f0a2f29468",
+        "a27dd0b7-c210-47a4-8718-a3f227a2d9bc"
     ],
     "filterType": "GMSprite",
     "folderName": "Tilesets",
