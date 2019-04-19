@@ -12,7 +12,7 @@ and (my_entity_state == entity_state.neutral or character_slide)
 	and my_entity_state == entity_state.neutral
 	{
 		character_action_set(s_player_backflip,0,0,20,30,true,true,true)
-		invincibility_anim_set(0,5);
+		invincibility_anim_set(0,4);
 		hsp = 1.4 * image_xscale * -1
 		action_momentum_end()
 	}
@@ -60,6 +60,12 @@ and my_entity_state == entity_state.neutral
 				character_action_set(s_player_ground03, 0.75, 0, 28, 50, true, false, false)
 				character_slash_set(s_player_ground01_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
+			else if combo_counter == 4
+			{
+				combo_counter = 0;
+				character_action_set(s_player_finisher_spinkick, 0.75, 0, 28, 50, true, false, false)
+				character_slash_set(s_player_ground01_fx, 8, create_slash_p.l_side, true, 200, 200, 0, 0, false, 0, false, "physical")
+			}
 		}
 		else
 		{
@@ -81,6 +87,7 @@ and my_entity_state == entity_state.neutral
 				character_action_set(s_player_air03, 0.75, 0, 28, 50, true, false, false)
 				character_slash_set(s_player_air03_fx, 5, create_slash_p.none, true, 400, 500, 0, 0, false, 0, false, "physical")
 			}
+			
 		}
 			
 	}
@@ -95,6 +102,16 @@ and my_entity_state == entity_state.neutral
 				character_slash_set(s_player_launch_fx, 2, create_slash_p.l_up,true, 300, 300, 0, 0, false, 0, false, "physical");
 				combo_counter+=1;
 				//combo_counter = 0;
+			}
+		}
+		else
+		{
+			if combo_counter == 2
+			{
+				character_action_set(s_player_air03_alt, 0.5, 0, 25, 35, true, false, true);
+				character_slash_set(s_player_air03_alt_fx, 2, create_slash_p.bounce,true, 275, 150, 2, 8, false, 0, false, "physical");
+				combo_counter+=1;
+				vsp = -1.6
 			}
 		}
 	}
@@ -118,7 +135,7 @@ and my_entity_state == entity_state.neutral
 	if my_direction_buffer == direction_input_buffer.neutral
 	{
 		if pulse_points >= pulse_points_requirement and disallowed_action != s_player_pulse_stab
-		and (combo_counter == 1 or combo_counter == 2)
+		and (combo_counter >= 1 and combo_counter <= 3)
 		{
 			character_action_set(s_player_pulse_stab, 0, 0, 45, 50, true, true, true);
 			character_prep_pulse(-18,-24,0);
@@ -143,6 +160,7 @@ and my_entity_state == entity_state.neutral
 	if disallowed_action != s_player_pulse_neutral
 	and !create_pulse
 	{
+		combo_counter += 1;
 		show_debug_message(pulse_points)
 		character_action_set(s_player_pulse_neutral, 0, 0, 35, 40, true, false, true);
 		character_prep_pulse(-4,-39,1);
@@ -191,7 +209,9 @@ and my_entity_state == entity_state.neutral
 	}
 }
 
-if sprite_index = s_player_magic_guard and floor(image_index) >= 2
+
+if sprite_index == s_player_backflip and floor(image_index) >= 5 hsp = 0;
+if sprite_index == s_player_magic_guard and floor(image_index) >= 2
 {
 	if !character_magic_guard and action_min_time > 0
 	{

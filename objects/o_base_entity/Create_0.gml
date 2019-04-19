@@ -71,6 +71,10 @@ block_ending_frame = 0;
 character_block = noone;
 block_attack = false;
 
+airstun_bounce = false;
+airstun_time_max = 30;
+airstun_time = 0;
+
 character_magic_guard = false;
 magic_barrier_object = noone;
 

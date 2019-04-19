@@ -110,17 +110,28 @@ if got_hit and !invincible and !sleeping and !block_attack and take_damage_type 
 			character_stunned_state = stunned_state.launch_up
 		}
 		else if launch_property == l_property.launch_down show_debug_message("DOWN")
-		else if launch_property == l_property.launch_side show_debug_message("SIDE")
-		else if launch_property == l_property.bounce or character_stunned_state != stunned_state.none
+		else if launch_property == l_property.launch_side
+		{
+			character_stunned_state = stunned_state.launch_side;
+			vsp = -2
+			if attacker.x >= x hsp = -6;
+			else hsp = 6;
+			play_animation(launch_side_animation);
+			image_xscale = sign(hsp);
+			gravity_allowed = true;
+		}
+		else if launch_property == l_property.bounce
 		{
 			character_stunned_state = stunned_state.bounce;
-			vsp = -3.4;
+			vsp = -4.5;
 			play_animation(bounce_floor_animation);
-			if attacker != noone
-			{
-				attacker.rise_confirm = true;
-				attacker.slow_gravity = 20;
-			}
+			airstun_bounce = false;
+			gravity_allowed = true;
+		}
+		else if character_stunned_state != stunned_state.none
+		{
+			airstun_bounce = true;
+			airstun_time = airstun_time_max
 		}
 	}
 	launch_property = l_property.none
@@ -134,9 +145,43 @@ if got_hit and (invincible or sleeping or block_attack)
 	poise_dmg_taken = 0;
 	got_hit = false;
 	take_damage_type = "none"
+	show_debug_message(sleeping)
 }
 
 //Launch Functions
+
+if airstun_bounce
+{
+	if airstun_time > 0
+	{
+		airstun_time -= get_delta_time();
+		vsp = 0;
+		shake = 3;
+		shake_amount = 2;
+		gravity_allowed = false;
+	}
+	else
+	{
+		character_stunned_state = stunned_state.bounce;
+		vsp = -2;
+		play_animation(bounce_floor_animation);
+		airstun_bounce = false;
+		gravity_allowed = true;
+	}
+}
+
+if character_stunned_state == stunned_state.launch_side and character_collision(Player_Object, false, false, true, false, false) == "wall"
+{
+	if place_meeting(x+image_xscale,y,o_t_solid) and (!place_meeting(x,y,o_t_ridge_l_slope) and !place_meeting(x,y,o_t_ridge_r_slope))
+	{
+		character_stunned_state = stunned_state.bounce;
+		image_xscale *= -1;
+		vsp = 1 * image_xscale;
+		hsp = 3 * image_xscale;
+		play_animation(bounce_side_animation);
+		show_debug_message("huh")
+	}
+}
 
 //bounce on ground
 if character_stunned_state == stunned_state.launch_up and vsp >= 0
@@ -144,23 +189,27 @@ if character_stunned_state == stunned_state.launch_up and vsp >= 0
 	play_animation(launch_down_animation);
 }
 
-if character_stunned_state == stunned_state.launch_up and vsp >= 0 and check_if_ground(1)
+if (character_stunned_state == stunned_state.launch_up or character_stunned_state == stunned_state.launch_side) and vsp >= 0 and check_if_ground(1)
 {
 	character_stunned_state = stunned_state.bounce;
-	vsp = -4;
-	play_animation(bounce_floor_animation);
+	vsp = -2.2;
+	hsp = 0;
 }
 
 if character_stunned_state == stunned_state.bounce
 {
 	if vsp >= 0 and !check_if_ground(1)
 	{
-		play_animation(bounce_fall_animation);
+		if sprite_index != bounce_side_animation 
+		{
+			play_animation(bounce_fall_animation);
+		}
 	}
 	else if vsp >= 0 and check_if_ground(1)
 	{
 		play_animation(sleep_animation);
 		character_stunned_state = stunned_state.none;
+		hsp = 0;
 		sleeping = true;
 		sleep_time = 45;
 		invincible = true;
@@ -200,7 +249,7 @@ if stun_delay > 0 and my_entity_state == entity_state.stunned
 	stun_delay = max(stun_delay , 0);
 }
 //time down to ending stunned state
-if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunned
+if stun_time > 0 and stun_delay  <= 0 and my_entity_state == entity_state.stunned and check_if_ground(1)
 {
 	stun_time -= (max_stun_time/100) * stun_recovery_rate * get_delta_time();
 }
@@ -211,6 +260,7 @@ else if stun_time <= 0 and my_entity_state == entity_state.stunned and !sleeping
 	my_entity_state = entity_state.neutral;
 	poise = poise_max;
 	character_stunned_state = stunned_state.none
+	end_attack()
 }
 
 //Sliding and Ground Pounding
@@ -329,7 +379,6 @@ if character_slide
 	if character_collision(Player_Object, false, false, true, false, false) == "wall"
 	and airstep_time <= 0
 	{
-		show_debug_message("airstep time shouldnt be up at all")
 		character_slide = false;
 		slide_timer = 0;
 		if collision_results != "none" character_action_set(stop_animation_01,0,0,10,15,true,true,false)

@@ -1047,6 +1047,14 @@
             }
         },
         {
+            "Key": "648ba8e0-e652-4b6e-987b-a89769e0c1e7",
+            "Value": {
+                "id": "315e815c-9f73-4f5c-bedf-57a73d6fba01",
+                "resourcePath": "sprites\\s_player_finisher_spinkick\\s_player_finisher_spinkick.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "65e19028-d013-470f-becc-c025d91f4319",
             "Value": {
                 "id": "671b4950-cbbf-4dfb-8d46-170eab1a18ed",
