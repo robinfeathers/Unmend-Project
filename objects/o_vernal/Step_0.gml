@@ -108,10 +108,12 @@ and my_entity_state == entity_state.neutral
 		{
 			if combo_counter == 2
 			{
-				character_action_set(s_player_air03_alt, 0.5, 0, 25, 35, true, false, true);
-				character_slash_set(s_player_air03_alt_fx, 2, create_slash_p.bounce,true, 275, 150, 2, 8, false, 0, false, "physical");
+				character_action_set(s_player_air03_alt, 0.5, 0, 40, 45, true, false, true);
+				character_slash_set(s_player_air03_alt_fx, 5, create_slash_p.bounce,true, 275, 150, 0, 0, false, 0, false, "physical");
 				combo_counter+=1;
-				vsp = -1.6
+				roulette_spin_rise = true;
+				multi_hit_attack_counter = 1;
+				vsp = 0.5;
 			}
 		}
 	}
@@ -209,8 +211,12 @@ and my_entity_state == entity_state.neutral
 	}
 }
 
+//Special Attack Functions
 
+//Backflip
 if sprite_index == s_player_backflip and floor(image_index) >= 5 hsp = 0;
+
+//Magic Guard
 if sprite_index == s_player_magic_guard and floor(image_index) >= 2
 {
 	if !character_magic_guard and action_min_time > 0
@@ -224,8 +230,7 @@ if sprite_index == s_player_magic_guard and floor(image_index) >= 2
 	character_magic_guard = true;
 }
 
-
-//ETC
+//Pulse Stab
 if sprite_index == s_player_pulse_stab
 {
 	if floor(image_index) == 2 hsp = 0;
@@ -243,6 +248,24 @@ if sprite_index == s_player_pulse_stab
 }
 var index = image_index;
 spawn_pulse(index);
+
+//Roulette Spin
+if !create_slash and sprite_index == s_player_air03_alt and multi_hit_attack_counter != 0
+{
+	character_slash_set(s_player_air03_alt_fx, 7, create_slash_p.bounce,true, 275, 150, 0, 0, false, 0, false, "physical");
+	multi_hit_attack_counter -= 1;
+}
+if roulette_spin_rise and floor(image_index) >= 5
+{
+	vsp = -3;
+	roulette_spin_rise = false;
+}
+if sprite_index == s_player_air03_alt and action_min_time <= 12
+{
+	gravity_allowed = true;
+}
+
+//Pulse Points VFX
 
 if pulse_points >= pulse_points_requirement
 {

@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 enum slash_faction
 {
 	none,
@@ -22,6 +20,7 @@ starting_frame = 0;
 hit_count = 0;
 hit_delay = 0;
 base_hit_delay = 0;
+frame_goal = 0;
 hsp = 0;
 vsp = 0;
 damage_angle = 0;

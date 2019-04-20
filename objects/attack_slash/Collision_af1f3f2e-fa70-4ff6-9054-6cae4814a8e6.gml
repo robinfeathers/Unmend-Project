@@ -1,20 +1,3 @@
-if hit_count > 0
-{
-	if hit_delay > 0
-	{
-		hit_delay -= get_delta_time;
-	}
-	else
-	{
-		hit_delay = base_hit_delay;
-		hit_count -= 1
-		
-		character_hit = 0;
-		for(i=0; i<array_length_1d(character_hit); i++)
-		character_array[i] = 0;
-	}
-}
-
 if floor(image_index) <= starting_frame
 {
 	var character_hit = other.id;
@@ -48,7 +31,11 @@ if floor(image_index) <= starting_frame
 	{
 		for(i=0; i<array_length_1d(character_array); i++)
 		{
-			if character_array[i] == character_hit do_nothing = true;
+			if character_array[i] == character_hit
+			{
+				do_nothing = true;
+				show_debug_message("doing nothing")
+			}
 		}
 		if !do_nothing
 		{

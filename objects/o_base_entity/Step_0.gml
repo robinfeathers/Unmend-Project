@@ -45,6 +45,7 @@ if got_hit and block_attack
 		character_action_set(block_recoil_animation,0,0,30,35,true,true,true);
 		image_index = 0;
 		block_anim_set(0,10);
+		pulse_points += 100;
 	}
 }
 
@@ -123,7 +124,7 @@ if got_hit and !invincible and !sleeping and !block_attack and take_damage_type 
 		else if launch_property == l_property.bounce
 		{
 			character_stunned_state = stunned_state.bounce;
-			vsp = -4.5;
+			vsp = -3.5;
 			play_animation(bounce_floor_animation);
 			airstun_bounce = false;
 			gravity_allowed = true;
