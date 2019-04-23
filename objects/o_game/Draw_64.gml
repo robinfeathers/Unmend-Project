@@ -95,6 +95,8 @@ if pause_timer > 0
 	draw_set_alpha(1)
 }
 
+var fadespd = 0
+if fadetime != 0 {fadespd = 1 / fadetime}
 if fading == 1 {fadetimer += fadespd}
 if fading == -1 {fadetimer -= fadespd}
 fadetimer = clamp(fadetimer, 0, 1)

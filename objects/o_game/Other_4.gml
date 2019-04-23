@@ -7,6 +7,11 @@ get_delta_time()
 paused = false;
 surface = -1;
 
+if fadetime > 0
+{
+	fading = -1
+}
+
 //Establishing Tile Type Array
 tile_types[0] = "blank";
 tile_types[1] = "solid";

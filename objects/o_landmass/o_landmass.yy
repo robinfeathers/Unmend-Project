@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "o_landmass",
     "eventList": [
-        
+        {
+            "id": "e5b0f1a8-d7e1-4567-8215-09b5b52f8e58",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "fac7659f-6d61-43c2-93fa-0758bc1c3e68"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

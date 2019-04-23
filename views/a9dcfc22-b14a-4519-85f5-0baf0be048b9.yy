@@ -11,7 +11,8 @@
         "b9eee5a5-6511-46f5-ae13-4465f3c624af",
         "247f42d2-9b59-4883-864a-365fb3b8e7ea",
         "8dde3378-a442-40fd-b3b3-381c4844bea6",
-        "86971e78-1b1d-4d50-ac5c-c0ac6a6f35d6"
+        "86971e78-1b1d-4d50-ac5c-c0ac6a6f35d6",
+        "a5fa2d12-074e-4f5d-a4f8-6e9adab3dc94"
     ],
     "filterType": "GMObject",
     "folderName": "EditorObjects",

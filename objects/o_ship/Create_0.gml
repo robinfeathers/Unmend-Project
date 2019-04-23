@@ -1,3 +1,4 @@
+frozen = false
 dir = 3
 z = 1
 z_shift = 1

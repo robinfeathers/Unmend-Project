@@ -9,6 +9,8 @@ pRainF_Emit = part_emitter_create(pRainF_Sys)
 pHairessence_Sys = part_system_create()
 pHairessence = part_type_create()
 
+weather = ""
+
 part_system_depth(pHairessence_Sys, 0)
 part_type_shape(pHairessence, pt_shape_flare)
 part_type_life(pHairessence, 100, 100)
@@ -29,8 +31,6 @@ part_type_direction(pRain, 300, 300, 0, 0)
 part_type_speed(pRain, 30, 40, 0, 0)
 part_type_alpha1(pRain, 0.5)
 
-part_emitter_stream(pRain_Sys, pRain_Emit, pRain, 5)
-
 // Front
 part_system_depth(pRainF_Sys, -1000)
 part_type_shape(pRainF, pt_shape_pixel)
@@ -43,7 +43,6 @@ part_type_size(pRainF, 1, 1.5, 0, 0)
 part_type_direction(pRainF, 300, 300, 0, 0)
 part_type_speed(pRainF, 30, 40, 0, 0)
 
-part_emitter_stream(pRainF_Sys, pRainF_Emit, pRainF, 2)
 depth = -1000
 
 thunder = -1
