@@ -23,7 +23,7 @@ max_fallsp = 5.25;
 slope_speed_cap = true;
 
 slide_timer = 0;
-max_slide_sp = 6.8;
+max_slide_sp = 6.5;
 
 slide_left = false;
 slide_right = false;
@@ -70,6 +70,10 @@ block_starting_frame = 0;
 block_ending_frame = 0;
 character_block = noone;
 block_attack = false;
+
+airstun_bounce = false;
+airstun_time_max = 30;
+airstun_time = 0;
 
 character_magic_guard = false;
 magic_barrier_object = noone;
@@ -146,6 +150,11 @@ bounce = false;
 launching_up = false;
 launching_down = false;
 launching_horizontal = false;
+
+//AI Variables
+ai_type_actions=[];
+possible_actions=[];
+passive_state_allowed = true;
 
 //Animation Variables
 reset_animation = noone;

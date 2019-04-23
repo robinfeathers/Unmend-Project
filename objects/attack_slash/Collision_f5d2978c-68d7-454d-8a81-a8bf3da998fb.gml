@@ -20,7 +20,7 @@ var do_nothing = false;
 var i;
 var ignore_character = false;
 
-if slash_alliance == slash_faction.enemy and damage_type == "magical"
+if slash_alliance == slash_faction.enemy and damage_type == "physical"
 {
 	for(i=0; i<array_length_1d(barrier_array); i++)
 	{

@@ -1,3 +1,6 @@
+x = owner.bbox_right - ((owner.bbox_right - owner.bbox_left)/2)
+y = owner.bbox_bottom - 4 -((owner.bbox_bottom-owner.bbox_top)/2)
+
 if got_hit
 {
 	got_hit = false;

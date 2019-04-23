@@ -9,7 +9,8 @@
     "instanceCreationOrderIDs": [
         "c0e443bc-5789-4973-81a9-880eb28ad9b8",
         "438f88a5-3186-44e9-bcb7-b2d1489727fc",
-        "2715cd35-dc14-44d5-a8dc-e57f93337681"
+        "2715cd35-dc14-44d5-a8dc-e57f93337681",
+        "b441429b-41aa-44a0-898d-7f16a41c241e"
     ],
     "IsDnD": false,
     "layers": [
@@ -53,7 +54,7 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-
+{"name": "inst_44EC246E","id": "b441429b-41aa-44a0-898d-7f16a41c241e","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_44EC246E","objId": "d2131326-46e0-4e81-8d21-484e5663fe41","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 336,"y": 112}
             ],
             "layers": [
 
@@ -300,6 +301,41 @@
             "modelName": "GMRBackgroundLayer",
             "mvc": "1.0",
             "spriteId": "2ede1672-8417-40d1-b533-0789917441fa",
+            "stretch": false,
+            "userdefined_animFPS": false,
+            "userdefined_depth": false,
+            "visible": true,
+            "vspeed": 0,
+            "vtiled": false,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "__type": "GMRBackgroundLayer_Model:#YoYoStudio.MVCFormat",
+            "name": "Backgrounds_1",
+            "id": "33dccd8c-fba5-4f4c-a069-ae21fc97183c",
+            "animationFPS": 15,
+            "animationSpeedType": "0",
+            "colour": { "Value": 4292469221 },
+            "depth": 800,
+            "grid_x": 16,
+            "grid_y": 16,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "hspeed": 0,
+            "htiled": false,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "modelName": "GMRBackgroundLayer",
+            "mvc": "1.0",
+            "spriteId": "00000000-0000-0000-0000-000000000000",
             "stretch": false,
             "userdefined_animFPS": false,
             "userdefined_depth": false,

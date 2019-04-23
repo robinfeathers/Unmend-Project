@@ -70,11 +70,12 @@ and action_min_time < 15
 //MISSING: Need to redo inputs on dodge since they're the only directional based actions
 {
 	//ActionBuffers
-	if key_jump == true
+	if key_jump == true and !character_ground_pound
 	{
 		my_action_buffer = action_input_buffer.jump
+		show_debug_message("hey")
 	}
-	else if key_dodge == true and my_direction != 0
+	else if key_dodge == true and my_direction != 0 and !character_ground_pound
 	{
 		my_action_buffer = action_input_buffer.dodge
 	}

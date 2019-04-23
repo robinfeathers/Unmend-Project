@@ -1055,6 +1055,14 @@
             }
         },
         {
+            "Key": "648ba8e0-e652-4b6e-987b-a89769e0c1e7",
+            "Value": {
+                "id": "315e815c-9f73-4f5c-bedf-57a73d6fba01",
+                "resourcePath": "sprites\\s_player_finisher_spinkick\\s_player_finisher_spinkick.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "65e19028-d013-470f-becc-c025d91f4319",
             "Value": {
                 "id": "671b4950-cbbf-4dfb-8d46-170eab1a18ed",
@@ -1083,6 +1091,14 @@
             "Value": {
                 "id": "c59459c9-4e12-4c51-bdc1-866db73a8827",
                 "resourcePath": "objects\\o_overworldobject\\o_overworldobject.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6873eb37-3015-40ee-882a-700b0da09a6c",
+            "Value": {
+                "id": "68e7c0af-5748-46c2-9873-908f3c55cfe6",
+                "resourcePath": "objects\\hit_ring\\hit_ring.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1359,6 +1375,14 @@
             }
         },
         {
+            "Key": "7c2ff03d-69a0-47ab-a2cb-dfcf32b890a2",
+            "Value": {
+                "id": "10db2f2d-d8c4-4cd1-b228-63b7ab00039a",
+                "resourcePath": "sprites\\s_player_ground01_fx_magic\\s_player_ground01_fx_magic.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7c8bae7f-c55b-422e-8560-f7b5c5a3866f",
             "Value": {
                 "id": "75b25b06-1821-4973-925d-90bc676db06f",
@@ -1591,6 +1615,14 @@
             }
         },
         {
+            "Key": "9005f48e-b46b-412e-9bb8-88e5a7b6fdce",
+            "Value": {
+                "id": "e9ed6bd6-a6e7-4091-b9e3-b73faa902ed8",
+                "resourcePath": "sprites\\s_fx_hit_ring\\s_fx_hit_ring.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9064ff38-63c0-4fd2-99d7-dc29c24763b2",
             "Value": {
                 "id": "0bfa9c8f-e9e6-4340-93ca-b6d750e72511",
@@ -1687,6 +1719,22 @@
             }
         },
         {
+            "Key": "9870cd68-9a4b-4deb-9dff-10793a2c359d",
+            "Value": {
+                "id": "7295cd42-daf8-4c0c-bc8b-4f6082338dd7",
+                "resourcePath": "objects\\o_sword_hitFX02\\o_sword_hitFX02.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "98e6aadd-27e1-4cac-bba1-a04edf16dbb6",
+            "Value": {
+                "id": "f079fc9d-f161-498e-b108-a3f5ca84d480",
+                "resourcePath": "tilesets\\t_stone2\\t_stone2.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "9a912534-131d-4ce9-8924-659402641e99",
             "Value": {
                 "id": "f13b47cf-40b2-4146-a3da-0bdc63ae2cf8",
@@ -1780,6 +1828,14 @@
                 "id": "e4f4fa2d-70b3-473f-8502-061f2f127e02",
                 "resourcePath": "views\\a091ea4c-1bec-4f09-aa50-5a3296aad59f.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a27dd0b7-c210-47a4-8718-a3f227a2d9bc",
+            "Value": {
+                "id": "030c8477-c376-47d5-82a8-eac17200799f",
+                "resourcePath": "sprites\\s_tstone_2\\s_tstone_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2339,6 +2395,14 @@
             "Value": {
                 "id": "864473b3-a0c8-4ecf-948c-a8a79e151e68",
                 "resourcePath": "objects\\o_health_bar\\o_health_bar.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d2131326-46e0-4e81-8d21-484e5663fe41",
+            "Value": {
+                "id": "41c0ccde-6477-41e3-ad68-5292c8fe4b69",
+                "resourcePath": "objects\\o_enemy_knight\\o_enemy_knight.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -3022,8 +3086,8 @@
         "c21abc7c-af49-44e0-bf17-3aec1aff18e2",
         "c6a43fa3-40c0-4034-bd0f-1648386b7a30",
         "bf4d6a32-f618-47d2-b877-23e0ba11d04b",
-        "9064ff38-63c0-4fd2-99d7-dc29c24763b2",
         "4fa00dc9-8424-4238-b47d-9cbabdbd9f91",
+        "9064ff38-63c0-4fd2-99d7-dc29c24763b2",
         "c42c244f-4dda-461b-a6fc-4d0b69e3d2a0",
         "7a5b013e-a87a-4deb-b3f4-456d567c24db",
         "8d6c3797-5eb4-408d-8925-0a41dcf69bf9",

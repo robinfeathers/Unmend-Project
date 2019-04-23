@@ -11,6 +11,8 @@ create_slash = false;
 create_slash_special_case = false;
 block_attack = false;
 character_magic_guard = false;
+airstun_bounce = false;
+airstun_time = 0;
 
 character_ledge_hold = false;
 character_air_step = false;

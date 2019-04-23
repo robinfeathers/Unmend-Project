@@ -9,4 +9,4 @@ part_type_speed(particle_type,2,2.5,-.05,0)
 part_emitter_region(part_system, part_emitter, 
 x - 16, x + 16, y - 16, y + 16, ps_shape_ellipse, ps_distr_gaussian);
 
-part_emitter_burst(part_system, part_emitter, particle_type, 15)
+part_emitter_burst(part_system, part_emitter, particle_type, part_amount)

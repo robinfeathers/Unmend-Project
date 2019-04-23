@@ -17,7 +17,10 @@ enum non_repeatable_actions
 
 repeat_action = non_repeatable_actions.none;
 
+multi_hit_attack_counter = 0;
+
 pulse_stab_start = false;
+roulette_spin_rise = false;
 
 essencetimer = 0
 essencestrength = 0

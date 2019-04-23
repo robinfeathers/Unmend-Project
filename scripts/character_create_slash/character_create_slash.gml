@@ -1,6 +1,8 @@
 ///@arg image_index
+
 if  floor(argument[0]) == create_slash_starting_frame
 {
+	if sprite_index == s_player_air03_alt show_debug_message(create_slash_starting_frame)
 	create_slash = false;
 	slash_created = true;
 	var inst;
